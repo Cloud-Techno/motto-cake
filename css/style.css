@@ -5,7 +5,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  text-transform: capitalize;
+
   transition: all 0.2s linear;
   text-decoration: none;
 }
@@ -207,9 +207,9 @@ body {
 
 .header .navbar ul li a {
   font-size: 2rem;
-  color: #b27c7c;
+  color: #e5bfbf;
+  text-decoration: none !important;
 }
-
 .header .navbar ul li a:hover {
   color: #e5bfbf;
 }
@@ -245,7 +245,23 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  z-index: -1;
+  z-index: -1; /* Bu resim en altta kalacak */
+}
+
+.home::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 40%; /* İstersen artır/azalt */
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.85),
+    /* üst koyuluk */ rgba(0, 0, 0, 0) /* alta doğru şeffaf */
+  );
+  z-index: 0; /* resmin ÜSTÜNDE — içeriklerin ALTINDA */
+  pointer-events: none;
 }
 
 .home h1 {
@@ -256,6 +272,7 @@ body {
 .home h2 {
   color: #fff;
   font-size: 3rem;
+  width: 80%;
 }
 
 /* Responsive */
@@ -270,12 +287,13 @@ body {
 }
 .btn-contact {
   display: inline-block;
-  margin-top: 2rem;
-  padding: 1rem 2rem;
-  background-color: #b27c7c;
+  margin-top: 10rem;
+  margin-left: 10rem;
+  padding: 2rem 3rem;
+  background-color: #935f5f;
   color: #fff;
-  font-size: 1.5rem;
-  font-weight: bold;
+  font-size: 1.7rem;
+
   text-decoration: none;
   border-radius: 50px;
   transition: all 0.3s ease;
@@ -283,7 +301,9 @@ body {
 
 .btn-contact:hover {
   background-color: #d3a9a9;
+  color: #935f5f;
   transform: translateY(-3px);
+  text-decoration: none !important;
 }
 
 .home .wave {
@@ -528,7 +548,7 @@ body {
 .item .icon {
   font-size: 40px;
   margin-bottom: 25px;
-  color: yellow;
+  color: #e5bfbf;
   width: 90px;
   height: 90px;
   line-height: 96px;
@@ -536,15 +556,15 @@ body {
 }
 .item .feature_box_col_one {
   background: rgba(247, 198, 5, 0.2);
-  color: #52ab98;
+  color: #e5bfbf;
 }
 .item .feature_box_col_two {
   background: rgba(255, 77, 28, 0.15);
-  color: #52ab98;
+  color: #e5bfbf;
 }
 .item .feature_box_col_three {
   background: rgba(0, 147, 38, 0.15);
-  color: #52ab98;
+  color: #e5bfbf;
 }
 .item .feature_box_col_four {
   background: rgba(178, 124, 124, 0.15);
@@ -1230,6 +1250,11 @@ body {
   .header .navbar ul li a {
     color: #a37171;
     font-size: 2.4rem;
+  }
+  /* burasi yeni  */
+  .header .navbar ul li a:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
   }
 
   .header .fa-times {
