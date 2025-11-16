@@ -24,10 +24,69 @@ body {
 .testimonials .section-header h2,
 .section-head-1 h4 {
   margin: 2rem;
+  .heading,
+  .clients .section-header h2,
+  .section-head h1,
+  .testimonials .section-header h2,
+  .section-head-1 h4 {
+    /* ... diğer stiller ... */
+    color: #b27c7c; /* DEĞİŞTİRİLDİ: #002e5f -> #b27c7c */
+    /* ... diğer stiller ... */
+  }
+
+  .heading::before,
+  .heading::after,
+  .clients .section-header h2::before,
+  .clients .section-header h2::after,
+  .section-head h1::before,
+  .section-head h1::after,
+  .testimonials .section-header h2::before,
+  .testimonials .section-header h2::after,
+  .section-head-1 h4::before,
+  .section-head-1 h4::after {
+    content: "";
+    position: absolute;
+    height: 2.5rem;
+    width: 2.5rem;
+    border-top: 0.4rem solid #b27c7c; /* DEĞİŞTİRİLDİ: #002e5f -> #b27c7c */
+    border-left: 0.4rem solid #b27c7c; /* DEĞİŞTİRİLDİ: #002e5f -> #b27c7c */
+  }
+
+  .row .btn {
+    /* ... diğer stiller ... */
+    border-color: #b27c7c; /* DEĞİŞTİRİLDİ: #002e5f -> #b27c7c */
+    /* ... diğer stiller ... */
+  }
+
+  .communicate .btn {
+    /* ... diğer stiller ... */
+    border-color: #b27c7c; /* DEĞİŞTİRİLDİ: #002e5f -> #b27c7c */
+    /* ... diğer stiller ... */
+  }
+
+  .row .btn:hover {
+    /* ... diğer stiller ... */
+    background: #b27c7c; /* DEĞİŞTİRİLDİ: #002e5f -> #b27c7c */
+  }
+
+  .contact-form-btn {
+    /* ... diğer stiller ... */
+    border-color: #b27c7c; /* DEĞİŞTİRİLDİ: #002e5f -> #b27c7c */
+  }
+
+  .contact-form-btn:hover {
+    /* ... diğer stiller ... */
+    background: #b27c7c; /* DEĞİŞTİRİLDİ: #002e5f -> #b27c7c */
+  }
+
+  .footer .footer-top {
+    background: #b27c7c; /* DEĞİŞTİRİLDİ: #002e5f -> #b27c7c */
+    padding: 60px 0 30px 0;
+  }
   padding-top: 6rem;
   display: inline-block;
   font-size: 3.5rem;
-  color: #002e5f;
+  color: #b27c7c;
   position: relative;
   letter-spacing: 0.2rem;
 }
@@ -46,8 +105,8 @@ body {
   position: absolute;
   height: 2.5rem;
   width: 2.5rem;
-  border-top: 0.4rem solid #002e5f;
-  border-left: 0.4rem solid #002e5f;
+  border-top: 0.4rem solid #b27c7c;
+  border-left: 0.4rem solid #b27c7c;
 }
 
 .faq .heading::before,
@@ -81,7 +140,7 @@ body {
   border-radius: 5rem;
   background: white;
   border-style: groove;
-  border-color: #002e5f;
+  border-color: #b27c7c;
   font-size: 1.5rem;
   cursor: pointer;
   height: 3.5rem;
@@ -95,7 +154,7 @@ body {
   border-radius: 5rem;
   background: white;
   border-style: groove;
-  border-color: #002e5f;
+  border-color: #b27c7c;
   font-size: 1.5rem;
   cursor: pointer;
   height: 3.5rem;
@@ -107,7 +166,7 @@ body {
   letter-spacing: 0.1rem;
   opacity: 0.9;
   color: white;
-  background: #002e5f;
+  background: #b27c7c;
 }
 
 .communicate .btn:hover {
@@ -150,12 +209,11 @@ body {
 
 .header .navbar ul li a {
   font-size: 2rem;
-  color: #fff;
+  color: #b27c7c;
 }
 
 .header .navbar ul li a:hover {
-  color: #00bfff;
-  text-decoration: underline;
+  color: #e5bfbf;
 }
 
 .header .logo i {
@@ -168,33 +226,66 @@ body {
   font-size: 3rem;
   display: none;
 }
+/* home section starting  */
 
 .home {
+  position: relative;
   min-height: 100vh;
   width: 100vw;
-  background-image: linear-gradient(rgba(255, 255, 255, 0.1)),
-    url(../images/img1.png);
-  background-size: cover;
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-flow: column;
   text-align: left;
   padding: 0 1rem;
-  position: relative;
-  overflow: hidden !important;
+}
+
+.home-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
 }
 
 .home h1 {
   color: #fff;
   font-size: 5.5rem;
-  align-items: flex-start;
 }
 
 .home h2 {
   color: #fff;
   font-size: 3rem;
-  align-items: flex-start;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .home h1 {
+    font-size: 3rem;
+  }
+
+  .home h2 {
+    font-size: 1.5rem;
+  }
+}
+.btn-contact {
+  display: inline-block;
+  margin-top: 2rem;
+  padding: 1rem 2rem;
+  background-color: #b27c7c;
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+}
+
+.btn-contact:hover {
+  background-color: #d3a9a9;
+  transform: translateY(-3px);
 }
 
 .home .wave {
@@ -229,6 +320,9 @@ body {
   }
 }
 
+/* home section ending  */
+
+/* about basliyor  */
 .about {
   min-height: 55vh;
   width: 100vw;
@@ -455,7 +549,7 @@ body {
   color: #52ab98;
 }
 .item .feature_box_col_four {
-  background: rgba(0, 108, 255, 0.15);
+  background: rgba(178, 124, 124, 0.15);
   color: #52ab98;
 }
 .item .feature_box_col_five {
@@ -1120,7 +1214,7 @@ body {
     left: 0;
     height: auto;
     width: 100%;
-    background-color: white;
+    background-color: #e5bfbf;
     z-index: 1000;
     border-top: 0.1rem solid rgba(0, 0, 0, 0.3);
   }
@@ -1136,7 +1230,7 @@ body {
   }
 
   .header .navbar ul li a {
-    color: grey;
+    color: #a37171;
     font-size: 2.4rem;
   }
 
