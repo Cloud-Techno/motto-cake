@@ -29,9 +29,7 @@ body {
   .section-head h1,
   .testimonials .section-header h2,
   .section-head-1 h4 {
-    /* ... diğer stiller ... */
-    color: #b27c7c; /* DEĞİŞTİRİLDİ: #002e5f -> #b27c7c */
-    /* ... diğer stiller ... */
+    color: #b27c7c;
   }
 
   .heading::before,
@@ -111,8 +109,8 @@ body {
 
 .faq .heading::before,
 .faq .heading::after {
-  border-top: 0.4rem solid #00bfff;
-  border-left: 0.4rem solid #00bfff;
+  border-top: 0.4rem solid #e5bfbf;
+  border-left: 0.4rem solid #e5bfbf;
 }
 
 .heading::before,
@@ -173,7 +171,7 @@ body {
   letter-spacing: 0.1rem;
   opacity: 0.9;
   color: white;
-  background: #00bfff;
+  background: #e5bfbf;
 }
 
 .header {
