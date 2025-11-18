@@ -45,7 +45,7 @@ body {
     content: "";
     position: absolute;
     height: 2.5rem;
-    width: 2.5rem;
+    width: 2.5rem;f
     border-top: 0.4rem solid #b27c7c; /* DEĞİŞTİRİLDİ: #002e5f -> #b27c7c */
     border-left: 0.4rem solid #b27c7c; /* DEĞİŞTİRİLDİ: #002e5f -> #b27c7c */
   }
@@ -207,11 +207,11 @@ body {
 
 .header .navbar ul li a {
   font-size: 2rem;
-  color: #e5bfbf;
+  color: #935f5f;
   text-decoration: none !important;
 }
 .header .navbar ul li a:hover {
-  color: #e5bfbf;
+  color: #e5bfbf !important;
 }
 
 .header .logo i {
@@ -219,7 +219,7 @@ body {
 }
 
 .header .fa-bars {
-  color: #fff;
+  color: #935f5f;
   cursor: pointer;
   font-size: 3rem;
   display: none;
@@ -257,8 +257,8 @@ body {
   height: 40%; /* İstersen artır/azalt */
   background: linear-gradient(
     to bottom,
-    rgba(0, 0, 0, 0.85),
-    /* üst koyuluk */ rgba(0, 0, 0, 0) /* alta doğru şeffaf */
+    rgba(255, 255, 255, 0.85),
+    /* üst koyuluk */ rgba(255, 255, 255, 0) /* alta doğru şeffaf */
   );
   z-index: 0; /* resmin ÜSTÜNDE — içeriklerin ALTINDA */
   pointer-events: none;
@@ -290,7 +290,7 @@ body {
   margin-top: 10rem;
   margin-left: 10rem;
   padding: 2rem 3rem;
-  background-color: #d3a9a9;
+  background-color: #935f5f;
   color: #fff;
   font-size: 1.7rem;
 
@@ -300,7 +300,7 @@ body {
 }
 
 .btn-contact:hover {
-  background-color: #935f5f;
+  background-color: #d3a9a9;
   color: #fff;
   transform: translateY(-3px);
   text-decoration: none !important;
@@ -648,7 +648,8 @@ body {
 .testimonials .testimonial-item {
   position: relative;
   margin: 0 15px 30px 15px;
-  background: #ffffff;
+  background: none;
+  padding: 0 !important;
 }
 
 .testimonials .testimonial-img {
@@ -657,7 +658,7 @@ body {
   overflow: hidden;
 }
 
-.testimonials .testimonial-text {
+/* .testimonials .testimonial-text {
   position: relative;
   width: 100%;
   padding: 30px 15px;
@@ -681,7 +682,7 @@ body {
   margin: 0;
   font-size: 16px;
   font-weight: 300;
-}
+} */
 
 .testimonials .owl-nav,
 .testimonials .owl-dots {
@@ -699,7 +700,7 @@ body {
 }
 
 .testimonials .owl-dot.active {
-  background-color: #4f84c4;
+  background-color: #d3a9a9;
 }
 
 @media (max-width: 575px) {
@@ -1001,7 +1002,7 @@ body {
 }
 
 .footer .footer-top {
-  background: #002e5f;
+  background: #d3a9a9;
   padding: 60px 0 30px 0;
 }
 
@@ -1027,7 +1028,7 @@ body {
 }
 
 .footer .footer-top .social-links a:hover {
-  background: #00bfff;
+  background: #d3a9a9;
   color: #ffffff;
 }
 
@@ -1187,7 +1188,7 @@ body {
 }
 
 .faq .row .accordion-container .accordion .accordion-header {
-  background-color: #00bfff;
+  background-color: #d3a9a9;
   margin: 1rem 0;
   box-shadow: 0.1rem 0.1rem 0.3rem rgba(0, 0, 0, 0.3);
   cursor: pointer;
@@ -1247,12 +1248,12 @@ body {
 
   .header .fa-bars {
     display: block;
-    color: white;
+    color: #935f5f;
     margin-right: 1rem;
   }
 
   .header .fa-bars:hover {
-    color: #00bfff;
+    color: #d3a9a9;
   }
 
   .header .navbar {
@@ -1550,4 +1551,102 @@ body {
 .carousel-control-next-icon {
   background-color: #b27c7c;
   border-radius: 50%;
+}
+
+/* contact Formu Stili */
+
+/* Form container */
+.kf-container {
+  background: #fff;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  max-width: 700px;
+  margin: 50px auto;
+}
+
+/* Başlık */
+.kf-title {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+/* Alanlar */
+.kf-field {
+  margin-bottom: 20px;
+}
+
+.kf-label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.kf-input,
+.kf-textarea {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: 2px solid #ddd;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.kf-input:focus,
+.kf-textarea:focus {
+  border-color: #ff7f50;
+  outline: none;
+}
+
+/* Cake seçenekleri */
+.kf-options {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.kf-option {
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  padding: 15px;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.3s;
+  flex: 1 1 45%;
+}
+
+.kf-option:hover,
+.kf-option.kf-active {
+  border-color: #ff7f50;
+  background: #fff0f0;
+}
+
+.kf-option input {
+  display: none;
+}
+
+/* Submit butonu */
+.kf-submit {
+  width: 100%;
+  padding: 12px;
+  border-radius: 50px;
+  background: #935f5f;
+  border: none;
+  color: #fff;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.3s;
+}
+
+.kf-submit:hover {
+  background: #d3a9a9;
+}
+
+/* Responsive */
+@media (max-width: 576px) {
+  .kf-options {
+    flex-direction: column;
+  }
 }
