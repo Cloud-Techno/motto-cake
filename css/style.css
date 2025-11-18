@@ -658,31 +658,6 @@ body {
   overflow: hidden;
 }
 
-/* .testimonials .testimonial-text {
-  position: relative;
-  width: 100%;
-  padding: 30px 15px;
-  text-align: center;
-  background: #ffffff;
-}
-
-.testimonials .testimonial-text h3 {
-  font-size: 18px;
-  font-weight: 700;
-  margin-bottom: 10px;
-}
-
-.testimonials .testimonial-text h4 {
-  font-size: 12px;
-  font-weight: 300;
-  text-transform: uppercase;
-}
-
-.testimonials .testimonial-text p {
-  margin: 0;
-  font-size: 16px;
-  font-weight: 300;
-} */
 
 .testimonials .owl-nav,
 .testimonials .owl-dots {
@@ -1012,11 +987,30 @@ body {
 .footer .footer-top .footer-newsletter {
   margin-bottom: 30px;
 }
-
+.ion-logo-instagram {
+    /* 'color: #d3a9a9;' yerine, orijinal degrade görünümünü vermek için background kullanın */
+    background: linear-gradient(
+        45deg,
+        #feda75,  /* Sarı/Turuncu */
+        #fa7e1e,  /* Turuncu */
+        #d62976,  /* Pembe */
+        #962fbf,  /* Mor */
+        #4f5bd5   /* Mavi */
+    );
+    -webkit-background-clip: text; /* Metnin/İkonun arka planı kırpmasını sağlar */
+    -webkit-text-fill-color: transparent; /* Metnin kendi rengini şeffaf yapar */
+    /* Tarayıcı uyumluluğu için diğer prefix'ler gerekebilir */
+}
+.ion-logo-facebook {
+    color: #1877F2; /* Facebook'un kurumsal mavisi */
+}
+.ion-logo-whatsapp {
+    color: #25D366; /* WhatsApp'ın parlak yeşili */
+}
 .footer .footer-top .social-links a {
-  font-size: 18px;
+  font-size: 32px;
   display: inline-block;
-  background: #ffffff;
+  background: #d3a9a9;
   color: #00bfff;
   line-height: 1;
   padding: 9px 0;
