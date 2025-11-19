@@ -279,6 +279,27 @@ header .social-links {
 .social-links a .ion-logo-whatsapp:hover {
   color: #1da851;   /* Slightly darker green on hover */
 }
+/* MOBILE ICON ENLARGEMENT */
+@media (max-width: 768px) {
+  /* Increase size of social icons */
+  .social-links a i {
+    font-size: 4rem; /* Bigger icons on mobile */
+  }
+
+  /* Keep icons centered in header */
+  header .social-links {
+    position: absolute;
+    left: 50%;
+    top: 60%; /* Adjust vertical position */
+    transform: translate(-50%, -50%);
+    gap: 2rem; /* Adjust spacing between icons */
+  }
+
+  /* Adjust logo size for mobile */
+  .header .logo img {
+    height: 2.5rem;
+  }
+}
 
 
 
