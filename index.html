@@ -816,19 +816,7 @@
 <!-- Wrapper: Map + Form (Side by side on PC, stacked on mobile) -->
 <div class="contact-wrapper">
 
-  <!-- MAP -->
-  <div class="contact-map">
-    <!-- Google Map iframe -->
-    <!-- This iframe will take 50% width on desktop and 100% width on mobile -->
-    <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2697.0781318875574!2d8.29553111247447!3d47.468906871057435!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47906cb6a57f1773%3A0x7d62bed575d78881!2sStadtbachstrasse%2015%2C%205400%20Baden!5e0!3m2!1sde!2sch!4v1763469494168!5m2!1sde!2sch"
-      width="100%"
-      height="100%"
-      style="border:0"
-      allowfullscreen=""
-      loading="lazy"
-    ></iframe>
-  </div>
+
 
 <!-- FORM SECTION -->
   <div class="kf-container">
@@ -882,7 +870,7 @@
       <div class="kf-field">
         <label for="kf-cake-type" class="kf-label">Kuchenart</label>
         <select id="kf-cake-type" name="cakeType" class="kf-input" required>
-          <option value="" disabled selected>Bitte auswählen</option>
+          <option value="" disabled selected style="color:#935f5f;!important">Bitte auswählen</option>
           <option value="geburtstag">Geburtstag</option>
           <option value="hochzeit">Hochzeit</option>
           <option value="besonderer_anlass">Besonderer Anlass</option>
@@ -892,8 +880,7 @@
 
       <!-- Message Textarea -->
       <div class="kf-field">
-        <label for="kf-message" class="kf-label">Nachricht</label>
-        <textarea
+<label for="kf-message" class="kf-label optional-label">Nachricht</label>        <textarea
           class="kf-textarea"
           id="kf-message"
           name="message"
@@ -910,6 +897,20 @@
       <!-- Submit Button -->
       <button type="submit" class="kf-submit">Senden</button>
     </form>
+  </div>
+
+    <!-- MAP -->
+  <div class="contact-map">
+    <!-- Google Map iframe -->
+    <!-- This iframe will take 50% width on desktop and 100% width on mobile -->
+    <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2697.0781318875574!2d8.29553111247447!3d47.468906871057435!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47906cb6a57f1773%3A0x7d62bed575d78881!2sStadtbachstrasse%2015%2C%205400%20Baden!5e0!3m2!1sde!2sch!4v1763469494168!5m2!1sde!2sch"
+      width="100%"
+      height="100%"
+      style="border:0"
+      allowfullscreen=""
+      loading="lazy"
+    ></iframe>
   </div>
 </div>
 

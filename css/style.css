@@ -1469,6 +1469,7 @@ body {
 .contact-map {
   flex: 1; /* Takes equal space with form */
   min-height: 450px;
+  padding: 40px;
 }
 
 /* Form Section */
@@ -1496,10 +1497,25 @@ body {
   transition: 0.3s;
   font-size: 16px;
 }
+.kf-label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 16px;
+  font-weight: 400;
+  color: #333;
+}
+
+.kf-label:not(.optional-label)::after {
+  content: " *";
+  color: #000000;
+  font-weight: normal;
+  font-size: 0.8em;
+  vertical-align: top;
+}
 
 .kf-input:focus,
 .kf-textarea:focus {
-  border-color: #ff7f50;
+  border-color: #d3a9a9;
 }
 
 /* Submit button */
@@ -1518,6 +1534,7 @@ body {
 @media (max-width: 768px) {
   .contact-wrapper {
     flex-direction: column; /* Stacks map & form */
+    
   }
 
   .contact-map,
@@ -1527,6 +1544,7 @@ body {
 
   .contact-map {
     min-height: 300px;
+
   }
 }
 
