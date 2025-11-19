@@ -491,22 +491,9 @@
       </div>
     </section>
 
-    <section id="contact" class="contact">
-      <h1 class="heading">get in touch</h1>
-    </section>
-    <div class="contact-in">
-      <div class="contact-map">
-        <iframe
-          <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2697.0781318875574!2d8.29553111247447!3d47.468906871057435!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47906cb6a57f1773%3A0x7d62bed575d78881!2sStadtbachstrasse%2015%2C%205400%20Baden!5e0!3m2!1sde!2sch!4v1763469494168!5m2!1sde!2sch"
-          width="100%"
-          height="auto"
-          style="border: 0"
-          allowfullscreen=""
-          loading="lazy"
-        ></iframe>
-      </div>
-      <div class="contact-form">
+
+
+      <!-- <div class="contact-form">
         <form action="./contactme.php" method="POST">
           <input
             type="text"
@@ -545,11 +532,11 @@
             class="contact-form-btn"
           />
         </form>
-      </div>
+      </div> -->
     </div>
     <!-- faq section  -->
     <section class="faq">
-      <h1 class="heading" style="margin-top: -2rem; color: #00bfff" id="faq">
+      <h1 class="heading" style="margin-top: -2rem; color: #b27c7c" id="faq">
         FAQ
       </h1>
       <div class="row">
@@ -821,96 +808,110 @@
       </div>
     </div> -->
 
-    <div class="kf-container">
-      <h2 class="kf-title">Kontaktformular</h2>
-      <form
-        action="https://formsubmit.co/info@mottocake.ch"
-        method="POST"
-        class="kf-form"
-      >
-        <!-- Name -->
-        <div class="kf-field">
-          <label for="kf-name" class="kf-label">Name</label>
-          <input
-            type="text"
-            class="kf-input"
-            id="kf-name"
-            name="name"
-            placeholder="Ihr Name"
-            required
-          />
-        </div>
+<!-- MAP SECTION -->
+<section id="google-map" class="google-contact">
+  <!-- <h1 class="heading" class="get-in-touch">get in touch</h1> -->
+</section>
 
-        <!-- E-Mail -->
-        <div class="kf-field">
-          <label for="kf-email" class="kf-label">E-Mail</label>
-          <input
-            type="email"
-            class="kf-input"
-            id="kf-email"
-            name="email"
-            placeholder="Ihre E-Mail-Adresse"
-            required
-          />
-        </div>
+<!-- Wrapper: Map + Form (Side by side on PC, stacked on mobile) -->
+<div class="contact-wrapper">
 
-        <!-- Telefon -->
-        <div class="kf-field">
-          <label for="kf-phone" class="kf-label">Telefon</label>
-          <input
-            type="tel"
-            class="kf-input"
-            id="kf-phone"
-            name="phone"
-            placeholder="Ihre Telefonnummer"
-          />
-        </div>
+  <!-- MAP -->
+  <div class="contact-map">
+    <!-- Google Map iframe -->
+    <!-- This iframe will take 50% width on desktop and 100% width on mobile -->
+    <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2697.0781318875574!2d8.29553111247447!3d47.468906871057435!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47906cb6a57f1773%3A0x7d62bed575d78881!2sStadtbachstrasse%2015%2C%205400%20Baden!5e0!3m2!1sde!2sch!4v1763469494168!5m2!1sde!2sch"
+      width="100%"
+      height="100%"
+      style="border:0"
+      allowfullscreen=""
+      loading="lazy"
+    ></iframe>
+  </div>
 
-        <!-- Kuchenart -->
-        <label class="kf-label">Kuchenart</label>
-        <div class="kf-options">
-          <label class="kf-option">
-            <input type="radio" name="cakeType" value="geburtstag" required />
-            Geburtstag
-          </label>
-          <label class="kf-option">
-            <input type="radio" name="cakeType" value="hochzeit" />
-            Hochzeit
-          </label>
-          <label class="kf-option">
-            <input type="radio" name="cakeType" value="besonderer_anlass" />
-            Besonderer Anlass
-          </label>
-          <label class="kf-option">
-            <input type="radio" name="cakeType" value="andere" />
-            Andere
-          </label>
-        </div>
+<!-- FORM SECTION -->
+  <div class="kf-container">
+    <h2 class="kf-title">Kontaktformular</h2>
 
-        <!-- Nachricht -->
-        <div class="kf-field">
-          <label for="kf-message" class="kf-label">Nachricht</label>
-          <textarea
-            class="kf-textarea"
-            id="kf-message"
-            name="message"
-            rows="4"
-            placeholder="Beschreibung Ihres Kuchens..."
-          ></textarea>
-        </div>
+    <!-- Contact Form -->
+    <!-- This form container will also be 50% on desktop and 100% on mobile -->
+    <form
+      action="https://formsubmit.co/info@mottocake.ch"
+      method="POST"
+      class="kf-form">
 
-        <!-- Formsubmit hidden fields -->
-        <input type="hidden" name="_subject" value="Neue Kuchenbestellung" />
-        <input type="hidden" name="_captcha" value="false" />
+      <!-- Name Field -->
+      <div class="kf-field">
+        <label for="kf-name" class="kf-label">Name</label>
         <input
-          type="hidden"
-          name="_next"
-          value="https://deine-website.ch/danke.html"
-        />
+          type="text"
+          class="kf-input"
+          id="kf-name"
+          name="name"
+          placeholder="Ihr Name"
+          required />
+      </div>
 
-        <button type="submit" class="kf-submit">Senden</button>
-      </form>
-    </div>
+      <!-- Email Field -->
+      <div class="kf-field">
+        <label for="kf-email" class="kf-label">E-Mail</label>
+        <input
+          type="email"
+          class="kf-input"
+          id="kf-email"
+          name="email"
+          placeholder="Ihre E-Mail-Adresse"
+          required />
+      </div>
+
+      <!-- Phone Field -->
+      <div class="kf-field">
+        <label for="kf-phone" class="kf-label">Telefon</label>
+        <input
+          type="tel"
+          class="kf-input"
+          id="kf-phone"
+          name="phone"
+          placeholder="Ihre Telefonnummer" />
+      </div>
+
+      <!-- Cake Type Dropdown -->
+      <!-- Replaced radio with select input -->
+      <!-- Users can now select cake type from dropdown, easier and cleaner UX -->
+      <div class="kf-field">
+        <label for="kf-cake-type" class="kf-label">Kuchenart</label>
+        <select id="kf-cake-type" name="cakeType" class="kf-input" required>
+          <option value="" disabled selected>Bitte auswählen</option>
+          <option value="geburtstag">Geburtstag</option>
+          <option value="hochzeit">Hochzeit</option>
+          <option value="besonderer_anlass">Besonderer Anlass</option>
+          <option value="andere">Andere</option>
+        </select>
+      </div>
+
+      <!-- Message Textarea -->
+      <div class="kf-field">
+        <label for="kf-message" class="kf-label">Nachricht</label>
+        <textarea
+          class="kf-textarea"
+          id="kf-message"
+          name="message"
+          rows="4"
+          placeholder="Beschreibung Ihres Kuchens..."
+        ></textarea>
+      </div>
+
+      <!-- Hidden formsubmit fields -->
+      <input type="hidden" name="_subject" value="Neue Kuchenbestellung" />
+      <input type="hidden" name="_captcha" value="false" />
+      <input type="hidden" name="_next" value="https://deine-website.ch/danke.html" />
+
+      <!-- Submit Button -->
+      <button type="submit" class="kf-submit">Senden</button>
+    </form>
+  </div>
+</div>
 
     <script>
       // Cake option selection effect
