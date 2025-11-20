@@ -343,6 +343,9 @@ header .social-links {
   }
 }
 
+
+
+
 .home {
   position: relative;
   min-height: 100vh;
@@ -500,13 +503,15 @@ header .social-links {
 
 /* about basliyor  */
 .about {
-  min-height: 55vh;
+  background-color: #e5bfbf;
+  height: auto;
   width: 100vw;
   top: -3rem;
   text-align: center;
   position: relative;
   overflow: hidden;
   line-height: 10rem;
+  padding: 5rem 0;
 }
 
 .about .row {
@@ -527,7 +532,7 @@ header .social-links {
 }
 
 .about .row .content p {
-  font-size: 2rem;
+  font-size: 5rem;
   color: #333;
   padding: 1rem 0;
 }
@@ -1026,7 +1031,10 @@ header .social-links {
   left: -4rem;
 }
 
+.geburts-torte {
+    font-size: 1.5rem; 
 
+}
 
 
 /* footer starting here  */
@@ -1216,7 +1224,7 @@ header .social-links {
 }
 
 .faq {
-  min-height: 70vh;
+  min-height: 60vh;
   width: 100vw;
   text-align: center;
   padding: 0 2rem;
@@ -1360,40 +1368,6 @@ header .social-links {
     font-size: 2rem;
   }
 
-  .about {
-    min-height: 38vh;
-    width: 100vw;
-    margin-top: -3rem;
-    margin-bottom: -2rem;
-    top: -2rem;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-    line-height: 6rem;
-  }
-
-  .about .row {
-    line-height: 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    padding: 0 4rem;
-  }
-
-  .about .row .content {
-    text-align: center;
-  }
-
-  .about .row .content h3 {
-    font-size: 2rem;
-    color: var(--color);
-  }
-
-  .about .row .content p {
-    font-size: 1.3rem;
-    color: #333;
-    padding: 1rem 0;
-  }
 
   .clients {
     position: relative;
@@ -1421,7 +1395,7 @@ header .social-links {
 
   .faq {
     padding: 0;
-    min-height: 60vh;
+    min-height: 40vh;
   }
 
   .faq .row {
