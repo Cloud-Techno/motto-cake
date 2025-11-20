@@ -502,7 +502,7 @@ header .social-links {
 /* home section ending  */
 
 /* about basliyor  */
-.about {
+/* .about {
   background-color: #e5bfbf;
   height: auto;
   width: 100vw;
@@ -535,7 +535,80 @@ header .social-links {
   font-size: 5rem;
   color: #333;
   padding: 1rem 0;
+} */
+
+.about {
+  background-color: #e5bfbf;
+  width: 100%;
+  padding: 5rem 0;
 }
+
+.about .container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.about .row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2.5rem; /* Gap biraz artırıldı, çünkü resim ve metin de büyüyecek */
+  padding: 0 2rem;
+}
+
+/* 🖥️ BÜYÜK EKRAN (Masaüstü) - METİN BOYUTU ARTIRILDI */
+.about .content {
+  flex: 1 1 450px; /* Metin bloğunun taban genişliği artırıldı */
+  text-align: left;
+}
+
+.about .content h3 {
+  font-size: 3rem; /* 2.5rem'den 3rem'e çıkarıldı */
+  margin-bottom: 1rem;
+  color: #000;
+}
+
+.about .content p {
+  font-size: 1.4rem; /* 1.2rem'den 1.4rem'e çıkarıldı */
+  color: #333;
+  line-height: 1.6;
+}
+
+/* 🖥️ BÜYÜK EKRAN (Masaüstü) - RESİM BOYUTU ARTIRILDI */
+.about .image {
+  flex: 1 1 450px; /* Taban genişliği 350px'ten 450px'e çıkarıldı */
+  display: flex;
+  justify-content: center;
+}
+
+.about .image img {
+  width: 100%;
+  max-width: 450px; /* Maksimum genişlik 350px'ten 450px'e çıkarıldı */
+  border-radius: 20px;
+  object-fit: cover;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* 📱 RESPONSIVE (Mobil) - BOŞLUK AZALTILDI */
+@media (max-width: 768px) {
+  .about {
+    padding: 3rem 0; /* 7rem yerine azaltıldı */
+  }
+
+  .about .row {
+    gap: 0.5rem; /* 1.5rem yerine daha küçük boşluk */
+  }
+
+  .about .image {
+    padding: 0; /* Ek boşluk varsa kaldırıldı */
+  }
+
+  .about .content {
+    text-align: center;
+  }
+}
+
 .pt-5 .container .row .section-head p {
   font-size: 2rem;
   color: #333;
@@ -1198,6 +1271,7 @@ header .social-links {
     text-align: left;
   }
 }
+
 
 .back-to-top {
   position: fixed;
