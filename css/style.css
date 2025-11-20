@@ -239,10 +239,17 @@ body {
   background: #fff;                /* Ensures icons are visible */
 }
 
-/* LOGO IMAGE */
-.header .logo img {
-  height: 3rem;                    /* Uniform logo height */
-  width: auto;                     /* Prevent distortion */
+
+/* =======================================
+   LOGO TEXT STYLE
+   ======================================= */
+.header .logo h1 {
+  /* Logo metni için font ve renk ayarları */
+  font-size: 2.5rem;               /* Masaüstü için büyük ve okunaklı */
+  color: #935f5f;                  /* Ana marka rengi */
+  margin: 0;                       /* Başlık etiketlerinin varsayılan marginlerini sıfırlar */
+  font-family: 'Dancing Script', cursive;             /* Butik hissi için fontu değiştirebilirsiniz */
+  letter-spacing: 0.1rem;
 }
 
 /* SOCIAL ICON CONTAINER */
@@ -285,6 +292,9 @@ header .social-links {
   .social-links a i {
     font-size: 4rem; /* Bigger icons on mobile */
   }
+.header .logo h1 {
+    font-size: 2rem; 
+  }
 
   /* Keep icons centered in header */
   header .social-links {
@@ -295,10 +305,6 @@ header .social-links {
     gap: 2rem; /* Adjust spacing between icons */
   }
 
-  /* Adjust logo size for mobile */
-  .header .logo img {
-    height: 2.5rem;
-  }
 }
 
 
@@ -1374,13 +1380,6 @@ header .social-links {
     font-size: 50%;
   }
 
-  .header .logo img {
-    width: 20%;
-    height: 3rem;
-    top: 0;
-    left: 0;
-    background-size: cover;
-  }
 
   .header .fa-bars {
     display: block;
