@@ -626,7 +626,7 @@ header .social-links {
     text-align: center;
   }
 }
-
+/* Preise section starting  */ */
 .pt-5 .container .row .section-head p {
   font-size: 2rem;
   color: #333;
@@ -717,7 +717,26 @@ header .social-links {
   margin-bottom: 20px;
   color: #2f2f2f;
 }
+.price-list {
+  list-style-type: disc; /* klasik madde işareti */
+  padding-left: 20px;
+  margin-top: 15px;
+  font-size: 15px; /* p ile uyumlu */
+  line-height: 26px; /* p ile uyumlu */
+  color: #2f2f2f;
+}
 
+
+.price-list {
+  list-style-type: disc;
+  padding-left: 20px;
+  font-size: 15px;
+  line-height: 26px;
+  color: #2f2f2f;
+  text-align: left; /* daha okunaklı */
+}
+
+/* preise ending  */
 .counters {
   background-image: url(../images/img2.jpg);
   background-size: cover;
@@ -761,7 +780,7 @@ header .social-links {
   background-size: 200%;
   background-position: left;
 }
-.section-head-1 p {
+.section-head-1 p li {
   color: #333;
   font-size: 20px;
   line-height: 28px;
@@ -896,7 +915,7 @@ header .social-links {
 .testimonials {
   position: relative;
   padding: 90px 0 60px 0;
-  background: #f2f2f2;
+  background: #fff;
 }
 
 .testimonials .testimonial-item {
@@ -1003,6 +1022,8 @@ header .social-links {
 }
 
 .team {
+  margin: 0;
+  padding: 0;
   min-width: 100vw;
   min-height: 95vh;
   text-align: center;
@@ -1506,8 +1527,6 @@ header .social-links {
   border: 1px solid rgba(0, 0, 0, 0.07);
   transition: all 0.7s ease 0s;
   overflow: hidden;
-
-  /* YENİ EKLEME: Kutucuk Yüksekliğini Ayarlıyoruz */
   height: 400px;
 }
 
@@ -1516,7 +1535,6 @@ header .social-links {
   border-radius: 15px;
   width: 100%;
 
-  /* YENİ EKLEME: Resmin kutucuğu tam doldurmasını sağlar */
   height: 100%;
   object-fit: cover;
 }
@@ -1542,137 +1560,7 @@ header .social-links {
   border-radius: 50%;
 }
 
-/* contact Formu Stili */
 
-/* Form container */
-/* .kf-container {
-  background: #fff;
-  padding: 30px;
-  border-radius: 15px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-  max-width: 700px;
-  margin: 50px auto;
-}
-
-
-.kf-title {
-  text-align: center;
-  margin-bottom: 30px;
-  color: #333;
-}
-
-
-.kf-field {
-  margin-bottom: 20px;
-}
-
-.kf-label {
-  display: block;
-  font-weight: 500;
-  margin-bottom: 8px;
-}
-
-.kf-input,
-.kf-textarea {
-  width: 100%;
-  padding: 12px;
-  border-radius: 10px;
-  border: 2px solid #ddd;
-  font-size: 16px;
-  transition: 0.3s;
-}
-
-.kf-input:focus,
-.kf-textarea:focus {
-  border-color: #ff7f50;
-  outline: none;
-}
-
-
-.kf-options {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  margin-bottom: 20px;
-}
-
-.kf-option {
-  border: 2px solid #ddd;
-  border-radius: 10px;
-  padding: 15px;
-  text-align: center;
-  cursor: pointer;
-  transition: 0.3s;
-  flex: 1 1 45%;
-}
-
-.kf-option:hover,
-.kf-option.kf-active {
-  border-color: #ff7f50;
-  background: #fff0f0;
-}
-
-.kf-option input {
-  display: none;
-}
-
-.kf-submit {
-  width: 100%;
-  padding: 12px;
-  border-radius: 50px;
-  background: #935f5f;
-  border: none;
-  color: #fff;
-  font-weight: bold;
-  font-size: 18px;
-  transition: 0.3s;
-}
-
-.kf-submit:hover {
-  background: #d3a9a9;
-}
-
-
-@media (max-width: 576px) {
-  .kf-options {
-    flex-direction: column;
-  }
-} */
-
-
-/* Map section   */
-  /* .google-contact {
-    text-align: center;
-    align-items: center;
-  }
-
-  .contact .heading {
-    margin-bottom: 3rem;
-    margin-top: -2rem;
-  }
-
-  .contact-in {
-    width: 80%;
-    height: auto;
-    margin: auto auto 5rem auto;
-    display: flex;
-    flex-wrap: wrap;
-    padding: 10px;
-    border-radius: 10px;
-    background: #fff;
-    box-shadow: 0px 0px 10px 0px #666;
-  }
-
-  .contact-map {
-    width: 100%;
-    height: auto;
-    flex: 50%;
-  }
-  .contact-map iframe {
-    width: 100%;
-    height: 100%;
-  } */
-  /* Wrapper for map + form: side-by-side on desktop */
 .contact-wrapper {
   display: flex;
   flex-wrap: wrap; /* Allows stacking on mobile */
@@ -1745,6 +1633,13 @@ header .social-links {
   font-size: 18px;
 
 }
+.thanks-message {
+  display: none;
+  margin-top: 20px;
+  color: #28a745;
+  font-weight: 600;
+  font-size: 20px; 
+}
 
 /* ===== MOBILE RESPONSIVE ===== */
 @media (max-width: 768px) {
@@ -1765,3 +1660,4 @@ header .social-links {
 }
 
 
+/* preise list  */

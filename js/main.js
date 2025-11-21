@@ -78,3 +78,29 @@ $(document).ready(function () {
     $(this).children("span").text("-");
   });
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.getElementById("cakeForm");
+
+  form.addEventListener("submit", async function (e) {
+    e.preventDefault(); // Sayfa yenilenmesin
+
+    const data = new FormData(form);
+
+    try {
+      const res = await fetch(form.action, {
+        method: "POST",
+        body: data,
+      });
+
+      if (res.ok) {
+        form.reset(); // Formu temizle
+        document.getElementById("thanks").style.display = "block"; // Mesajı göster
+      } else {
+        alert("Es gab ein Problem beim Senden. Bitte versuchen Sie es erneut.");
+      }
+    } catch (error) {
+      alert("Netzwerkfehler. Bitte versuchen Sie es erneut.");
+    }
+  });
+});
