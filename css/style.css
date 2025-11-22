@@ -1662,3 +1662,89 @@ header .social-links {
 
 /* impressum  */
 
+/* =================================== */
+/* Yeni Impressum Sayfası CSS Stilleri */
+/* =================================== */
+
+.impressum-main {
+    /* Header ve Footer arasında kalacak şekilde dikey boşlukları ayarlar */
+    min-height: calc(100vh - 100px); /* Ekran yüksekliğinden Header/Footer için varsayımsal bir alan çıkarıldı */
+    padding-top: 80px; /* Header'ın altından başlaması için boşluk */
+    padding-bottom: 50px;
+}
+
+.impressum-header-section {
+    background-color: #f8f8f8;
+    padding: 60px 0 40px 0;
+    text-align: center;
+}
+
+.impressum-header-container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.impressum-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 0;
+}
+
+.impressum-content-section {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 20px;
+    line-height: 1.8;
+}
+
+.impressum-info-box {
+    padding: 30px;
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.impressum-sub-title {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #935f5f; /* Pastacılık temanıza uygun bir renk tonu */
+    margin-top: 30px;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #f2f2f2;
+    padding-bottom: 5px;
+}
+
+.impressum-sub-title:first-of-type {
+    margin-top: 0;
+}
+
+.impressum-paragraph {
+    font-size: 1.6rem;
+    color: #555;
+    margin-bottom: 25px;
+}
+
+/* Footer için varsayımsal stil (eğer yoksa) */
+.footer-area {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer-bottom p {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+.footer-link {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.footer-link:hover {
+    color: #935f5f;
+}
