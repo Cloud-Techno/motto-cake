@@ -46,39 +46,39 @@ body {
     position: absolute;
     height: 2.5rem;
     width: 2.5rem;f
-    border-top: 0.4rem solid #b27c7c; /* DEĞİŞTİRİLDİ: #002e5f -> #b27c7c */
-    border-left: 0.4rem solid #b27c7c; /* DEĞİŞTİRİLDİ: #002e5f -> #b27c7c */
+    border-top: 0.4rem solid #b27c7c; 
+    border-left: 0.4rem solid #b27c7c; 
   }
 
   .row .btn {
-    /* ... diğer stiller ... */
-    border-color: #b27c7c; /* DEĞİŞTİRİLDİ: #002e5f -> #b27c7c */
-    /* ... diğer stiller ... */
+   
+    border-color: #b27c7c; 
+ 
   }
 
   .communicate .btn {
-    /* ... diğer stiller ... */
-    border-color: #b27c7c; /* DEĞİŞTİRİLDİ: #002e5f -> #b27c7c */
-    /* ... diğer stiller ... */
+ 
+    border-color: #b27c7c; 
+ 
   }
 
   .row .btn:hover {
-    /* ... diğer stiller ... */
-    background: #b27c7c; /* DEĞİŞTİRİLDİ: #002e5f -> #b27c7c */
+
+    background: #b27c7c; 
   }
 
   .contact-form-btn {
-    /* ... diğer stiller ... */
-    border-color: #b27c7c; /* DEĞİŞTİRİLDİ: #002e5f -> #b27c7c */
+
+    border-color: #b27c7c; 
   }
 
   .contact-form-btn:hover {
-    /* ... diğer stiller ... */
-    background: #b27c7c; /* DEĞİŞTİRİLDİ: #002e5f -> #b27c7c */
+  
+    background: #b27c7c; 
   }
 
   .footer .footer-top {
-    background: #b27c7c; /* DEĞİŞTİRİLDİ: #002e5f -> #b27c7c */
+    background: #b27c7c; 
     padding: 60px 0 30px 0;
   }
   padding-top: 6rem;
@@ -173,70 +173,18 @@ body {
   color: white;
   background: #e5bfbf;
 }
-/* 
+
 .header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  display: flex;                   
+  align-items: center;           
+  justify-content: space-between; 
   width: 100%;
   padding: 1rem 2rem;
-  position: fixed;
+  position: fixed;               
   top: 0;
   left: 0;
   z-index: 100;
-  position: fixed;
-}
-
-.header .logo img {
-  width: 130%;
-  height: 3rem;
-  top: 0;
-  left: 0;
-}
-
-.header .navbar ul {
-  list-style-type: none;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-}
-
-.header .navbar ul li {
-  margin: 0 1.5rem;
-}
-
-.header .navbar ul li a {
-  font-size: 2rem;
-  color: #935f5f;
-  text-decoration: none !important;
-}
-.header .navbar ul li a:hover {
-  color: #e5bfbf !important;
-}
-
-.header .logo i {
-  padding: 0.5rem;
-}
-
-.header .fa-bars {
-  color: #935f5f;
-  cursor: pointer;
-  font-size: 3rem;
-  display: none;
-} */
-/* home section starting  */
-/* HEADER CONTAINER – Aligns logo, icons, and menu */
-.header {
-  display: flex;                   /* Align children horizontally */
-  align-items: center;             /* Vertically center items */
-  justify-content: space-between;  /* Space between logo, icons, and nav */
-  width: 100%;
-  padding: 1rem 2rem;
-  position: fixed;                 /* Sticks header to the top */
-  top: 0;
-  left: 0;
-  z-index: 100;
-  background: #fff;                /* Ensures icons are visible */
+  background: #fff;               
 }
 
 
@@ -244,33 +192,32 @@ body {
    LOGO TEXT STYLE
    ======================================= */
 .header .logo h1 {
-  /* Logo metni için font ve renk ayarları */
-  font-size: 2.5rem;               /* Masaüstü için büyük ve okunaklı */
+
+  font-size: 2.5rem;               
   color: #935f5f;                  /* Ana marka rengi */
-  margin: 0;                       /* Başlık etiketlerinin varsayılan marginlerini sıfırlar */
-  font-family: 'Dancing Script', cursive;             /* Butik hissi için fontu değiştirebilirsiniz */
+  margin: 0;                       
+  font-family: 'Dancing Script', cursive;            
   letter-spacing: 0.1rem;
 }
 
-/* SOCIAL ICON CONTAINER */
+
 .social-links {
-  display: flex;                   /* Align icons horizontally */
-  gap: 3rem;                       /* Space between icons */
+  display: flex;                   
+  gap: 3rem;                       
 }
 
-/* SOCIAL ICON STYLE */
+
 .social-links a i {
-  font-size: 3.2rem;               /* Icon size */
-  color: #935f5f;                  /* Brand color */
-  transition: 0.3s ease;           /* Smooth hover effect */
-}
+  font-size: 3.2rem;              
+  color: #935f5f;                  
+  transition: 0.3s ease;   }      
 
-/* SOCIAL ICON HOVER EFFECT */
+
 .social-links a i:hover {
   color: #e5bfbf;
-  transform: scale(1.2);           /* Slight zoom */
+  transform: scale(1.2);          
 }
-/* CENTER ICONS INSIDE HEADER */
+
 header .social-links {
   position: absolute;
   left: 50%;
@@ -278,27 +225,27 @@ header .social-links {
   top: 50%;
   transform: translate(-50%, -50%);
 }
-/* WHATSAPP ICON COLOR */
+
 .social-links a .ion-logo-whatsapp {
-  color: #25D366;   /* Official WhatsApp green */
+  color: #25D366;   
 }
 
 .social-links a .ion-logo-whatsapp:hover {
-  color: #1da851;   /* Slightly darker green on hover */
+  color: #1da851;   
 }
-/* MOBILE ICON ENLARGEMENT */
+
 @media (max-width: 768px) {
-  /* Increase size of social icons */
+ 
   .social-links a i {
-    font-size: 4rem; /* Bigger icons on mobile */
+    font-size: 4rem; 
   }
-  /* Keep icons centered in header */
+
   .header .social-links {
     position: absolute;
     left: 50%;
-    top: 60%; /* Adjust vertical position */
+    top: 60%; 
     transform: translate(-50%, -50%);
-    gap: 2rem; /* Adjust spacing between icons */
+    gap: 2rem;
   }
 
 }
@@ -311,7 +258,7 @@ header .social-links {
   color: inherit;
 }
 @media (min-width: 1024px) {
-  /* 1024px ve üzeri için geçerli */
+
   a.logo,
   a.logo * {
     color: inherit;
@@ -319,9 +266,6 @@ header .social-links {
   }
 }
 
-
-
-/* NAVIGATION MENU */
 .header .navbar ul {
   list-style-type: none;
   display: flex;
@@ -329,12 +273,12 @@ header .social-links {
   justify-content: space-around;
 }
 
-/* NAV ITEMS */
+
 .header .navbar ul li {
   margin: 0 1.5rem;
 }
 
-/* NAV LINKS */
+
 .header .navbar ul li a {
   font-size: 2rem;
   color: #935f5f;
@@ -353,7 +297,7 @@ header .social-links {
   display: none;
 }
 
-/* RESPONSIVE: Display burger + hide social icons if needed */
+
 @media (max-width: 768px) {
   .social-links {
     position: absolute;
@@ -384,7 +328,7 @@ header .social-links {
   height: 100%;
   object-fit: cover;
 
-  z-index: -1; /* Bu resim en altta kalacak */
+  z-index: -1; 
 }
 
 .home::before {
@@ -393,13 +337,13 @@ header .social-links {
   top: 0;
   left: 0;
   width: 100%;
-  height: 20%; /* İstersen artır/azalt */
+  height: 20%; 
   background: linear-gradient(
     to bottom,
     rgba(255, 255, 255, 0.85),
-    /* üst koyuluk */ rgba(255, 255, 255, 0) /* alta doğru şeffaf */
+    /* üst koyuluk */ rgba(255, 255, 255, 0) 
   );
-  z-index: 0; /* resmin ÜSTÜNDE — içeriklerin ALTINDA */
+  z-index: 0; 
   pointer-events: none;
 }
 
@@ -429,10 +373,10 @@ header .social-links {
 
   .home h2 {
     font-size: 1.5rem;
-      max-width: 42rem;          /* Metin genişliğini sınırlıyoruz */
+      max-width: 42rem;          
   line-height: 1.3;
   display: -webkit-box;
-  -webkit-line-clamp: 2;     /* İki satırla sınırla */
+  -webkit-line-clamp: 2;    
   -webkit-box-orient: vertical;
   overflow: hidden;
   }
@@ -441,7 +385,6 @@ header .social-links {
    HERO CONTENT POSITIONING FIX
 ----------------------------------------- */
 
-/* Yazı bloğu için genişlik + sol boşluk */
 .home-content {
   max-width: 600px;
 }
@@ -449,14 +392,14 @@ header .social-links {
 /* Büyük ekranlarda yazıyı sola ve masaya yaklaştır */
 @media (min-width: 992px) {
   .home {
-    justify-content: flex-start;     /* Yazıyı sola taşı */
-    align-items: flex-end;           /* Yazıyı aşağı yaklaştır (masa hizası) */
-    padding-left: 8rem;              /* Soldan boşluk */
-    padding-bottom: 10rem;           /* Masanın üzerine gelsin */
+    justify-content: flex-start;     
+    align-items: flex-end;          
+    padding-left: 8rem;              
+    padding-bottom: 10rem;           
   }
 }
 
-/* Daha büyük ekranlarda daha sola taşı */
+
 @media (min-width: 1400px) {
   .home {
     padding-left: 14rem;  
@@ -517,43 +460,6 @@ header .social-links {
   }
 }
 
-/* home section ending  */
-
-/* about basliyor  */
-/* .about {
-  background-color: #e5bfbf;
-  height: auto;
-  width: 100vw;
-  top: -3rem;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-  line-height: 10rem;
-  padding: 5rem 0;
-}
-
-.about .row {
-  line-height: 4rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  padding: 0 4rem;
-}
-
-.about .row .content {
-  text-align: center;
-}
-
-.about .row .content h3 {
-  font-size: 3rem;
-  color: black;
-}
-
-.about .row .content p {
-  font-size: 5rem;
-  color: #333;
-  padding: 1rem 0;
-} */
 
 .about {
   background-color: #e5bfbf;
@@ -571,62 +477,60 @@ header .social-links {
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: 2.5rem; /* Gap biraz artırıldı, çünkü resim ve metin de büyüyecek */
+  gap: 2.5rem; 
   padding: 0 2rem;
 }
 
-/* 🖥️ BÜYÜK EKRAN (Masaüstü) - METİN BOYUTU ARTIRILDI */
+
 .about .content {
-  flex: 1 1 450px; /* Metin bloğunun taban genişliği artırıldı */
+  flex: 1 1 450px; 
   text-align: left;
 }
 
 .about .content h3 {
-  font-size: 3rem; /* 2.5rem'den 3rem'e çıkarıldı */
+  font-size: 3rem;
   margin-bottom: 1rem;
   color: #000;
 }
 
 .about .content p {
-  font-size: 1.4rem; /* 1.2rem'den 1.4rem'e çıkarıldı */
+  font-size: 1.4rem; 
   color: #333;
   line-height: 1.6;
 }
 
-/* 🖥️ BÜYÜK EKRAN (Masaüstü) - RESİM BOYUTU ARTIRILDI */
 .about .image {
-  flex: 1 1 450px; /* Taban genişliği 350px'ten 450px'e çıkarıldı */
+  flex: 1 1 450px; 
   display: flex;
   justify-content: center;
 }
 
 .about .image img {
   width: 100%;
-  max-width: 450px; /* Maksimum genişlik 350px'ten 450px'e çıkarıldı */
+  max-width: 450px; 
   border-radius: 20px;
   object-fit: cover;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
-/* 📱 RESPONSIVE (Mobil) - BOŞLUK AZALTILDI */
 @media (max-width: 768px) {
   .about {
-    padding: 3rem 0; /* 7rem yerine azaltıldı */
+    padding: 3rem 0; 
   }
 
   .about .row {
-    gap: 0.5rem; /* 1.5rem yerine daha küçük boşluk */
+    gap: 0.5rem; 
   }
 
   .about .image {
-    padding: 0; /* Ek boşluk varsa kaldırıldı */
+    padding: 0; 
   }
 
   .about .content {
     text-align: center;
   }
 }
-/* Preise section starting  */ */
+
 .pt-5 .container .row .section-head p {
   font-size: 2rem;
   color: #333;
@@ -718,11 +622,11 @@ header .social-links {
   color: #2f2f2f;
 }
 .price-list {
-  list-style-type: disc; /* klasik madde işareti */
+  list-style-type: disc; 
   padding-left: 20px;
   margin-top: 15px;
-  font-size: 15px; /* p ile uyumlu */
-  line-height: 26px; /* p ile uyumlu */
+  font-size: 15px; 
+  line-height: 26px; 
   color: #2f2f2f;
 }
 
@@ -733,10 +637,10 @@ header .social-links {
   font-size: 15px;
   line-height: 26px;
   color: #2f2f2f;
-  text-align: left; /* daha okunaklı */
+  text-align: left; 
 }
 
-/* preise ending  */
+
 .counters {
   background-image: url(../images/img2.jpg);
   background-size: cover;
@@ -891,7 +795,6 @@ header .social-links {
   z-index: 0;
 }
 
-/* Tüm içerik overlay'in üzerinde olmalı */
 .communicate h3,
 .communicate p,
 .communicate a,
@@ -900,13 +803,13 @@ header .social-links {
   z-index: 2;
 }
 
-/* Başlık */
+
 .communicate h3 {
   margin-top: 2rem;
   font-size: 3rem;
 }
 
-/* Paragraf */
+
 .communicate p {
   font-size: 2rem;
   margin-top: 1rem;
@@ -1169,24 +1072,23 @@ header .social-links {
   margin-bottom: 30px;
 }
 .ion-logo-instagram {
-    /* 'color: #d3a9a9;' yerine, orijinal degrade görünümünü vermek için background kullanın */
+   
     background: linear-gradient(
         45deg,
-        #feda75,  /* Sarı/Turuncu */
-        #fa7e1e,  /* Turuncu */
-        #d62976,  /* Pembe */
-        #962fbf,  /* Mor */
-        #4f5bd5   /* Mavi */
+        #feda75,  
+        #fa7e1e,  
+        #d62976,  
+        #962fbf,  
+        #4f5bd5   
     );
-    -webkit-background-clip: text; /* Metnin/İkonun arka planı kırpmasını sağlar */
-    -webkit-text-fill-color: transparent; /* Metnin kendi rengini şeffaf yapar */
-    /* Tarayıcı uyumluluğu için diğer prefix'ler gerekebilir */
+    -webkit-background-clip: text; 
+    -webkit-text-fill-color: transparent; 
 }
 .ion-logo-facebook {
-    color: #1877F2; /* Facebook'un kurumsal mavisi */
+    color: #1877F2; 
 }
 .ion-logo-whatsapp {
-    color: #25D366; /* WhatsApp'ın parlak yeşili */
+    color: #25D366; 
 }
 .footer .footer-top .social-links a {
   font-size: 32px;
@@ -1449,7 +1351,7 @@ header .social-links {
     color: #a37171;
     font-size: 2.4rem;
   }
-  /* burasi yeni  */
+
   .header .navbar ul li a:hover {
     transform: scale(1.05);
     transition: transform 0.3s ease;
@@ -1514,13 +1416,10 @@ header .social-links {
   }
 }
 
-/* galeri bolümü  */
-
-/* Kutucuk Temeli */
 .cake-showcase-box {
   background: #fff;
   text-align: center;
-  padding: 0px; /* Kenarlarda sadece küçük bir boşluk bıraktık */
+  padding: 0px; 
   box-shadow: 0 0 25px rgba(0, 0, 0, 0.07);
   border-radius: 20px;
   margin-bottom: 30px;
@@ -1530,7 +1429,6 @@ header .social-links {
   height: 400px;
 }
 
-/* Fotoğraf Alanı Stili */
 .cake-showcase-box img {
   border-radius: 15px;
   width: 100%;
@@ -1548,12 +1446,12 @@ header .social-links {
   transition: all 0.3s ease-out;
 }
 
-/* Başlık Stili (Artık sadece img var, bu kısım gereksiz ama korunabilir) */
+
 .cake-showcase-box h6 {
-  display: none; /* Başlıklar artık görünmesin */
+  display: none; 
 }
 
-/* Carousel Kontrol Okları Stili */
+
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
   background-color: #b27c7c;
@@ -1563,35 +1461,33 @@ header .social-links {
 
 .contact-wrapper {
   display: flex;
-  flex-wrap: wrap; /* Allows stacking on mobile */
+  flex-wrap: wrap; 
   width: 90%;
   margin: 0 auto;
-  gap: 20px; /* Space between map and form */
+  gap: 20px;
 }
 
-/* Map Section */
 .contact-map {
-  flex: 1; /* Takes equal space with form */
+  flex: 1; 
   min-height: 450px;
   padding: 40px;
 }
 
-/* Form Section */
+
 .kf-container {
-  flex: 1; /* Takes equal space with map */
+  flex: 1; 
   background: #fff;
   padding: 30px;
   border-radius: 15px;
   box-shadow: 0 10px 25px rgba(0,0,0,0.1);
 }
 
-/* Title */
+
 .kf-title {
   text-align: center;
   margin-bottom: 20px;
 }
 
-/* Inputs and Textarea */
 .kf-input,
 .kf-textarea {
   width: 100%;
@@ -1622,7 +1518,7 @@ header .social-links {
   border-color: #d3a9a9;
 }
 
-/* Submit button */
+
 .kf-submit {
   width: 100%;
   padding: 12px;
@@ -1644,7 +1540,7 @@ header .social-links {
 /* ===== MOBILE RESPONSIVE ===== */
 @media (max-width: 768px) {
   .contact-wrapper {
-    flex-direction: column; /* Stacks map & form */
+    flex-direction: column; 
     
   }
 
@@ -1660,16 +1556,16 @@ header .social-links {
 }
 
 
-/* impressum  */
+
 
 /* =================================== */
 /* Yeni Impressum Sayfası CSS Stilleri */
 /* =================================== */
 
 .impressum-main {
-    /* Header ve Footer arasında kalacak şekilde dikey boşlukları ayarlar */
-    min-height: calc(100vh - 100px); /* Ekran yüksekliğinden Header/Footer için varsayımsal bir alan çıkarıldı */
-    padding-top: 80px; /* Header'ın altından başlaması için boşluk */
+  
+    min-height: calc(100vh - 100px); 
+    padding-top: 80px; 
     padding-bottom: 50px;
 }
 
@@ -1710,7 +1606,7 @@ header .social-links {
 .impressum-sub-title {
     font-size: 2rem;
     font-weight: 600;
-    color: #935f5f; /* Pastacılık temanıza uygun bir renk tonu */
+    color: #935f5f; 
     margin-top: 30px;
     margin-bottom: 15px;
     border-bottom: 2px solid #f2f2f2;
@@ -1727,7 +1623,6 @@ header .social-links {
     margin-bottom: 25px;
 }
 
-/* Footer için varsayımsal stil (eğer yoksa) */
 .footer-area {
     background-color: #333;
     color: #fff;
