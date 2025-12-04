@@ -846,6 +846,11 @@ header .social-links {
   object-fit: cover; 
   object-position: center;
   display: block;
+  cursor: zoom-in; /* indicate image is clickable */
+}
+
+.testimonials .testimonial-img a {
+  display: block; /* make anchor cover the image fully */
 }
 
 .testimonials .owl-nav,
@@ -1642,4 +1647,84 @@ header .social-links {
 
 .footer-link:hover {
     color: #935f5f;
+}
+
+/* Responsive footer: allow columns to spread left/right on large screens */
+@media (min-width: 1100px) {
+  .footer .footer-top .container {
+    max-width: 1200px; /* base larger container */
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+
+  .footer .footer-top .row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 2.5rem;
+  }
+
+  /* Make each footer column take an even share and be able to grow */
+  .footer .footer-top .footer-links,
+  .footer .footer-top .footer-contact,
+  .footer .footer-top .footer-newsletter,
+  .footer .footer-top .footer-info {
+    flex: 1 1 23%;
+    max-width: 23%;
+  }
+
+  /* Prevent long text from wrapping too tightly; give breathing room */
+  .footer .footer-top .footer-contact p,
+  .footer .footer-top .footer-newsletter p,
+  .footer .footer-top .footer-links ul {
+    white-space: normal;
+  }
+}
+
+@media (min-width: 1400px) {
+  .footer .footer-top .container {
+    max-width: 1500px;
+    padding-left: 4.5rem;
+    padding-right: 4.5rem;
+  }
+
+  .footer .footer-top .footer-links,
+  .footer .footer-top .footer-contact,
+  .footer .footer-top .footer-newsletter,
+  .footer .footer-top .footer-info {
+    flex: 1 1 22%;
+    max-width: 22%;
+  }
+}
+
+@media (min-width: 1800px) {
+  .footer .footer-top .container {
+    max-width: 1800px;
+    padding-left: 6rem;
+    padding-right: 6rem;
+  }
+
+  .footer .footer-top .footer-links,
+  .footer .footer-top .footer-contact,
+  .footer .footer-top .footer-newsletter,
+  .footer .footer-top .footer-info {
+    flex: 1 1 20%;
+    max-width: 20%;
+  }
+
+  /* Make the copyright row spread horizontally */
+  .footer > .container {
+    max-width: 1800px;
+    padding-left: 6rem;
+    padding-right: 6rem;
+  }
+
+  .footer .row.align-items-center {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .footer .copyright {
+    text-align: left;
+  }
 }

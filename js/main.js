@@ -72,10 +72,21 @@ $(document).ready(function () {
   });
 
   $(".accordion-header").click(function () {
-    $(".accordion .accordion-body").slideUp(500);
-    $(this).next(".accordion-body").slideDown(500);
-    $(".accordion .accordion-header span").text("+");
-    $(this).children("span").text("-");
+    // Toggle the clicked accordion: if its body is visible, close it; otherwise open it and close others
+    const $body = $(this).next(".accordion-body");
+    const isOpen = $body.is(":visible");
+
+    if (isOpen) {
+      // Close this one
+      $body.slideUp(500);
+      $(this).children("span").text("+");
+    } else {
+      // Close all and open this one
+      $(".accordion .accordion-body").slideUp(500);
+      $(".accordion .accordion-header span").text("+");
+      $body.slideDown(500);
+      $(this).children("span").text("-");
+    }
   });
 });
 
