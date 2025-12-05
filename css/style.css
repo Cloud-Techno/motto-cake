@@ -1462,9 +1462,47 @@ header .social-links {
   background-color: #b27c7c;
   border-radius: 50%;
 }
-
-
+/* deneme  */
 .contact-wrapper {
+            display: flex;
+            flex-wrap: wrap; 
+            width: 90%;
+            max-width: 1200px; 
+            margin: 40px auto; 
+            gap: 20px;
+        }
+
+        /* Form Kapsayıcısı */
+        .kf-container {
+            flex: 1; 
+            background: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        /* Harita Kapsayıcısı */
+        .contact-map {
+            flex: 1; 
+            min-height: 450px;
+            position: relative; 
+            padding: 0; 
+            border-radius: 15px; 
+            overflow: hidden; 
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .contact-map iframe {
+            width: 100%;
+            height: 100%;
+        }
+        .contact-info {
+            text-align: left;
+            margin-top: 10px;
+        }
+
+
+/* .contact-wrapper {
   display: flex;
   flex-wrap: wrap; 
   width: 90%;
@@ -1485,14 +1523,91 @@ header .social-links {
   padding: 30px;
   border-radius: 15px;
   box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+} */
+
+/* ======================================================= */
+/* İletişim Bilgileri Kutusu Stilleri (Boyutlar Büyütüldü) */
+/* ======================================================= */
+
+/* Kutu Kapsayıcısı */
+.contact-info {
+    /* position: absolute ve diğer konumlandırma stillerini ana bloktan aldığınızı varsayıyorum */
+    background: #ffffff; 
+    padding: 30px; /* İç boşluğu artırdık */
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); 
+    margin-bottom: 25px; /* Harita ile arasına boşluk */
 }
 
+/* Başlık: Contact Info */
+.contact-info h3 {
+    font-size: 24px; /* Başlık boyutunu büyüttük */
+    font-weight: 600; 
+    margin-top: 0;
+    margin-bottom: 0px;
+    color: #333;
+    border-bottom: 2px solid #935f5f; 
+    padding-bottom: 2px; 
+}
 
+/* Tekil İletişim Öğeleri (Metin) */
+.info-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px; 
+    font-size: 18px; /* Metin boyutunu büyüttük */
+    color: #444; 
+    font-weight: 400;
+}
+
+/* İkon Stilleri */
+.info-item i {
+    color: #935f5f; 
+    margin-right: 15px; 
+    font-size: 20px; /* İkon boyutunu büyüttük */
+    width: 25px; 
+    text-align: center;
+}
+
+.info-item:last-child {
+    margin-bottom: 0;
+}
+
+/* ======================================================= */
+/* Mobil Uyum (Responsive) - Küçüldüğünde Normal Boyut */
+/* ======================================================= */
+@media (max-width: 768px) {
+    
+    .contact-info {
+        padding: 20px; /* Mobil padding'i küçülttük */
+        margin-bottom: 5px;
+    }
+
+    /* Mobil Başlık */
+    .contact-info h3 {
+        font-size: 20px;
+        margin-bottom: 15px;
+    }
+
+    /* Mobil Metin Boyutu */
+    .info-item {
+        font-size: 15px; /* Daha küçük boyuta geri dönülüyor */
+        margin-bottom: 10px;
+    }
+
+    /* Mobil İkon Boyutu */
+    .info-item i {
+        font-size: 17px;
+        margin-right: 10px;
+    }
+}
 .kf-title {
   text-align: center;
   margin-bottom: 20px;
 }
-
+.kf-field {
+            margin-bottom: 15px;
+        }
 .kf-input,
 .kf-textarea {
   width: 100%;
