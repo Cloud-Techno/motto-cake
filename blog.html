@@ -1,40 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mottocake Blog</title>
+    <title>Mottocake Baden - Blog</title>
+    <link rel="icon" href="./images/favicon.png" type="image/png" />
 
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
-      integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
-      crossorigin="anonymous"
-    />
+    <!-- CSS -->
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/blog.css" />
+
+    <!-- Font Awesome & Bootstrap & Ionicons -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
     />
     <link
       rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css"
     />
-
-    <link rel="stylesheet" href="./css/style.css" />
-    <link rel="stylesheet" href="./css/blog.css" />
-    <link rel="icon" href="./images/image.png" />
   </head>
   <body>
+    <!-- HEADER -->
     <header class="header">
-      <a href="index.html" class="logo">
-        <h1>Motto Cake</h1>
-      </a>
+      <a href="index.html" class="logo"><h1>Motto Cake</h1></a>
       <div class="social-links">
-        <a
-          href="https://www.instagram.com/motto_cake?igsh=MXNmc2JlYTU3d2djYQ%3D%3D&utm_source=qr"
-          target="_blank"
-        >
+        <a href="https://www.instagram.com/motto_cake" target="_blank">
           <i class="ion-logo-instagram"></i>
         </a>
         <a href="https://wa.me/41782306029" target="_blank">
@@ -47,27 +43,22 @@
           <li><a href="index.html#home">Home</a></li>
           <li><a href="index.html#about">Über Uns</a></li>
           <li><a href="index.html#service">Leistungen</a></li>
+          <li><a href="blog.html" class="active">Blog</a></li>
           <li><a href="index.html#kf-form-section">Kontakt</a></li>
         </ul>
       </nav>
     </header>
 
-    <section class="blog-section py-5">
-      <div class="container">
-        <h2 class="text-center mb-5 blog-title">🍰 Motto Cake Blog</h2>
-        <div class="row" id="posts"></div>
-        <div class="text-center" id="loading-spinner">
-          <div class="spinner-border text-primary" role="status">
-            <span class="sr-only">Laden...</span>
-          </div>
-        </div>
-        <div class="text-center" id="error-message" style="display: none">
-          <p class="text-danger">Beiträge konnten nicht geladen werden.</p>
-        </div>
+    <!-- BLOG SECTION -->
+    <section id="blog" class="container py-5">
+      <h2 class="text-center mb-4">Neueste Blog-Beiträge</h2>
+      <div class="row" id="posts">
+        <!-- JS ile postlar buraya eklenecek -->
       </div>
     </section>
 
-    <div class="footer">
+    <!-- FOOTER -->
+    <footer class="footer">
       <div class="footer-top">
         <div class="container">
           <div class="row">
@@ -80,31 +71,38 @@
                 </li>
                 <li>
                   <i class="ion-ios-arrow-forward"></i>
-                  <a href="impressum.html">Impressum</a>
+                  <a href="index.html#about">Über Uns</a>
                 </li>
                 <li>
                   <i class="ion-ios-arrow-forward"></i>
-                  <a href="datenschutz.html">Datenschutz</a>
+                  <a href="index.html#service">Leistungen</a>
+                </li>
+                <li>
+                  <i class="ion-ios-arrow-forward"></i>
+                  <a href="blog.html">Blog</a>
+                </li>
+                <li>
+                  <i class="ion-ios-arrow-forward"></i>
+                  <a href="index.html#kf-form-section">Kontakt</a>
                 </li>
               </ul>
             </div>
-            <div
-              class="col-lg-3 col-md-6 footer-contact"
-              style="font-size: 1.5rem"
-            >
+
+            <div class="col-lg-3 col-md-6 footer-contact">
               <h4>Kontakt</h4>
               <p>
-                Stadtbachstrasse 15<br />5400 Baden<br />Switzerland
-                <br /><strong>Phone:</strong> +41 78 230 6029<br /><strong
-                  >Email:</strong
-                >
-                info@mottocake.ch<br />
+                Stadtbachstrasse 15<br />
+                5400 Baden<br />
+                Switzerland <br />
+                <strong>Phone:</strong> +41 78 230 6029<br />
+                <strong>Email:</strong> info@mottocake.ch<br />
               </p>
             </div>
-            <div class="col-lg-3 col-md-6 footer-newsletter">
+
+            <div class="col-lg-6 col-md-6 footer-newsletter">
               <h4>Über mich</h4>
               <p>
-                Ich bin eine Hauskonditorin aus Baden und spezialisiere mich auf
+                Ich bin eine Hauskonditorin aus Baden, spezialisiert auf
                 Boutique-Torten, individuelle Design-Torten und frische
                 Geburtstagstorten.
               </p>
@@ -112,95 +110,42 @@
           </div>
         </div>
       </div>
+
       <div class="container">
         <div class="row align-items-center">
-          <div
-            class="col-md-6 copyright"
-            style="color: #fff; font-size: 1.3rem"
-          >
-            Copyright © 2025 MottoCake by Derya Nagehan Ates. All Rights
+          <div class="col-md-12 copyright">
+            Copyright &copy; 2025 MottoCake by Derya Nagehan Ates. All Rights
             Reserved.
           </div>
         </div>
       </div>
-    </div>
+    </footer>
 
-    <script
-      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
-      crossorigin="anonymous"
-    ></script>
-
-    <script>
-      // Post yükleme JavaScript'i
-      async function loadPosts() {
-        const container = document.getElementById("posts");
-        const loadingSpinner = document.getElementById("loading-spinner");
-        const errorMessage = document.getElementById("error-message");
-
-        loadingSpinner.style.display = "block"; // Yükleniyor spinner'ını göster
-
-        try {
-          // API çağrısı
-          let res = await fetch("/api/getPosts.php");
-
-          if (!res.ok) {
-            throw new Error(`HTTP error! status: ${res.status}`);
-          }
-
-          let posts = await res.json();
-
-          loadingSpinner.style.display = "none"; // Spinner'ı gizle
-          container.innerHTML = ""; // İçeriği temizle
-
-          if (posts.length === 0) {
-            container.innerHTML =
-              '<div class="col-12"><p class="text-center text-muted">Henüz yayınlanmış bir blog yazısı bulunmamaktadır.</p></div>';
-            return;
-          }
-
-          // Postları Bootstrap Card yapısında döngüye al
-          posts.forEach((p) => {
-            // Örnek bir resim URL'si ekledim. Gerçek bir blogda, post verisinde bu URL olmalı.
-            const imageUrl = p.image || "./images/default-blog-image.jpg";
-
-            // İçeriğin sadece bir kısmını göster (Özet)
-            const summary =
-              p.content.substring(0, 150) +
-              (p.content.length > 150 ? "..." : "");
-
-            container.innerHTML += `
-              <div class="col-md-6 col-lg-4 mb-4">
-                <div class="card blog-card h-100 shadow-sm">
-                  <div class="card-img-top blog-image" style="background-image: url('${imageUrl}');"></div> 
-                  <div class="card-body d-flex flex-column">
-                    <h5 class="card-title post-title">${p.title}</h5>
-                    <p class="card-subtitle mb-2 text-muted small">Yazar: Derya | Tarih: ${
-                      p.date || "Bilinmiyor"
-                    }</p>
-                    <p class="card-text post-summary">${summary}</p>
-                    <a href="#" class="mt-auto btn btn-custom-readmore">Weiterlesen <i class="fas fa-arrow-right"></i></a> 
-                  </div>
-                </div>
-              </div>
-            `;
-          });
-        } catch (error) {
-          console.error("Post yükleme hatası:", error);
-          loadingSpinner.style.display = "none"; // Spinner'ı gizle
-          errorMessage.style.display = "block"; // Hata mesajını göster
-        }
-      }
-
-      // Varsayılan resim için bir yer tutucu oluşturun
-      // Gerçek resim veriniz yoksa, her postun içeriğine uygun bir resim eklemeyi düşünün.
-
-      loadPosts();
-    </script>
+    <!-- JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.3/js/bootstrap.bundle.min.js"></script>
+    <script src="./js/blog.js"></script>
   </body>
 </html>
+
+<!-- <div id="posts"></div>
+
+<script>
+  async function loadPosts() {
+    let res = await fetch("/api/getPosts.php");
+    let posts = await res.json();
+
+    const container = document.getElementById("posts");
+
+    posts.forEach((p) => {
+      container.innerHTML += `
+            <div>
+                <h2>${p.title}</h2>
+                <p>${p.content}</p>
+            </div>
+        `;
+    });
+  }
+
+  loadPosts();
+</script> -->

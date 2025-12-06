@@ -1843,3 +1843,35 @@ header .social-links {
     text-align: left;
   }
 }
+
+/* Blog Başlığı */
+#blog h2 {
+  color: #b27c7c;           /* Sets the blog heading color */
+  font-weight: bold;         /* Makes the heading bold */
+  margin-bottom: 2rem;       /* Adds space below the heading */
+  text-transform: uppercase; /* Converts text to uppercase */
+}
+
+/* Kart başlığı */
+#blog .card-title {
+  color: #935f5f;       /* Sets the card title color */
+  font-weight: 600;      /* Semi-bold font weight */
+}
+
+/* Kart metni */
+#blog .card-text {
+  font-size: 0.95rem;   /* Slightly smaller text for card content */
+  color: #333;          /* Dark gray color for readability */
+}
+
+/* Kart hover efekti */
+#blog .card:hover {
+  transform: translateY(-5px); /* Moves the card slightly up when hovered */
+  transition: 0.3s ease;        /* Smooth transition effect */
+}
+
+/* Kart footer */
+#blog .card-footer {
+  font-size: 0.85rem;   /* Smaller font for the footer */
+  color: #777;          /* Light gray color for secondary info like date */
+}
