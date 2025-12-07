@@ -1,15 +1,20 @@
 <?php
-// public_html/test-db.php
-
-// config.php public_html dışında olduğu için path doğru olmalı
 include $_SERVER['DOCUMENT_ROOT'].'/../secure_config/config.php';
 
-// Bağlantı testi
-if ($conn->connect_error) {
-    die("Bağlantı hatası: " . $conn->connect_error);
-}
+// SQL query to fetch data
+$sql = "SELECT baslik, icerik FROM yazilar";
+$result = $conn->query($sql);
 
-echo "Bağlantı başarılı!";
+// Check if there are any records
+if ($result->num_rows > 0) {
+    while($row = $result->fetch_assoc()) {
+        echo "<h2>" . htmlspecialchars($row["baslik"]) . "</h2>"; // Title
+        echo "<p>" . nl2br(htmlspecialchars($row["icerik"])) . "</p>"; // Content
+        echo "<hr>";
+    }
+} else {
+    echo "No entries found."; // If no records exist
+}
 
 $conn->close();
 ?>
