@@ -1,7 +1,7 @@
 <?php
 // 1. DÜZELTME: Config dosyasına doğru yolu veriyoruz. 
 // getPosts.php'den (public_html/api) iki seviye yukarı çıkarak secure_config'e ulaşırız.
-$config = require __DIR__ . '/../../secure_config/config.php';
+$config = require __DIR__ . '/../secure_config/config.php';
 
 // Veritabanı bağlantısı kuruluyor
 $conn = new mysqli(
