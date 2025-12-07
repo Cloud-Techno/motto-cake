@@ -1,5 +1,5 @@
 <?php
-$config = require $_SERVER['DOCUMENT_ROOT'] . '../secure_config/config.php';
+$config = require $_SERVER['DOCUMENT_ROOT'] . '/../../secure_config/config.php';
 
 $conn = new mysqli(
     $config['host'],
