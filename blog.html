@@ -127,25 +127,3 @@
     <script src="./js/blog.js"></script>
   </body>
 </html>
-
-<!-- <div id="posts"></div>
-
-<script>
-  async function loadPosts() {
-    let res = await fetch("/api/getPosts.php");
-    let posts = await res.json();
-
-    const container = document.getElementById("posts");
-
-    posts.forEach((p) => {
-      container.innerHTML += `
-            <div>
-                <h2>${p.title}</h2>
-                <p>${p.content}</p>
-            </div>
-        `;
-    });
-  }
-
-  loadPosts();
-</script> -->
