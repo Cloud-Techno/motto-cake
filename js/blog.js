@@ -1,3 +1,8 @@
+if (window.blogLoaded) return;
+window.blogLoaded = true;
+
+document.addEventListener("DOMContentLoaded", loadPosts);
+
 async function loadPosts() {
   const container = document.getElementById("posts");
   const loadingSpinner = document.querySelector(".loading-spinner");
