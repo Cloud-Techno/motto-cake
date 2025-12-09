@@ -1,7 +1,10 @@
-if (window.blogLoaded) return;
-window.blogLoaded = true;
+if (window.hasRunLoadPosts) {
+  console.warn("loadPosts already executed, skipping duplicate call.");
+  return;
+}
+window.hasRunLoadPosts = true;
 
-document.addEventListener("DOMContentLoaded", loadPosts);
+loadPosts();
 
 async function loadPosts() {
   const container = document.getElementById("posts");
@@ -74,5 +77,3 @@ async function loadPosts() {
     </div>`;
   }
 }
-
-document.addEventListener("DOMContentLoaded", loadPosts);
