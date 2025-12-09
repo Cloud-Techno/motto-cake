@@ -15,7 +15,7 @@ if ($result->num_rows > 0) {
             "title" => $row['title'],
             "content" => $row['content'],
             "created_at" => $row['created_at'],
-            "image_url" => $row['image_url']   // <-- EKLENDİ
+            "image_url" => $row['image_url']   
         ];
     }
 }
