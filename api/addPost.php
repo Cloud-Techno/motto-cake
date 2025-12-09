@@ -7,7 +7,7 @@ $message = "";
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $title = $_POST['title'];
     $content = $_POST['content'];
-    
+
     // Resim yükleme kontrolü
     if (isset($_FILES['image']) && $_FILES['image']['error'] === 0) {
         $allowed = ['jpg','jpeg','png','gif'];
@@ -16,28 +16,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $fileExt = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
 
         if (in_array($fileExt, $allowed)) {
-            // Dosya adı benzersiz olsun
-            $newFileName = 'post-' . time() . '.' . $fileExt;
+            $newFileName = 'post-' . time() . '.' . $fileExt; // Benzersiz isim
             $uploadDir = $_SERVER['DOCUMENT_ROOT'].'/blog_images/';
             $destPath = $uploadDir . $newFileName;
 
             if (move_uploaded_file($fileTmp, $destPath)) {
+                // DB’ye sadece yol kaydediliyor
                 $image_url = "https://mottocake.ch/blog_images/" . $newFileName;
 
-                // Veritabanına ekle
                 $stmt = $conn->prepare("INSERT INTO posts (title, content, created_at, image_url) VALUES (?, ?, NOW(), ?)");
                 $stmt->bind_param("sss", $title, $content, $image_url);
+
                 if ($stmt->execute()) {
                     $message = "Post başarıyla eklendi!";
                 } else {
-                    $message = "Veritabanına eklerken hata oluştu: ".$conn->error;
+                    $message = "Veritabanına eklerken hata oluştu: " . $conn->error;
                 }
                 $stmt->close();
             } else {
                 $message = "Dosya yüklenemedi!";
             }
         } else {
-            $message = "Sadece JPG, PNG, GIF uzantılı dosyalar kabul edilir.";
+            $message = "Sadece JPG, JPEG, PNG veya GIF uzantılı dosyalar kabul edilir.";
         }
     } else {
         $message = "Resim seçilmedi veya yükleme hatası var.";
