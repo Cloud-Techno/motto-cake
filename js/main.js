@@ -1,4 +1,5 @@
 $(document).ready(function () {
+  // Navbar toggle
   $(".fa-bars").click(function () {
     $(this).toggleClass("fa-times");
     $(".navbar").toggleClass("nav-toggle");
@@ -18,6 +19,7 @@ $(document).ready(function () {
     }
   });
 
+  // Counter animations
   const counters = document.querySelectorAll(".counter");
   const speed = 120;
   counters.forEach((counter) => {
@@ -35,83 +37,49 @@ $(document).ready(function () {
     updateCount();
   });
 
-  (function ($) {
-    "use strict";
+  // Owl carousels
+  $(".clients-carousel").owlCarousel({
+    autoplay: true,
+    autoplayTimeout: 1500,
+    dots: true,
+    loop: true,
+    responsive: { 0: { items: 2 }, 768: { items: 4 }, 900: { items: 6 } },
+  });
 
-    $(".clients-carousel").owlCarousel({
-      autoplay: true,
-      autoplayTimeout: 1500,
-      dots: true,
-      loop: true,
-      responsive: { 0: { items: 2 }, 768: { items: 4 }, 900: { items: 6 } },
-    });
+  $(".testimonials-carousel").owlCarousel({
+    autoplay: true,
+    dots: true,
+    loop: true,
+    responsive: {
+      0: { items: 1 },
+      576: { items: 2 },
+      768: { items: 3 },
+      992: { items: 4 },
+    },
+  });
 
-    $(".testimonials-carousel").owlCarousel({
-      autoplay: true,
-      dots: true,
-      loop: true,
-      responsive: {
-        0: { items: 1 },
-        576: { items: 2 },
-        768: { items: 3 },
-        992: { items: 4 },
-      },
-    });
-  })(jQuery);
-
+  // Back to top
   $(window).scroll(function () {
-    if ($(this).scrollTop() > 100) {
-      $(".back-to-top").fadeIn("slow");
-    } else {
-      $(".back-to-top").fadeOut("slow");
-    }
+    if ($(this).scrollTop() > 100) $(".back-to-top").fadeIn("slow");
+    else $(".back-to-top").fadeOut("slow");
   });
   $(".back-to-top").click(function () {
     $("html, body").animate({ scrollTop: 0 }, 1500, "easeInOutExpo");
     return false;
   });
 
+  // Accordion
   $(".accordion-header").click(function () {
-    // Toggle the clicked accordion: if its body is visible, close it; otherwise open it and close others
     const $body = $(this).next(".accordion-body");
     const isOpen = $body.is(":visible");
-
     if (isOpen) {
-      // Close this one
       $body.slideUp(500);
       $(this).children("span").text("+");
     } else {
-      // Close all and open this one
       $(".accordion .accordion-body").slideUp(500);
       $(".accordion .accordion-header span").text("+");
       $body.slideDown(500);
       $(this).children("span").text("-");
-    }
-  });
-});
-
-document.addEventListener("DOMContentLoaded", function () {
-  const form = document.getElementById("cakeForm");
-
-  form.addEventListener("submit", async function (e) {
-    e.preventDefault(); // Sayfa yenilenmesin
-
-    const data = new FormData(form);
-
-    try {
-      const res = await fetch(form.action, {
-        method: "POST",
-        body: data,
-      });
-
-      if (res.ok) {
-        form.reset(); // Formu temizle
-        document.getElementById("thanks").style.display = "block"; // Mesajı göster
-      } else {
-        alert("Es gab ein Problem beim Senden. Bitte versuchen Sie es erneut.");
-      }
-    } catch (error) {
-      alert("Netzwerkfehler. Bitte versuchen Sie es erneut.");
     }
   });
 });

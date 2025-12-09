@@ -1,6 +1,4 @@
-if (window.hasRunLoadPosts) {
-  console.warn("loadPosts already executed, skipping duplicate call.");
-} else {
+if (!window.hasRunLoadPosts) {
   window.hasRunLoadPosts = true;
   loadPosts();
 }
@@ -13,16 +11,15 @@ async function loadPosts() {
   container.innerHTML = "";
 
   try {
-    let res = await fetch("/api/getPosts.php");
-    let posts = await res.json();
-
+    const res = await fetch("/api/getPosts.php");
+    const posts = await res.json();
     loadingSpinner.style.display = "none";
 
     if (posts.length === 0) {
       container.innerHTML = `
         <div class="col-12 text-center py-5">
-            <h3 class="text-muted">Derzeit sind keine Blog-Beiträge verfügbar.</h3>
-            <p>Bitte besuchen Sie uns später erneut.</p>
+          <h3 class="text-muted">Derzeit sind keine Blog-Beiträge verfügbar.</h3>
+          <p>Bitte besuchen Sie uns später erneut.</p>
         </div>`;
       return;
     }
@@ -45,34 +42,29 @@ async function loadPosts() {
               p.image_url
             }" class="blog-card-img" alt="${p.title}">
           </div>
-
           <div class="blog-card-body">
             <h3 class="blog-card-title">${p.title}</h3>
             <p class="blog-card-text">${summary}</p>
-
             <div class="blog-meta">
               <small>${new Date(p.created_at).toLocaleDateString(
                 "de-DE",
                 dateOptions
               )}</small>
             </div>
-
-            <a href="/post-detail.html?id=${p.id}" class="blog-read-more">
-              Mehr lesen →
-            </a>
+            <a href="/post-detail.html?id=${
+              p.id
+            }" class="blog-read-more">Mehr lesen →</a>
           </div>
-        </article>
-      `;
-
+        </article>`;
       container.appendChild(postDiv);
     });
   } catch (err) {
     console.error(err);
     loadingSpinner.style.display = "none";
     container.innerHTML = `
-    <div class="col-12 text-center py-5">
-      <h3 class="text-danger">Fehler beim Laden der Beiträge.</h3>
-      <p>Versuchen Sie es später erneut.</p>
-    </div>`;
+      <div class="col-12 text-center py-5">
+        <h3 class="text-danger">Fehler beim Laden der Beiträge.</h3>
+        <p>Versuchen Sie es später erneut.</p>
+      </div>`;
   }
 }
