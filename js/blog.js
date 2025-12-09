@@ -1,10 +1,9 @@
 if (window.hasRunLoadPosts) {
   console.warn("loadPosts already executed, skipping duplicate call.");
-  return;
+} else {
+  window.hasRunLoadPosts = true;
+  loadPosts();
 }
-window.hasRunLoadPosts = true;
-
-loadPosts();
 
 async function loadPosts() {
   const container = document.getElementById("posts");
