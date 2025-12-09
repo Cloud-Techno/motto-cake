@@ -11,16 +11,22 @@ async function loadPosts() {
       postDiv.className = "col-md-6 mb-4";
 
       postDiv.innerHTML = `
-                <div class="card p-3 h-100">
-                    <div class="card-body">
-                        <h3 class="card-title">${p.title}</h3>
-                        <p class="card-text">${p.content}</p>
-                        <small class="text-muted">${new Date(
-                          p.created_at
-                        ).toLocaleDateString("de-DE")}</small>
-                    </div>
-                </div>
-            `;
+        <div class="card p-3 h-100">
+          ${
+            p.image_url
+              ? `<img src="${p.image_url}" class="card-img-top mb-3" alt="${p.title}">`
+              : ""
+          }
+          <div class="card-body">
+            <h3 class="card-title">${p.title}</h3>
+            <p class="card-text">${p.content}</p>
+            <small class="text-muted">${new Date(
+              p.created_at
+            ).toLocaleDateString("de-DE")}</small>
+          </div>
+        </div>
+      `;
+
       container.appendChild(postDiv);
     });
   } catch (error) {
