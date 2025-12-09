@@ -1845,33 +1845,154 @@ header .social-links {
 }
 
 /* Blog Başlığı */
-#blog h2 {
-  color: #b27c7c;           /* Sets the blog heading color */
-  font-weight: bold;         /* Makes the heading bold */
-  margin-bottom: 2rem;       /* Adds space below the heading */
-  text-transform: uppercase; /* Converts text to uppercase */
+/* ... [Mevcut CSS Kodları Buraya Kadar Aynı Kalıyor] ... */
+
+/* =================================== */
+/* BLOG SAYFASI ÖZEL STİLLERİ */
+/* =================================== */
+
+/* Blog Hero/Header Section */
+.blog-hero {
+    /* Header'dan sonra başlaması için boşluk */
+    padding-top: 120px !important; 
+    background-color: #fcf8f7; /* Hafif pastel ton */
+    border-bottom: 2px solid #e5bfbf;
 }
 
-/* Kart başlığı */
-#blog .card-title {
-  color: #935f5f;       /* Sets the card title color */
-  font-weight: 600;      /* Semi-bold font weight */
+.blog-main-title {
+    font-family: 'Playfair Display', serif; /* Şık font */
+    color: #935f5f; /* Ana marka rengi */
+    font-size: 4.5rem;
+    margin-bottom: 0.5rem;
 }
 
-/* Kart metni */
-#blog .card-text {
-  font-size: 0.95rem;   /* Slightly smaller text for card content */
-  color: #333;          /* Dark gray color for readability */
+.blog-subtitle {
+    font-size: 1.8rem;
+    color: #555;
+    margin-bottom: 2rem;
 }
 
-/* Kart hover efekti */
-#blog .card:hover {
-  transform: translateY(-5px); /* Moves the card slightly up when hovered */
-  transition: 0.3s ease;        /* Smooth transition effect */
+.section-head-2 {
+    color: #b27c7c; 
+    font-size: 3rem;
+    font-weight: 700;
+    position: relative;
+    padding-bottom: 10px;
+    margin-bottom: 40px !important;
 }
 
-/* Kart footer */
-#blog .card-footer {
-  font-size: 0.85rem;   /* Smaller font for the footer */
-  color: #777;          /* Light gray color for secondary info like date */
+.section-head-2::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    height: 3px;
+    width: 80px;
+    background-color: #e5bfbf;
+    border-radius: 50px;
 }
+
+/* Blog Kartı Stili (Geliştirilmiş) */
+#blog-posts-section .card {
+    border: 1px solid #f0f0f0;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease-in-out;
+    height: 100%; /* Tüm kartların eşit boyda olmasını sağlar */
+}
+
+#blog-posts-section .card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+#blog-posts-section .card-img-top {
+    height: 250px; /* Sabit resim yüksekliği */
+    object-fit: cover; /* Resmi keserek tam oturtur */
+    width: 100%;
+    transition: transform 0.5s ease;
+}
+
+#blog-posts-section .card:hover .card-img-top {
+    transform: scale(1.05); /* Hover'da resimde hafif zoom efekti */
+}
+
+#blog-posts-section .card-body {
+    padding: 25px;
+}
+
+#blog-posts-section .card-title {
+    color: #935f5f;
+    font-weight: 700;
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+    /* İki satır limiti */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+#blog-posts-section .card-text {
+    font-size: 1.5rem;
+    color: #666;
+    line-height: 1.5;
+    /* Üç satır limiti */
+    display: -webkit-box;
+    -webkit-line-clamp: 3; 
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+#blog-posts-section .text-muted {
+    font-size: 1.3rem;
+    display: block;
+    margin-top: 15px;
+    color: #a0a0a0 !important;
+}
+
+/* Yükleniyor Spinner Stili */
+.loading-spinner {
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.spinner-border {
+    width: 3rem;
+    height: 3rem;
+    color: #b27c7c !important; /* Tema renginizle uyumlu */
+}
+
+
+/* Responsive Ayarlamalar */
+@media (max-width: 992px) {
+    .blog-main-title {
+        font-size: 3.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .blog-hero {
+        padding-top: 100px !important;
+    }
+    .blog-main-title {
+        font-size: 3rem;
+    }
+    .blog-subtitle {
+        font-size: 1.5rem;
+    }
+    #blog-posts-section .card-img-top {
+        height: 200px;
+    }
+    #blog-posts-section .card-title {
+        font-size: 1.8rem;
+    }
+    #blog-posts-section .card-text {
+        font-size: 1.4rem;
+    }
+}
+
+/* ... [Kalan CSS Kodları] ... */
