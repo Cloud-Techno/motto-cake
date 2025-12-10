@@ -1929,78 +1929,112 @@ header .social-links {
     color: #935f5f;
 }
 
-/* Post Detail Özel Stil */
-.back-link {
-    font-size: 1.6rem;
+/* =========================
+   Post Detail Profesyonel CSS
+   ========================= */
+
+/* Temel container */
+.container {
+    max-width: 900px;       /* Maksimum genişlik masaüstü için */
+    width: 90%;             /* Küçük ekranlarda esnek */
+    margin: 0 auto;         /* Ortalamak için */
+    padding: 2rem 1rem;
+    box-sizing: border-box;
+}
+
+/* Blog Detay İçerik */
+#post-detail {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 1.8rem;      /* Okunaklı font boyutu */
+    line-height: 2.6rem;    /* Satırlar arası boşluk */
+    color: #333;            /* Kontrastlı yazı rengi */
+    text-align: justify;    /* Profesyonel görünüm */
+    hyphens: auto;          /* Kelime kırma */
+}
+
+/* Başlıklar */
+#post-detail h1,
+#post-detail h2,
+#post-detail h3,
+#post-detail h4,
+#post-detail h5,
+#post-detail h6 {
+    color: #935f5f;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    line-height: 1.4;
+    font-weight: 600;
+}
+
+#post-detail h1 { font-size: 3rem; }
+#post-detail h2 { font-size: 2.6rem; }
+#post-detail h3 { font-size: 2.2rem; }
+#post-detail h4 { font-size: 2rem; }
+
+/* Paragraflar */
+#post-detail p {
+    margin-bottom: 1.8rem;
+}
+
+/* Linkler */
+#post-detail a {
+    color: #b27c7c;
+    text-decoration: underline;
+    transition: color 0.3s ease;
+}
+
+#post-detail a:hover {
     color: #935f5f;
     text-decoration: none;
-    margin-bottom: 20px;
-    display: inline-block;
-    transition: 0.3s;
 }
 
-.back-link:hover {
-    color: #b27c7c;
-    transform: translateX(-3px);
+/* Resimler */
+#post-detail img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    margin: 1.5rem 0;
+    display: block;
+    margin-left: auto;
+    margin-right: auto; /* Ortalamak için */
 }
 
-/* Post Card */
-.post-card {
-    background: #fff;
-    padding: 30px;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+/* Listeler */
+#post-detail ul,
+#post-detail ol {
+    margin-left: 2rem;
+    margin-bottom: 1.5rem;
 }
 
-.post-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+/* Responsive Yazı Boyutları */
+@media (max-width: 1024px) {
+    #post-detail {
+        font-size: 1.7rem;
+        line-height: 2.4rem;
+    }
+    #post-detail h1 { font-size: 2.8rem; }
+    #post-detail h2 { font-size: 2.4rem; }
 }
 
-.post-card h2 {
-    font-size: 2.8rem;
-    color: #935f5f;
-    margin-bottom: 15px;
-}
-
-.post-card .meta {
-    font-size: 1.4rem;
-    color: #aaa;
-    margin-bottom: 20px;
-}
-
-.post-card img {
-    width: 100%;
-    height: 400px;
-    object-fit: cover;
-    border-radius: 15px;
-    margin-bottom: 25px;
-    transition: transform 0.5s ease;
-}
-
-.post-card img:hover {
-    transform: scale(1.05);
-}
-
-.post-card p {
-    font-size: 1.6rem;
-    line-height: 1.8;
-    color: #555;
-    margin-bottom: 20px;
-}
-
-/* Responsive */
 @media (max-width: 768px) {
-    .post-card img {
-        height: 250px;
+    #post-detail {
+        font-size: 1.6rem;
+        line-height: 2.2rem;
     }
+    #post-detail h1 { font-size: 2.4rem; }
+    #post-detail h2 { font-size: 2.2rem; }
+    #post-detail h3 { font-size: 2rem; }
+    .container {
+        padding: 1.5rem 1rem;
+    }
+}
 
-    .post-card h2 {
-        font-size: 2rem;
+@media (max-width: 480px) {
+    #post-detail {
+        font-size: 1.5rem;
+        line-height: 2rem;
     }
-
-    .post-card p {
-        font-size: 1.4rem;
-    }
+    #post-detail h1 { font-size: 2rem; }
+    #post-detail h2 { font-size: 1.8rem; }
+    #post-detail h3 { font-size: 1.6rem; }
 }
