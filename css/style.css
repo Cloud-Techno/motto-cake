@@ -2038,3 +2038,50 @@ header .social-links {
     #post-detail h2 { font-size: 1.8rem; }
     #post-detail h3 { font-size: 1.6rem; }
 }
+
+/* =========================
+   Back Link Tasarımı
+   ========================= */
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    font-size: 1.8rem;            /* Daha okunaklı font */
+    font-weight: 600;
+    color: #935f5f;
+    text-decoration: none;
+    margin-bottom: 2rem;
+    transition: all 0.3s ease;
+}
+
+.back-link:hover {
+    color: #b27c7c;
+    transform: translateX(-4px); /* Hafif sola kayma efekti */
+}
+
+/* Ok ikonu eklemek için pseudo-element */
+.back-link::before {
+    content: '←';                  /* Sol ok ikonu */
+    margin-right: 0.6rem;
+    font-size: 2rem;               /* Ok daha belirgin */
+}
+
+/* Responsive düzenlemeler */
+@media (max-width: 768px) {
+    .back-link {
+        font-size: 1.6rem;
+    }
+    .back-link::before {
+        font-size: 1.8rem;
+        margin-right: 0.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .back-link {
+        font-size: 1.5rem;
+    }
+    .back-link::before {
+        font-size: 1.6rem;
+        margin-right: 0.4rem;
+    }
+}
