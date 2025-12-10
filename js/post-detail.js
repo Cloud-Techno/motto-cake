@@ -1,46 +1,42 @@
-// URL’den id al
 const urlParams = new URLSearchParams(window.location.search);
 const postId = urlParams.get("id");
 
 if (!postId) {
   document.getElementById("post-detail").innerHTML =
-    "<h3>Beitrag nicht gefunden.</h3>";
+    "<h2>Beitrag nicht gefunden.</h2>";
 }
-
-loadPostDetail();
 
 async function loadPostDetail() {
   try {
-    const res = await fetch("/api/getPosts.php");
-    const posts = await res.json();
+    let res = await fetch(`/api/getPost.php?id=${postId}`);
+    let post = await res.json();
 
-    const post = posts.find((p) => p.id == postId);
-
-    if (!post) {
+    if (!post || post.error) {
       document.getElementById("post-detail").innerHTML =
-        "<h3>Beitrag existiert nicht.</h3>";
+        "<h2>Beitrag nicht gefunden.</h2>";
       return;
     }
 
     document.getElementById("post-detail").innerHTML = `
-      <img src="${
-        post.image_url
-      }" style="width:100%; border-radius:15px; margin-bottom:20px;">
-      
-      <h1 style="color:#935f5f;">${post.title}</h1>
-      <p style="color:#777; margin:10px 0;">
-        ${new Date(post.created_at).toLocaleDateString("de-DE")}
-      </p>
-      <div style="font-size:1.6rem; line-height:1.7; color:#444;">
-        ${post.content.replace(/\n/g, "<br>")}
-      </div>
-      
-      <a href="blog.html" 
-         style="display:block; margin-top:40px; font-weight:600; color:#935f5f;">
-         ← Zurück zum Blog
-      </a>
-    `;
-  } catch (e) {
-    console.error(e);
+            <article class="post-detail-article">
+                <h1>${post.title}</h1>
+                <p class="text-muted">
+                    ${new Date(post.created_at).toLocaleDateString("de-DE")}
+                </p>
+
+                <img src="${post.image_url}" class="post-detail-img">
+
+                <div class="post-detail-content">
+                    ${post.content}
+                </div>
+
+                <a href="/blog.html" class="btn btn-secondary mt-4">← Zurück</a>
+            </article>
+        `;
+  } catch (err) {
+    document.getElementById("post-detail").innerHTML =
+      "<h2>Fehler beim Laden des Beitrags.</h2>";
   }
 }
+
+loadPostDetail();
