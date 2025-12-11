@@ -85,26 +85,23 @@ $(document).ready(function () {
   });
 
   // Contact Form – AJAX Submit ve Teşekkür Mesajı
-  $("#cakeForm").on("submit", function (e) {
-    e.preventDefault();
+$("#cakeForm").on("submit", function(e){
+    e.preventDefault(); // sayfanın yenilenmesini engelle
     const form = $(this);
     const formData = form.serialize();
 
     $.ajax({
-      url: form.attr("action"),
-      method: "POST",
-      data: formData,
-      success: function () {
-        form[0].reset();
-        $("#thanks").fadeIn();
-        $("html, body").animate(
-          { scrollTop: $("#kf-form-section").offset().top },
-          500
-        );
-      },
-      error: function () {
-        alert("Nachricht konnte nicht gesendet werden.");
-      },
+        url: form.attr("action"), // FormSubmit adresi
+        method: "POST",
+        data: formData,
+        success: function(){
+            form[0].reset(); // formu temizle
+            $("#thanks").fadeIn(); // teşekkür mesajını göster
+            $('html, body').animate({ scrollTop: $("#kf-form-section").offset().top }, 500); // formun üstüne scroll
+        },
+        error: function(){
+            alert("Nachricht konnte nicht gesendet werden."); // hata mesajı
+        }
     });
-  });
 });
+
