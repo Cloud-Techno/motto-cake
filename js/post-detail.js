@@ -30,7 +30,7 @@ async function loadPostDetail() {
                     ${post.content}
                 </div>
 
-                <a href="/blog.html" class="btn btn-secondary mt-4">← Zurück</a>
+                // <a href="/blog.html" class="btn btn-secondary mt-4">← Zurück</a>
             </article>
         `;
   } catch (err) {

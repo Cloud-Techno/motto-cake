@@ -22,6 +22,8 @@ if ($result->num_rows === 0) {
 }
 
 $post = $result->fetch_assoc();
+$post['content'] = nl2br($post['content']);
+
 echo json_encode($post, JSON_UNESCAPED_UNICODE);
 
 $conn->close();
