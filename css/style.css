@@ -2112,8 +2112,8 @@ header .social-links {
     left: 50%;
     bottom: 0;
     transform: translateX(-50%);
-    width: 150px;
-    height: 4px;
+    width: 200px;
+    height: 2px;
     background: linear-gradient(90deg, #d46c6c, #b3446c, #7b4ba0);
     border-radius: 10px;
     box-shadow: 0 0 8px rgba(179, 68, 108, 0.4);
