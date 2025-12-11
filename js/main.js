@@ -196,27 +196,49 @@ $(document).ready(function () {
   });
 
   // Contact Form – AJAX Submit ve Teşekkür Mesajı
-  $("#cakeForm").on("submit", function (e) {
-    e.preventDefault(); // Sayfa yenilenmesini durdur
+//   $("#cakeForm").on("submit", function (e) {
+//     e.preventDefault(); 
 
+//     const form = $(this);
+//     const formData = form.serialize(); 
+
+//     $.ajax({
+//       url: form.attr("action"),
+//       method: "POST",
+//       data: formData,
+//       success: function () {
+//         form[0].reset(); 
+//         $("#thanks").fadeIn(); 
+//         $("html, body").animate(
+//           { scrollTop: $("#kf-form-section").offset().top },
+//           500
+//         ); 
+//       },
+//       error: function () {
+//         alert("Nachricht konnte nicht gesendet werden.");
+//       },
+//     });
+//   });
+// });
+<script>
+  
+  $("#cakeForm").on("submit", function(e){
+    e.preventDefault(); 
     const form = $(this);
-    const formData = form.serialize(); // Form verilerini al
+    const formData = form.serialize();
 
     $.ajax({
       url: form.attr("action"),
       method: "POST",
       data: formData,
-      success: function () {
-        form[0].reset(); // Formu temizle
-        $("#thanks").fadeIn(); // Teşekkür mesajını göster
-        $("html, body").animate(
-          { scrollTop: $("#kf-form-section").offset().top },
-          500
-        ); // Formun üstüne scroll
+      success: function(){
+        form[0].reset(); 
+        $("#thanks").fadeIn(); 
+        $('html, body').animate({ scrollTop: $("#kf-form-section").offset().top }, 500); // Formun üstüne scroll
       },
-      error: function () {
+      error: function(){
         alert("Nachricht konnte nicht gesendet werden.");
-      },
+      }
     });
   });
-});
+</script>
