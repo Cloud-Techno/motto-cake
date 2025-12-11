@@ -452,30 +452,6 @@ Wir möchten individuelle, einzigartige Torten kreieren, die jede Feier bereiche
 
 </div>
 
-<script>
-  
-  $("#cakeForm").on("submit", function(e){
-    e.preventDefault(); 
-    const form = $(this);
-    const formData = form.serialize();
-
-    $.ajax({
-      url: form.attr("action"),
-      method: "POST",
-      data: formData,
-      success: function(){
-        form[0].reset(); 
-        $("#thanks").fadeIn(); 
-        $('html, body').animate({ scrollTop: $("#kf-form-section").offset().top }, 500); // Formun üstüne scroll
-      },
-      error: function(){
-        alert("Nachricht konnte nicht gesendet werden.");
-      }
-    });
-  });
-</script>
-
-
 
     <!-- MAP -->
 <div class="contact-map">
@@ -758,7 +734,7 @@ Gesundheitsschädliche Zusatzstoffe (z.B. Ovaleks) werden nicht verwendet. Aller
       </div>
     </div>
 
-    <a href="#" class="back-to-top"><i class="ion-ios-arrow-up"></i></a>
+    <a href="#" class="back-to-top"><i class="ion-ios-arrow-up" style="color: #935f5f;"></i></a>
 
   </body>
 </html>
