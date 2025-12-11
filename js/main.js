@@ -105,4 +105,10 @@ $("#cakeForm").on("submit", function(e){
     });
 });
 
-
+$(document).ready(function(){
+  // Eğer URL hash "#kf-form-section" ise thanks mesajını göster
+  if(window.location.hash === "#kf-form-section"){
+    $("#thanks").fadeIn(); // thanks mesajını göster
+    $('html, body').animate({ scrollTop: $("#kf-form-section").offset().top }, 500); // formun altına scroll
+  }
+});
