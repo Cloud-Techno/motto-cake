@@ -2085,3 +2085,51 @@ header .social-links {
         margin-right: 0.4rem;
     }
 }
+
+/* ----- Premium Modern Blog Heading ----- */
+
+.fancy-heading {
+    font-size: 2.6rem;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    text-transform: none;
+    background: linear-gradient(90deg, #d46c6c, #b3446c, #7b4ba0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 14px;
+}
+
+.fancy-heading::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, #d46c6c, #b3446c, #7b4ba0);
+    border-radius: 10px;
+    box-shadow: 0 0 8px rgba(179, 68, 108, 0.4);
+    animation: underlinePulse 2.5s infinite ease-in-out;
+}
+
+@keyframes underlinePulse {
+    0%   { width: 60px; opacity: 0.7; }
+    50%  { width: 110px; opacity: 1; }
+    100% { width: 60px; opacity: 0.7; }
+}
+
+/* Responsive optimizations */
+@media (max-width: 768px) {
+    .fancy-heading {
+        font-size: 2rem;
+    }
+}
+@media (max-width: 480px) {
+    .fancy-heading {
+        font-size: 1.7rem;
+    }
+}
+
