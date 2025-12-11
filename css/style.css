@@ -2112,7 +2112,7 @@ header .social-links {
     left: 50%;
     bottom: 0;
     transform: translateX(-50%);
-    width: 100px;
+    width: 150px;
     height: 4px;
     background: linear-gradient(90deg, #d46c6c, #b3446c, #7b4ba0);
     border-radius: 10px;
