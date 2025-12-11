@@ -83,3 +83,31 @@ $(document).ready(function () {
     }
   });
 });
+
+// Contact Form – Prevent Redirect + AJAX Submit
+document.getElementById("cakeForm").addEventListener("submit", function (e) {
+  e.preventDefault(); // Yönlendirmeyi durdurur
+
+  const form = e.target;
+  const formData = new FormData(form);
+
+  fetch(form.action, {
+    method: "POST",
+    body: formData,
+    headers: {
+      Accept: "application/json",
+    },
+  })
+    .then((response) => {
+      if (response.ok) {
+        form.reset();
+        document.getElementById("thanks").style.display = "block"; // Teşekkür mesajı göster
+        window.location.hash = "#kf-form-section"; // Aynı bölümde tut
+      } else {
+        alert("Nachricht konnte nicht gesendet werden.");
+      }
+    })
+    .catch(() => {
+      alert("Ein Fehler ist aufgetreten.");
+    });
+});
