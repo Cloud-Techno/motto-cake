@@ -220,7 +220,7 @@ $(document).ready(function () {
 //     });
 //   });
 // });
-<script>
+
   
   $("#cakeForm").on("submit", function(e){
     e.preventDefault(); 
@@ -241,4 +241,4 @@ $(document).ready(function () {
       }
     });
   });
-</script>
+
