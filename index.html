@@ -461,6 +461,12 @@ Wir möchten individuelle, einzigartige Torten kreieren, die jede Feier bereiche
     method="POST"
     class="kf-form">
 
+    <!-- Hidden Fields (En Üste Ekledik — ÇOK ÖNEMLİ) -->
+    <input type="hidden" name="_subject" value="Neue Kuchenbestellung" />
+    <input type="hidden" name="_captcha" value="false" />
+    <input type="hidden" name="_ajax" value="1" />
+    <input type="hidden" name="_next" value="https://mottocake.ch/#kf-form-section" />
+
     <!-- Name Field -->
     <div class="kf-field">
       <label for="kf-name" class="kf-label">Name</label>
@@ -530,11 +536,6 @@ Wir möchten individuelle, einzigartige Torten kreieren, die jede Feier bereiche
         placeholder="Beschreibung Ihres Kuchens..."></textarea>
     </div>
 
-    <!-- Hidden Fields -->
-    <input type="hidden" name="_subject" value="Neue Kuchenbestellung" />
-    <input type="hidden" name="_captcha" value="false" />
-    <!-- _ajax kaldırıldı -->
-
     <!-- Submit Button -->
     <button type="submit" class="kf-submit">Senden</button>
 
@@ -546,6 +547,7 @@ Wir möchten individuelle, einzigartige Torten kreieren, die jede Feier bereiche
   </div>
 
 </div>
+
 
     <!-- MAP -->
 <div class="contact-map">
