@@ -461,11 +461,10 @@ Wir möchten individuelle, einzigartige Torten kreieren, die jede Feier bereiche
     method="POST"
     class="kf-form">
 
-    <!-- Hidden Fields (En Üste Ekledik — ÇOK ÖNEMLİ) -->
+    <!-- Hidden Fields -->
     <input type="hidden" name="_subject" value="Neue Kuchenbestellung" />
     <input type="hidden" name="_captcha" value="false" />
-    <input type="hidden" name="_ajax" value="1" />
-    <input type="hidden" name="_next" value="https://mottocake.ch/#kf-form-section" />
+    <!-- _ajax ve _next artık gerek yok, AJAX JS ile kontrol edilecek -->
 
     <!-- Name Field -->
     <div class="kf-field">
@@ -542,11 +541,35 @@ Wir möchten individuelle, einzigartige Torten kreieren, die jede Feier bereiche
   </form>
 
   <!-- Thanks Message (başlangıçta gizli) -->
-  <div id="thanks" class="thanks-message" style="display:none;">
+  <div id="thanks" class="thanks-message" style="display:none; margin-top:10px;">
     Vielen Dank! Ihre Nachricht wurde erfolgreich gesendet.
   </div>
 
 </div>
+
+<script>
+  // AJAX ile form gönderimi
+  $("#cakeForm").on("submit", function(e){
+    e.preventDefault(); // Sayfa yenilenmesini durdur
+    const form = $(this);
+    const formData = form.serialize();
+
+    $.ajax({
+      url: form.attr("action"),
+      method: "POST",
+      data: formData,
+      success: function(){
+        form[0].reset(); // Formu temizle
+        $("#thanks").fadeIn(); // Teşekkür mesajını göster
+        $('html, body').animate({ scrollTop: $("#kf-form-section").offset().top }, 500); // Formun üstüne scroll
+      },
+      error: function(){
+        alert("Nachricht konnte nicht gesendet werden.");
+      }
+    });
+  });
+</script>
+
 
 
     <!-- MAP -->
