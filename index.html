@@ -357,6 +357,100 @@ Wir möchten individuelle, einzigartige Torten kreieren, die jede Feier bereiche
 <div class="contact-wrapper">
 
 <!-- FORM SECTION -->
+<!-- <div id="kf-form-section" class="kf-container">
+
+  <h2 class="kf-title">Kontaktformular</h2>
+
+  <form
+    id="cakeForm"
+    action="https://formsubmit.co/info@mottocake.ch"
+    method="POST"
+    class="kf-form">
+
+  
+    <div class="kf-field">
+      <label for="kf-name" class="kf-label">Name</label>
+      <input
+        type="text"
+        class="kf-input"
+        id="kf-name"
+        name="name"
+        placeholder="Ihr Name"
+        required />
+    </div>
+
+   
+    <div class="kf-field">
+      <label for="kf-email" class="kf-label">E-Mail</label>
+      <input
+        type="email"
+        class="kf-input"
+        id="kf-email"
+        name="email"
+        placeholder="Ihre E-Mail-Adresse"
+        required />
+    </div>
+
+  
+    <div class="kf-field">
+      <label for="kf-phone" class="kf-label">Telefon</label>
+      <input
+        type="tel"
+        class="kf-input"
+        id="kf-phone"
+        name="phone"
+        placeholder="Ihre Telefonnummer" />
+    </div>
+
+   
+    <div class="kf-field">
+      <label for="kf-cake-type" class="kf-label">Kuchenart</label>
+      <select id="kf-cake-type" name="cakeType" class="kf-input" required>
+        <option value="" disabled selected style="color:#935f5f;">Bitte auswählen</option>
+        <option value="geburtstag">Geburtstag</option>
+        <option value="hochzeit">Hochzeit</option>
+        <option value="besonderer_anlass">Besonderer Anlass</option>
+        <option value="andere">Andere</option>
+      </select>
+    </div>
+ 
+<div class="kf-field">
+  <label for="kf-date" class="kf-label">Lieferdatum</label>
+  <input
+    type="date"
+    class="kf-input"
+    id="kf-date"
+    name="lieferdatum"
+    required />
+</div>
+
+    <div class="kf-field">
+      <label for="kf-message" class="kf-label optional-label">Nachricht</label>
+      <textarea
+        class="kf-textarea"
+        id="kf-message"
+        name="message"
+        rows="4"
+        placeholder="Beschreibung Ihres Kuchens..."
+      ></textarea>
+    </div>
+
+    <input type="hidden" name="_subject" value="Neue Kuchenbestellung" />
+    <input type="hidden" name="_captcha" value="false" />
+    <input type="hidden" name="_ajax" value="1" />
+
+    <button type="submit" class="kf-submit">Senden</button>
+
+  </form>  
+
+<div id="thanks" class="thanks-message">
+  Vielen Dank! Ihre Nachricht wurde erfolgreich gesendet.
+</div>
+
+</div> -->
+
+
+<!-- FORM SECTION -->
 <div id="kf-form-section" class="kf-container">
 
   <h2 class="kf-title">Kontaktformular</h2>
@@ -413,16 +507,18 @@ Wir möchten individuelle, einzigartige Torten kreieren, die jede Feier bereiche
         <option value="andere">Andere</option>
       </select>
     </div>
+
     <!-- Delivery Date Field -->
-<div class="kf-field">
-  <label for="kf-date" class="kf-label">Lieferdatum</label>
-  <input
-    type="date"
-    class="kf-input"
-    id="kf-date"
-    name="lieferdatum"
-    required />
-</div>
+    <div class="kf-field">
+      <label for="kf-date" class="kf-label">Lieferdatum</label>
+      <input
+        type="date"
+        class="kf-input"
+        id="kf-date"
+        name="lieferdatum"
+        required />
+    </div>
+
     <!-- Message Textarea -->
     <div class="kf-field">
       <label for="kf-message" class="kf-label optional-label">Nachricht</label>
@@ -431,29 +527,25 @@ Wir möchten individuelle, einzigartige Torten kreieren, die jede Feier bereiche
         id="kf-message"
         name="message"
         rows="4"
-        placeholder="Beschreibung Ihres Kuchens..."
-      ></textarea>
+        placeholder="Beschreibung Ihres Kuchens..."></textarea>
     </div>
 
-
-
-    <!-- Hidden formsubmit fields -->
+    <!-- Hidden Fields -->
     <input type="hidden" name="_subject" value="Neue Kuchenbestellung" />
     <input type="hidden" name="_captcha" value="false" />
-    <input type="hidden" name="_ajax" value="1" />
+    <!-- _ajax kaldırıldı -->
 
     <!-- Submit Button -->
     <button type="submit" class="kf-submit">Senden</button>
 
-  </form>   <!-- form kapanıyor -->
+  </form>
 
-<div id="thanks" class="thanks-message">
-  Vielen Dank! Ihre Nachricht wurde erfolgreich gesendet.
+  <!-- Thanks Message (başlangıçta gizli) -->
+  <div id="thanks" class="thanks-message" style="display:none;">
+    Vielen Dank! Ihre Nachricht wurde erfolgreich gesendet.
+  </div>
+
 </div>
-
-</div>
-
-
 
     <!-- MAP -->
 <div class="contact-map">
