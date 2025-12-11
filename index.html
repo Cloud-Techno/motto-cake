@@ -350,13 +350,15 @@ Wir möchten individuelle, einzigartige Torten kreieren, die jede Feier bereiche
 
   <form
     id="cakeForm"
-
+    action="https://formsubmit.co/info@mottocake.ch"
+    method="POST"
     class="kf-form">
 
     <!-- Hidden Fields -->
     <input type="hidden" name="_subject" value="Neue Kuchenbestellung" />
     <input type="hidden" name="_captcha" value="false" />
     <input type="hidden" name="_ajax" value="1" />
+    <input type="hidden" name="_next" value="https://mottocake.ch/#kf-form-section" />
 
     <!-- _ajax ve _next artık gerek yok, AJAX JS ile kontrol edilecek -->
 
