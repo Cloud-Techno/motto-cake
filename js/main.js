@@ -136,7 +136,4 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 
-$(".kf-submit").on("click", function () {
-    $("#thanks").fadeIn();
-});
 
