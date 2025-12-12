@@ -138,7 +138,7 @@ document.addEventListener("DOMContentLoaded", function () {
         alert("Fehler: Nachricht konnte nicht gesendet werden.");
       }
     } catch (error) {
-      alert("Verbindungsfehler. Bitte später erneut versuchen.");
+      alert("Verbindungs Bitte später erneut versuchen.");
     }
   });
 });
