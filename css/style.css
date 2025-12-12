@@ -1929,9 +1929,7 @@ header .social-links {
     color: #935f5f;
 }
 
-.text-center {
-    text-align: center !important;
-}
+
 /* Başlığı her zaman ortala */
 .text-center {
     text-align: center !important;
@@ -2135,7 +2133,8 @@ header .social-links {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     position: relative;
-    display: inline-block;
+    display: block;
+    margin: 0 auto;
     padding-bottom: 14px;
     padding-top: 40px;
 }
