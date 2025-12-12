@@ -112,33 +112,37 @@ $(document).ready(function () {
 //   }
 // });
 
-document.addEventListener("DOMContentLoaded", function() {
-    const form = document.getElementById("cakeForm");
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.getElementById("cakeForm");
+  const thanks = document.getElementById("thanks");
 
-    // 1. Görünmez iframe oluştur
-    const iframe = document.createElement("iframe");
-    iframe.name = "formFrame";
-    iframe.style.display = "none";
-    document.body.appendChild(iframe);
+  form.addEventListener("submit", async function (e) {
+    e.preventDefault(); // sayfanın gitmesini engelle
 
-    // 2. Formu iframe'e gönder
-    form.setAttribute("target", "formFrame");
+    const formData = new FormData(form);
 
-    // 3. iframe yüklenince tetiklenen event → mesaj gönderildi
-    iframe.addEventListener("load", function () {
-        // Eğer form boşsa return (önlem)
-        if(!form.name.value && !form.email.value) return;
+    try {
+      const response = await fetch("https://formsubmit.co/info@mottocake.ch", {
+        method: "POST",
+        body: formData
+      });
 
-        // Formu resetle
+      // Gönderim başarılıysa:
+      if (response.ok) {
         form.reset();
+        thanks.style.display = "block";
 
-        // Thanks mesajını göster
-        $("#thanks").fadeIn();
-
-        // Sayfayı form bölümüne scroll et
-        $('html, body').animate({ scrollTop: $("#kf-form-section").offset().top }, 500);
-    });
+        // mesaj alanına scroll
+        document.querySelector("#kf-form-section").scrollIntoView({ behavior: "smooth" });
+      } else {
+        alert("Fehler: Nachricht konnte nicht gesendet werden.");
+      }
+    } catch (error) {
+      alert("Verbindungsfehler. Bitte später erneut versuchen.");
+    }
+  });
 });
+
 
 
 
