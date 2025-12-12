@@ -85,30 +85,55 @@ $(document).ready(function () {
   });
 
   // Contact Form – AJAX Submit ve Teşekkür Mesajı
-$("#cakeForm").on("submit", function(e){
-    e.preventDefault(); // sayfanın yenilenmesini engelle
-    const form = $(this);
-    const formData = form.serialize();
+// $("#cakeForm").on("submit", function(e){
+//     e.preventDefault();
+//     const form = $(this);
+//     const formData = form.serialize();
 
-    $.ajax({
-        url: form.attr("action"), // FormSubmit adresi
-        method: "POST",
-        data: formData,
-        success: function(){
-            form[0].reset(); // formu temizle
-            $("#thanks").fadeIn(); // teşekkür mesajını göster
-            $('html, body').animate({ scrollTop: $("#kf-form-section").offset().top }, 500); // formun üstüne scroll
-        },
-        error: function(){
-            alert("Nachricht konnte nicht gesendet werden."); // hata mesajı
-        }
+//     $.ajax({
+//         url: form.attr("action"),
+//         method: "POST",
+//         data: formData,
+//         success: function(){
+//             form[0].reset();
+//             $("#thanks").fadeIn();
+//             $('html, body').animate({ scrollTop: $("#kf-form-section").offset().top }, 500);
+//         },
+//         error: function(){
+//             alert("Nachricht konnte nicht gesendet werden.");
+//         }
+//     });
+// });
+
+// $(document).ready(function(){
+//   if(window.location.hash === "#kf-form-section"){
+//     $("#thanks").fadeIn();
+//     $('html, body').animate({ scrollTop: $("#kf-form-section").offset().top }, 500);
+//   }
+// });
+
+document.addEventListener("DOMContentLoaded", function() {
+    const form = document.getElementById("cakeForm");
+
+    // görünmez iframe oluştur
+    const iframe = document.createElement("iframe");
+    iframe.name = "formFrame";
+    iframe.style.display = "none";
+    document.body.appendChild(iframe);
+
+    // formu iframe'e gönder
+    form.setAttribute("target", "formFrame");
+
+    // iframe yüklenince tetiklenir → mesaj gönderildi demektir
+    iframe.addEventListener("load", function () {
+        // form boş geldiyse tetiklemeyelim
+        if(form.name.value === "" && form.email.value === "") return;
+
+        form.reset();
+        $("#thanks").fadeIn();
+        $('html, body').animate({ scrollTop: $("#kf-form-section").offset().top }, 500);
     });
 });
 
-$(document).ready(function(){
-  // Eğer URL hash "#kf-form-section" ise thanks mesajını göster
-  if(window.location.hash === "#kf-form-section"){
-    $("#thanks").fadeIn(); // thanks mesajını göster
-    $('html, body').animate({ scrollTop: $("#kf-form-section").offset().top }, 500);
-  }
-});
+
+
