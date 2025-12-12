@@ -147,13 +147,14 @@ $(document).ready(function () {
   //   }
   // });
 
+  // main.js - Korrigierter Kontaktformular-Handler
   document.addEventListener("DOMContentLoaded", function () {
     const form = document.getElementById("cakeForm");
     const thanks = document.getElementById("thanks");
 
     if (form && thanks) {
       form.addEventListener("submit", function (e) {
-        e.preventDefault();
+        e.preventDefault(); // Wichtig: Verhindert das Standard-Senden des Formulars
 
         // Form verilerini al
         const formData = new FormData(form);
@@ -167,20 +168,34 @@ $(document).ready(function () {
           },
         })
           .then((response) => {
-            if (response.ok) {
-              // Form başarılı gönderildi
-              form.style.display = "none"; // Formu gizle
-              thanks.style.display = "block"; // Teşekkür mesajını göster
-              thanks.scrollIntoView({ behavior: "smooth" });
+            // Prüfen, ob die HTTP-Antwort in Ordnung ist (Status 200-299)
+            if (!response.ok) {
+              throw new Error("Netzwerkfehler oder HTTP-Status nicht 2xx");
+            }
+            // Die Antwort von FormSubmit als JSON parsen
+            return response.json();
+          })
+          .then((data) => {
+            // Nach erfolgreichem JSON-Parsing
+            if (data.success === "true") {
+              // Erfolgslogik
+              form.style.display = "none"; // Formular ausblenden
+              thanks.style.display = "block"; // Dankesnachricht anzeigen
+              thanks.scrollIntoView({ behavior: "smooth" }); // Zum Dankestext scrollen
             } else {
-              alert("Mesaj gönderilemedi. Lütfen daha sonra tekrar deneyin.");
+              // Fehler im JSON-Body (obwohl bei FormSubmit.co unwahrscheinlich)
+              alert(
+                "Nachricht konnte nicht gesendet werden. (Server-Antwortfehler)"
+              );
             }
           })
           .catch((error) => {
+            // Wird bei Netzwerkfehlern oder Fehlern im 'then' Block erreicht
             console.error("Form gönderimi hatası:", error);
             alert("Mesaj gönderilemedi. Lütfen daha sonra tekrar deneyin.");
           });
       });
     }
   });
+  // ... (Rest der main.js)
 });
