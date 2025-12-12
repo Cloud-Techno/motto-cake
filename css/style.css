@@ -17,6 +17,9 @@ html {
 body {
   overflow-x: hidden;
 }
+header .social-links { z-index: 9999; }
+.social-links a i { display:inline-block !important; color:#935f5f !important; opacity:1 !important; }
+.social-links { display:flex !important; gap:1rem !important; }
 
 .heading,
 .clients .section-header h2,

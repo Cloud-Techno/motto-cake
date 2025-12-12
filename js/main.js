@@ -116,23 +116,32 @@ document.addEventListener("DOMContentLoaded", function() {
   const form = document.getElementById("cakeForm");
   const thanks = document.getElementById("thanks");
 
-  // Görünmez iframe oluştur
-  const iframe = document.createElement("iframe");
-  iframe.name = "formFrame";
-  iframe.style.display = "none";
-  document.body.appendChild(iframe);
+  form.addEventListener("submit", function(e) {
+    e.preventDefault();
 
-  // Formu iframe'e gönder
-  form.setAttribute("target", "formFrame");
+    // Form verilerini al
+    const formData = new FormData(form);
 
-  // iframe yüklenince tetiklenir → form gönderildi demektir
-  iframe.addEventListener("load", function () {
-    // Form boş geldiyse tetikleme
-    if(!form.name.value && !form.email.value) return;
-
-    form.reset();
-    thanks.style.display = "block";
-    document.querySelector("#kf-form-section").scrollIntoView({ behavior: "smooth" });
+    // FormSubmit.co'ya asenkron olarak gönder
+    fetch(form.action, {
+      method: "POST",
+      body: formData,
+      headers: {
+        'Accept': 'application/json'
+      }
+    })
+    .then(response => {
+      if (response.ok) {
+        // Form başarılı gönderildi
+        form.reset();
+        thanks.style.display = "block";
+        document.querySelector("#kf-form-section").scrollIntoView({ behavior: "smooth" });
+      }
+    })
+    .catch(error => {
+      console.error('Form gönderimi hatası:', error);
+      alert("Mesaj gönderilemedi. Lütfen daha sonra tekrar deneyin.");
+    });
   });
 });
 
