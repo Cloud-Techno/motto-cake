@@ -84,6 +84,41 @@ $(document).ready(function () {
     }
   });
 
+  // Fallback: if jQuery effects (slideUp/slideDown) are not available (for example when using the
+  // slim jQuery build), attach a plain JS accordion handler so the plus signs work.
+  if (
+    typeof jQuery === "undefined" ||
+    typeof jQuery.fn === "undefined" ||
+    typeof jQuery.fn.slideDown !== "function"
+  ) {
+    document.querySelectorAll(".accordion-header").forEach(function (header) {
+      header.addEventListener("click", function () {
+        var body = this.nextElementSibling;
+        var isOpen = body && window.getComputedStyle(body).display !== "none";
+        if (isOpen) {
+          body.style.display = "none";
+          var sp = this.querySelector("span");
+          if (sp) sp.textContent = "+";
+        } else {
+          // close others
+          document
+            .querySelectorAll(".accordion .accordion-body")
+            .forEach(function (b) {
+              b.style.display = "none";
+            });
+          document
+            .querySelectorAll(".accordion .accordion-header span")
+            .forEach(function (s) {
+              s.textContent = "+";
+            });
+          if (body) body.style.display = "block";
+          var sp = this.querySelector("span");
+          if (sp) sp.textContent = "-";
+        }
+      });
+    });
+  }
+
   // Contact Form – AJAX Submit ve Teşekkür Mesajı
   // $("#cakeForm").on("submit", function(e){
   //     e.preventDefault();
@@ -112,36 +147,38 @@ $(document).ready(function () {
   //   }
   // });
 
-document.addEventListener("DOMContentLoaded", function() {
-  const form = document.getElementById("cakeForm");
-  const thanks = document.getElementById("thanks");
+  document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("cakeForm");
+    const thanks = document.getElementById("thanks");
 
-  form.addEventListener("submit", function(e) {
-    e.preventDefault();
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
 
-    // Form verilerini al
-    const formData = new FormData(form);
+      // Form verilerini al
+      const formData = new FormData(form);
 
-    // FormSubmit.co'ya asenkron olarak gönder
-    fetch(form.action, {
-      method: "POST",
-      body: formData,
-      headers: {
-        'Accept': 'application/json'
-      }
-    })
-    .then(response => {
-      if (response.ok) {
-        // Form başarılı gönderildi
-        form.reset();
-        thanks.style.display = "block";
-        document.querySelector("#kf-form-section").scrollIntoView({ behavior: "smooth" });
-      }
-    })
-    .catch(error => {
-      console.error('Form gönderimi hatası:', error);
-      alert("Mesaj gönderilemedi. Lütfen daha sonra tekrar deneyin.");
+      // FormSubmit.co'ya asenkron olarak gönder
+      fetch(form.action, {
+        method: "POST",
+        body: formData,
+        headers: {
+          Accept: "application/json",
+        },
+      })
+        .then((response) => {
+          if (response.ok) {
+            // Form başarılı gönderildi
+            form.reset();
+            thanks.style.display = "block";
+            document
+              .querySelector("#kf-form-section")
+              .scrollIntoView({ behavior: "smooth" });
+          }
+        })
+        .catch((error) => {
+          console.error("Form gönderimi hatası:", error);
+          alert("Mesaj gönderilemedi. Lütfen daha sonra tekrar deneyin.");
+        });
     });
   });
 });
-

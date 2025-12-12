@@ -68,7 +68,7 @@ $(document).ready(function () {
     $("html, body").animate({ scrollTop: 0 }, 1500, "easeInOutExpo");
     return false;
   });
-
+  ("/post-detail.html?id=${p.id}");
   // Accordion
   $(".accordion-header").click(function () {
     const $body = $(this).next(".accordion-body");
