@@ -1929,6 +1929,9 @@ header .social-links {
     color: #935f5f;
 }
 
+.text-center {
+    text-align: center !important;
+}
 /* =========================
    Post Detail Profesyonel CSS
    ========================= */
