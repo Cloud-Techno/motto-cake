@@ -112,34 +112,27 @@ $(document).ready(function () {
   //   }
   // });
 
-  document.addEventListener("DOMContentLoaded", function () {
-    const form = document.getElementById("cakeForm");
-    const thanks = document.getElementById("thanks");
+document.addEventListener("DOMContentLoaded", function() {
+  const form = document.getElementById("cakeForm");
+  const thanks = document.getElementById("thanks");
 
-    form.addEventListener("submit", async function (e) {
-      e.preventDefault(); // sayfa yenilenmesini engelle
+  // Görünmez iframe oluştur
+  const iframe = document.createElement("iframe");
+  iframe.name = "formFrame";
+  iframe.style.display = "none";
+  document.body.appendChild(iframe);
 
-      const formData = new FormData(form);
+  // Formu iframe'e gönder
+  form.setAttribute("target", "formFrame");
 
-      try {
-        const response = await fetch("https://api.web3forms.com/submit", {
-          method: "POST",
-          body: formData,
-        });
+  // iframe yüklenince tetiklenir → form gönderildi demektir
+  iframe.addEventListener("load", function () {
+    // Form boş geldiyse tetikleme
+    if(!form.name.value && !form.email.value) return;
 
-        const result = await response.json();
-
-        if (result.success) {
-          form.reset();
-          thanks.style.display = "block";
-          document
-            .querySelector("#kf-form-section")
-            .scrollIntoView({ behavior: "smooth" });
-        } else {
-          alert("Fehler: Nachricht konnte nicht gesendet werden.");
-        }
-      } catch (error) {
-        alert("Verbindungsfehler. Bitte später erneut versuchen.");
-      }
-    });
+    form.reset();
+    thanks.style.display = "block";
+    document.querySelector("#kf-form-section").scrollIntoView({ behavior: "smooth" });
   });
+});
+

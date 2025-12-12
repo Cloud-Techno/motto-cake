@@ -348,13 +348,16 @@ Wir möchten individuelle, einzigartige Torten kreieren, die jede Feier bereiche
 
   <h2 class="kf-title">Kontaktformular</h2>
 
-  <form id="cakeForm" method="POST" class="kf-form">
+  <form
+    id="cakeForm"
+    action="https://formsubmit.co/info@mottocake.ch"
+    method="POST"
+    class="kf-form">
 
-    <!-- Web3Forms API Key -->
-    <input type="hidden" name="access_key" value="25baff21-d0e9-4e72-b97e-4bdc96fb8a94">
-
-    <!-- Subject -->
+    <!-- Hidden Fields -->
     <input type="hidden" name="_subject" value="Neue Kuchenbestellung" />
+    <input type="hidden" name="_captcha" value="false" />
+    <input type="hidden" name="_iframe" value="true" />
 
     <!-- Name Field -->
     <div class="kf-field">
@@ -409,6 +412,7 @@ Wir möchten individuelle, einzigartige Torten kreieren, die jede Feier bereiche
   </div>
 
 </div>
+
 
 
 
