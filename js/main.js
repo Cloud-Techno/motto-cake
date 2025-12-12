@@ -85,59 +85,62 @@ $(document).ready(function () {
   });
 
   // Contact Form – AJAX Submit ve Teşekkür Mesajı
-// $("#cakeForm").on("submit", function(e){
-//     e.preventDefault();
-//     const form = $(this);
-//     const formData = form.serialize();
+  // $("#cakeForm").on("submit", function(e){
+  //     e.preventDefault();
+  //     const form = $(this);
+  //     const formData = form.serialize();
 
-//     $.ajax({
-//         url: form.attr("action"),
-//         method: "POST",
-//         data: formData,
-//         success: function(){
-//             form[0].reset();
-//             $("#thanks").fadeIn();
-//             $('html, body').animate({ scrollTop: $("#kf-form-section").offset().top }, 500);
-//         },
-//         error: function(){
-//             alert("Nachricht konnte nicht gesendet werden.");
-//         }
-//     });
-// });
+  //     $.ajax({
+  //         url: form.attr("action"),
+  //         method: "POST",
+  //         data: formData,
+  //         success: function(){
+  //             form[0].reset();
+  //             $("#thanks").fadeIn();
+  //             $('html, body').animate({ scrollTop: $("#kf-form-section").offset().top }, 500);
+  //         },
+  //         error: function(){
+  //             alert("Nachricht konnte nicht gesendet werden.");
+  //         }
+  //     });
+  // });
 
-// $(document).ready(function(){
-//   if(window.location.hash === "#kf-form-section"){
-//     $("#thanks").fadeIn();
-//     $('html, body').animate({ scrollTop: $("#kf-form-section").offset().top }, 500);
-//   }
-// });
+  // $(document).ready(function(){
+  //   if(window.location.hash === "#kf-form-section"){
+  //     $("#thanks").fadeIn();
+  //     $('html, body').animate({ scrollTop: $("#kf-form-section").offset().top }, 500);
+  //   }
+  // });
 
-document.addEventListener("DOMContentLoaded", function () {
-  const form = document.getElementById("cakeForm");
-  const thanks = document.getElementById("thanks");
+  document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("cakeForm");
+    const thanks = document.getElementById("thanks");
 
-  form.addEventListener("submit", async function (e) {
-    e.preventDefault(); // sayfa yenilenmesini engelle
+    form.addEventListener("submit", async function (e) {
+      e.preventDefault(); // sayfa yenilenmesini engelle
 
-    const formData = new FormData(form);
+      const formData = new FormData(form);
 
-    try {
-      const response = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        body: formData
-      });
+      try {
+        const response = await fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          body: formData,
+        });
 
-      const result = await response.json();
+        const result = await response.json();
 
-      if (result.success) {
-        form.reset();
-        thanks.style.display = "block";
-        document.querySelector("#kf-form-section").scrollIntoView({ behavior: "smooth" });
-      } else {
-        alert("Fehler: Nachricht konnte nicht gesendet werden.");
+        if (result.success) {
+          form.reset();
+          thanks.style.display = "block";
+          document
+            .querySelector("#kf-form-section")
+            .scrollIntoView({ behavior: "smooth" });
+        } else {
+          alert("Fehler: Nachricht konnte nicht gesendet werden.");
+        }
+      } catch (error) {
+        alert("Verbindungsfehler. Bitte später erneut versuchen.");
       }
-    } catch (error) {
-      alert("Verbindungsfehler. Bitte später erneut versuchen.");
-    }
+    });
   });
 });
