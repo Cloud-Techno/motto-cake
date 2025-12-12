@@ -151,34 +151,36 @@ $(document).ready(function () {
     const form = document.getElementById("cakeForm");
     const thanks = document.getElementById("thanks");
 
-    form.addEventListener("submit", function (e) {
-      e.preventDefault();
+    if (form && thanks) {
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
 
-      // Form verilerini al
-      const formData = new FormData(form);
+        // Form verilerini al
+        const formData = new FormData(form);
 
-      // FormSubmit.co'ya asenkron olarak gönder
-      fetch(form.action, {
-        method: "POST",
-        body: formData,
-        headers: {
-          Accept: "application/json",
-        },
-      })
-        .then((response) => {
-          if (response.ok) {
-            // Form başarılı gönderildi
-            form.reset();
-            thanks.style.display = "block";
-            document
-              .querySelector("#kf-form-section")
-              .scrollIntoView({ behavior: "smooth" });
-          }
+        // FormSubmit.co'ya asenkron olarak gönder (AJAX modu)
+        fetch(form.action, {
+          method: "POST",
+          body: formData,
+          headers: {
+            Accept: "application/json",
+          },
         })
-        .catch((error) => {
-          console.error("Form gönderimi hatası:", error);
-          alert("Mesaj gönderilemedi. Lütfen daha sonra tekrar deneyin.");
-        });
-    });
+          .then((response) => {
+            if (response.ok) {
+              // Form başarılı gönderildi
+              form.style.display = "none"; // Formu gizle
+              thanks.style.display = "block"; // Teşekkür mesajını göster
+              thanks.scrollIntoView({ behavior: "smooth" });
+            } else {
+              alert("Mesaj gönderilemedi. Lütfen daha sonra tekrar deneyin.");
+            }
+          })
+          .catch((error) => {
+            console.error("Form gönderimi hatası:", error);
+            alert("Mesaj gönderilemedi. Lütfen daha sonra tekrar deneyin.");
+          });
+      });
+    }
   });
 });
