@@ -117,31 +117,32 @@ document.addEventListener("DOMContentLoaded", function () {
   const thanks = document.getElementById("thanks");
 
   form.addEventListener("submit", async function (e) {
-    e.preventDefault(); // sayfanın gitmesini engelle
+    e.preventDefault(); // sayfa yenilenmesini engelle
 
     const formData = new FormData(form);
 
     try {
-      const response = await fetch("https://formsubmit.co/info@mottocake.ch", {
+      const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         body: formData
       });
 
-      // Gönderim başarılıysa:
-      if (response.ok) {
+      const result = await response.json();
+
+      if (result.success) {
         form.reset();
         thanks.style.display = "block";
-
-        // mesaj alanına scroll
         document.querySelector("#kf-form-section").scrollIntoView({ behavior: "smooth" });
       } else {
         alert("Fehler: Nachricht konnte nicht gesendet werden.");
       }
     } catch (error) {
-      alert("Verbindungs Bitte später erneut versuchen.");
+      alert("Verbindungsfehler. Bitte später erneut versuchen.");
     }
   });
 });
+
+
 
 
 

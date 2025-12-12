@@ -348,54 +348,30 @@ Wir möchten individuelle, einzigartige Torten kreieren, die jede Feier bereiche
 
   <h2 class="kf-title">Kontaktformular</h2>
 
-  <form
-    id="cakeForm"
-    action="https://formsubmit.co/info@mottocake.ch"
-    method="POST"
-    class="kf-form">
+  <form id="cakeForm" method="POST" class="kf-form">
 
-    <!-- Hidden Fields -->
+    <!-- Web3Forms API Key -->
+    <input type="hidden" name="access_key" value="25baff21-d0e9-4e72-b97e-4bdc96fb8a94">
+
+    <!-- Subject -->
     <input type="hidden" name="_subject" value="Neue Kuchenbestellung" />
-    <input type="hidden" name="_captcha" value="false" />
-    <!-- <input type="hidden" name="_ajax" value="1" /> -->
-    <input type="hidden" name="_iframe" value="true" />
-    <!-- <input type="hidden" name="_next" value="https://mottocake.ch/#kf-form-section" /> -->
-
-    <!-- _ajax ve _next artık gerek yok, AJAX JS ile kontrol edilecek -->
 
     <!-- Name Field -->
     <div class="kf-field">
       <label for="kf-name" class="kf-label">Name</label>
-      <input
-        type="text"
-        class="kf-input"
-        id="kf-name"
-        name="name"
-        placeholder="Ihr Name"
-        required />
+      <input type="text" class="kf-input" id="kf-name" name="name" placeholder="Ihr Name" required />
     </div>
 
     <!-- Email Field -->
     <div class="kf-field">
       <label for="kf-email" class="kf-label">E-Mail</label>
-      <input
-        type="email"
-        class="kf-input"
-        id="kf-email"
-        name="email"
-        placeholder="Ihre E-Mail-Adresse"
-        required />
+      <input type="email" class="kf-input" id="kf-email" name="email" placeholder="Ihre E-Mail-Adresse" required />
     </div>
 
     <!-- Phone Field -->
     <div class="kf-field">
       <label for="kf-phone" class="kf-label">Telefon</label>
-      <input
-        type="tel"
-        class="kf-input"
-        id="kf-phone"
-        name="phone"
-        placeholder="Ihre Telefonnummer" />
+      <input type="tel" class="kf-input" id="kf-phone" name="phone" placeholder="Ihre Telefonnummer" />
     </div>
 
     <!-- Cake Type Dropdown -->
@@ -413,37 +389,28 @@ Wir möchten individuelle, einzigartige Torten kreieren, die jede Feier bereiche
     <!-- Delivery Date Field -->
     <div class="kf-field">
       <label for="kf-date" class="kf-label">Lieferdatum</label>
-      <input
-        type="date"
-        class="kf-input"
-        id="kf-date"
-        name="lieferdatum"
- />
+      <input type="date" class="kf-input" id="kf-date" name="lieferdatum" />
     </div>
 
     <!-- Message Textarea -->
     <div class="kf-field">
       <label for="kf-message" class="kf-label optional-label">Nachricht</label>
-      <textarea
-        class="kf-textarea"
-        id="kf-message"
-        name="message"
-        rows="4"
-        placeholder="Beschreibung Ihres Kuchens..."></textarea>
+      <textarea class="kf-textarea" id="kf-message" name="message" rows="4" placeholder="Beschreibung Ihres Kuchens..."></textarea>
     </div>
 
     <!-- Submit Button -->
     <button type="submit" class="kf-submit">Senden</button>
 
-
   </form>
-      <!-- Thanks Message (başlangıçta gizli) -->
+
+  <!-- Thanks Message -->
   <div id="thanks" class="thanks-message" style="display:none; margin-top:10px; color:#935f5f;">
     Vielen Dank! Ihre Nachricht wurde erfolgreich gesendet.
   </div>
 
-
 </div>
+
+
 
 
     <!-- MAP -->
