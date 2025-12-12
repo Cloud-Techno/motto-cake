@@ -115,25 +115,31 @@ $(document).ready(function () {
 document.addEventListener("DOMContentLoaded", function() {
     const form = document.getElementById("cakeForm");
 
-    // görünmez iframe oluştur
+    // 1. Görünmez iframe oluştur
     const iframe = document.createElement("iframe");
     iframe.name = "formFrame";
     iframe.style.display = "none";
     document.body.appendChild(iframe);
 
-    // formu iframe'e gönder
+    // 2. Formu iframe'e gönder
     form.setAttribute("target", "formFrame");
 
-    // iframe yüklenince tetiklenir → mesaj gönderildi demektir
+    // 3. iframe yüklenince tetiklenen event → mesaj gönderildi
     iframe.addEventListener("load", function () {
-        // form boş geldiyse tetiklemeyelim
-        if(form.name.value === "" && form.email.value === "") return;
+        // Eğer form boşsa return (önlem)
+        if(!form.name.value && !form.email.value) return;
 
+        // Formu resetle
         form.reset();
+
+        // Thanks mesajını göster
         $("#thanks").fadeIn();
+
+        // Sayfayı form bölümüne scroll et
         $('html, body').animate({ scrollTop: $("#kf-form-section").offset().top }, 500);
     });
 });
+
 
 
 
