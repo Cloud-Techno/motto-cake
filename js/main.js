@@ -147,75 +147,38 @@ $(document).ready(function () {
   //   }
   // });
 
-  // document.addEventListener("DOMContentLoaded", function () {
-  //   const form = document.getElementById("cakeForm");
-  //   const thanks = document.getElementById("thanks");
-
-  //   form.addEventListener("submit", function (e) {
-  //     e.preventDefault();
-
-  //     // Form verilerini al
-  //     const formData = new FormData(form);
-
-  //     // FormSubmit.co'ya asenkron olarak gönder
-  //     fetch(form.action, {
-  //       method: "POST",
-  //       body: formData,
-  //       headers: {
-  //         Accept: "application/json",
-  //       },
-  //     })
-  //       .then((response) => {
-  //         if (response.ok) {
-  //           // Form başarılı gönderildi
-  //           form.reset();
-  //           thanks.style.display = "block";
-  //           document
-  //             .querySelector("#kf-form-section")
-  //             .scrollIntoView({ behavior: "smooth" });
-  //         }
-  //       })
-  //       .catch((error) => {
-  //         console.error("Form gönderimi hatası:", error);
-  //         alert("Mesaj gönderilemedi. Lütfen daha sonra tekrar deneyin.");
-  //       });
-  //   });
-  // });
-  document.addEventListener("DOMContentLoaded", () => {
+  document.addEventListener("DOMContentLoaded", function () {
     const form = document.getElementById("cakeForm");
-    if (!form) return;
+    const thanks = document.getElementById("thanks");
 
-    const submitBtn = form.querySelector('button[type="submit"]');
-
-    form.addEventListener("submit", async (e) => {
+    form.addEventListener("submit", function (e) {
       e.preventDefault();
 
+      // Form verilerini al
       const formData = new FormData(form);
-      formData.append("access_key", "25baff21-d0e9-4e72-b97e-4bdc96fb8a94");
 
-      submitBtn.textContent = "Sending...";
-      submitBtn.disabled = true;
-
-      try {
-        const response = await fetch("https://api.web3forms.com/submit", {
-          method: "POST",
-          body: formData,
+      // FormSubmit.co'ya asenkron olarak gönder
+      fetch(form.action, {
+        method: "POST",
+        body: formData,
+        headers: {
+          Accept: "application/json",
+        },
+      })
+        .then((response) => {
+          if (response.ok) {
+            // Form başarılı gönderildi
+            form.reset();
+            thanks.style.display = "block";
+            document
+              .querySelector("#kf-form-section")
+              .scrollIntoView({ behavior: "smooth" });
+          }
+        })
+        .catch((error) => {
+          console.error("Form gönderimi hatası:", error);
+          alert("Mesaj gönderilemedi. Lütfen daha sonra tekrar deneyin.");
         });
-
-        const result = await response.json();
-
-        if (result.success) {
-          document.getElementById("thanks").style.display = "block";
-          form.reset();
-        } else {
-          alert(result.message || "Error occurred");
-        }
-      } catch {
-        alert("Network error. Please try again.");
-      } finally {
-        submitBtn.textContent = "Senden";
-        submitBtn.disabled = false;
-      }
     });
   });
 });
