@@ -218,6 +218,68 @@ body {
   color: #e5bfbf;
   transform: scale(1.2);          
 }
+/* WhatsApp brand color (Font Awesome) */
+.social-links a .fa-whatsapp,
+.social-links a .fab.fa-whatsapp {
+  color: #25D366;
+}
+.social-links a .fa-whatsapp:hover,
+.social-links a .fab.fa-whatsapp:hover {
+  color: #1da851;
+}
+
+/* Footer override to ensure WhatsApp icon appears green */
+.footer .footer-top .social-links a .fa-whatsapp,
+.footer .footer-top .social-links a .fab.fa-whatsapp {
+  color: #25D366;
+}
+.footer .footer-top .social-links a .fa-whatsapp:hover,
+.footer .footer-top .social-links a .fab.fa-whatsapp:hover {
+  color: #1da851;
+}
+/* Facebook brand color */
+.social-links a .fa-facebook,
+.social-links a .fab.fa-facebook {
+  color: #1877F2;
+}
+.social-links a .fa-facebook:hover,
+.social-links a .fab.fa-facebook:hover {
+  color: #155db8;
+}
+
+/* Footer override for Facebook */
+.footer .footer-top .social-links a .fa-facebook,
+.footer .footer-top .social-links a .fab.fa-facebook {
+  color: #1877F2;
+}
+.footer .footer-top .social-links a .fa-facebook:hover,
+.footer .footer-top .social-links a .fab.fa-facebook:hover {
+  color: #155db8;
+}
+
+/* Instagram gradient color using background-clip */
+.social-links a .fa-instagram,
+.social-links a .fab.fa-instagram {
+  background: linear-gradient(45deg, #feda75 0%, #fa7e1e 25%, #d62976 50%, #962fbf 75%, #4f5bd5 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.social-links a .fa-instagram:hover,
+.social-links a .fab.fa-instagram:hover {
+  filter: brightness(0.9);
+}
+
+/* Footer override for Instagram (keep gradient) */
+.footer .footer-top .social-links a .fa-instagram,
+.footer .footer-top .social-links a .fab.fa-instagram {
+  background: linear-gradient(45deg, #feda75 0%, #fa7e1e 25%, #d62976 50%, #962fbf 75%, #4f5bd5 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.footer .footer-top .social-links a .fa-instagram:hover,
+.footer .footer-top .social-links a .fab.fa-instagram:hover {
+  filter: brightness(0.9);
+}
 
 header .social-links {
   position: absolute;
@@ -413,6 +475,68 @@ header .social-links {
   margin-top: 5rem;
   margin-left: 10rem;
   padding: 2rem 3rem;
+
+/* Responsive adjustments for hero (home) section */
+@media (max-width: 768px) {
+  .home-content {
+    text-align: center;
+    padding-top: 2rem;
+  }
+  .home h1 {
+    font-size: 3rem; /* already set but ensure consistency */
+    white-space: normal;
+    line-height: 1.05;
+  }
+  .home h2 {
+    font-size: 1.6rem;
+    max-width: 90%;
+    margin: 0 auto;
+    line-height: 1.25;
+  }
+  .btn-contact {
+    margin: 2rem auto 0;
+    margin-left: 0;
+    padding: 1.2rem 2rem;
+    font-size: 1.6rem;
+    display: inline-block;
+  }
+}
+
+@media (max-width: 480px) {
+  .home {
+    padding-top: 18vh; /* bring content down a bit on small screens */
+  }
+  .home h1 {
+    font-size: 2.2rem;
+    line-height: 1.05;
+  }
+  .home h2 {
+    font-size: 1.1rem;
+    line-height: 1.3;
+    -webkit-line-clamp: 3;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .btn-contact {
+    padding: 1rem 1.6rem;
+    font-size: 1.4rem;
+    width: auto;
+  }
+}
+
+@media (max-width: 360px) {
+  .home h1 {
+    font-size: 1.8rem;
+  }
+  .home h2 {
+    font-size: 1rem;
+  }
+  .btn-contact {
+    font-size: 1.2rem;
+    padding: 0.8rem 1.2rem;
+  }
+}
   background-color: #935f5f;
   color: #fff;
   font-size: 1.7rem;
@@ -1316,7 +1440,7 @@ header .social-links {
   }
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1200px) {
   html {
     font-size: 50%;
   }
