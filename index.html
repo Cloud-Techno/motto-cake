@@ -317,70 +317,105 @@ Wir möchten individuelle, einzigartige Torten kreieren, die jede Feier bereiche
 
   <h2 class="kf-title">Kontaktformular</h2>
 
-  <form
-    id="cakeForm"
-    action="https://api.web3forms.com/submit"
-    method="POST"
-    class="kf-form">
-
-    <!-- Hidden Fields -->
-    <input type="hidden" name="_subject" value="Neue Kuchenbestellung" />
-    <input type="hidden" name="_captcha" value="false" />
-    <!-- <input type="hidden" name="_iframe" value="true" /> -->
+  <form id="cakeForm" class="kf-form" novalidate>
 
     <!-- Name Field -->
     <div class="kf-field">
       <label for="kf-name" class="kf-label">Name</label>
-      <input type="text" class="kf-input" id="kf-name" name="name" placeholder="Ihr Name" required />
+      <input
+        type="text"
+        class="kf-input"
+        id="kf-name"
+        name="name"
+        placeholder="Ihr Name"
+        required
+      />
     </div>
 
     <!-- Email Field -->
     <div class="kf-field">
       <label for="kf-email" class="kf-label">E-Mail</label>
-      <input type="email" class="kf-input" id="kf-email" name="email" placeholder="Ihre E-Mail-Adresse" required />
+      <input
+        type="email"
+        class="kf-input"
+        id="kf-email"
+        name="email"
+        placeholder="Ihre E-Mail-Adresse"
+        required
+      />
     </div>
 
     <!-- Phone Field -->
     <div class="kf-field">
       <label for="kf-phone" class="kf-label">Telefon</label>
-      <input type="tel" class="kf-input" id="kf-phone" name="phone" placeholder="Ihre Telefonnummer" />
+      <input
+        type="tel"
+        class="kf-input"
+        id="kf-phone"
+        name="phone"
+        placeholder="Ihre Telefonnummer"
+      />
     </div>
 
     <!-- Cake Type Dropdown -->
     <div class="kf-field">
       <label for="kf-cake-type" class="kf-label">Kuchenart</label>
-      <select id="kf-cake-type" name="cakeType" class="kf-input" required>
-        <option value="" disabled selected style="color:#935f5f;">Bitte auswählen</option>
-        <option value="geburtstag">Geburtstag</option>
-        <option value="hochzeit">Hochzeit</option>
-        <option value="besonderer_anlass">Besonderer Anlass</option>
-        <option value="andere">Andere</option>
+      <select
+        id="kf-cake-type"
+        name="cakeType"
+        class="kf-input"
+        required
+      >
+        <option value="" disabled selected>Bitte auswählen</option>
+        <option value="Geburtstag">Geburtstag</option>
+        <option value="Hochzeit">Hochzeit</option>
+        <option value="Besonderer Anlass">Besonderer Anlass</option>
+        <option value="Andere">Andere</option>
       </select>
     </div>
 
     <!-- Delivery Date Field -->
     <div class="kf-field">
       <label for="kf-date" class="kf-label">Lieferdatum</label>
-      <input type="date" class="kf-input" id="kf-date" name="lieferdatum" />
+      <input
+        type="date"
+        class="kf-input"
+        id="kf-date"
+        name="lieferdatum"
+      />
     </div>
 
     <!-- Message Textarea -->
     <div class="kf-field">
       <label for="kf-message" class="kf-label optional-label">Nachricht</label>
-      <textarea class="kf-textarea" id="kf-message" name="message" rows="4" placeholder="Beschreibung Ihres Kuchens..."></textarea>
+      <textarea
+        class="kf-textarea"
+        id="kf-message"
+        name="message"
+        rows="4"
+        placeholder="Beschreibung Ihres Kuchens..."
+      ></textarea>
     </div>
 
     <!-- Submit Button -->
-    <button type="submit" class="kf-submit">Senden</button>
+    <button type="submit" class="kf-submit">
+      Senden
+    </button>
 
   </form>
 
-  <!-- Thanks Message -->
-  <div id="thanks" class="thanks-message" style="display:none; margin-top:10px; color:#935f5f;">
+  <!-- Success Message -->
+  <div
+    id="thanks"
+    class="thanks-message"
+    style="display:none; margin-top:10px; color:#935f5f;"
+  >
     Vielen Dank! Ihre Nachricht wurde erfolgreich gesendet.
   </div>
 
 </div>
+
+
 
 
 

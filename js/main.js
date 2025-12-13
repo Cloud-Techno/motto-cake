@@ -147,55 +147,75 @@ $(document).ready(function () {
   //   }
   // });
 
-  // main.js - Korrigierter Kontaktformular-Handler
-  document.addEventListener("DOMContentLoaded", function () {
+  // document.addEventListener("DOMContentLoaded", function () {
+  //   const form = document.getElementById("cakeForm");
+  //   const thanks = document.getElementById("thanks");
+
+  //   form.addEventListener("submit", function (e) {
+  //     e.preventDefault();
+
+  //     // Form verilerini al
+  //     const formData = new FormData(form);
+
+  //     // FormSubmit.co'ya asenkron olarak gönder
+  //     fetch(form.action, {
+  //       method: "POST",
+  //       body: formData,
+  //       headers: {
+  //         Accept: "application/json",
+  //       },
+  //     })
+  //       .then((response) => {
+  //         if (response.ok) {
+  //           // Form başarılı gönderildi
+  //           form.reset();
+  //           thanks.style.display = "block";
+  //           document
+  //             .querySelector("#kf-form-section")
+  //             .scrollIntoView({ behavior: "smooth" });
+  //         }
+  //       })
+  //       .catch((error) => {
+  //         console.error("Form gönderimi hatası:", error);
+  //         alert("Mesaj gönderilemedi. Lütfen daha sonra tekrar deneyin.");
+  //       });
+  //   });
+  // });
+  document.addEventListener("DOMContentLoaded", () => {
     const form = document.getElementById("cakeForm");
-    const thanks = document.getElementById("thanks");
+    if (!form) return;
 
-    if (form && thanks) {
-      form.addEventListener("submit", function (e) {
-        e.preventDefault(); // Wichtig: Verhindert das Standard-Senden des Formulars
+    const submitBtn = form.querySelector('button[type="submit"]');
 
-        // Form verilerini al
-        const formData = new FormData(form);
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
 
-        // FormSubmit.co'ya asenkron olarak gönder (AJAX modu)
-        fetch(form.action, {
+      const formData = new FormData(form);
+      formData.append("access_key", "25baff21-d0e9-4e72-b97e-4bdc96fb8a94");
+
+      submitBtn.textContent = "Sending...";
+      submitBtn.disabled = true;
+
+      try {
+        const response = await fetch("https://api.web3forms.com/submit", {
           method: "POST",
           body: formData,
-          headers: {
-            Accept: "application/json",
-          },
-        })
-          .then((response) => {
-            // Prüfen, ob die HTTP-Antwort in Ordnung ist (Status 200-299)
-            if (!response.ok) {
-              throw new Error("Netzwerkfehler oder HTTP-Status nicht 2xx");
-            }
-            // Die Antwort von FormSubmit als JSON parsen
-            return response.json();
-          })
-          .then((data) => {
-            // Nach erfolgreichem JSON-Parsing
-            if (data.success === "true") {
-              // Erfolgslogik
-              form.style.display = "none"; // Formular ausblenden
-              thanks.style.display = "block"; // Dankesnachricht anzeigen
-              thanks.scrollIntoView({ behavior: "smooth" }); // Zum Dankestext scrollen
-            } else {
-              // Fehler im JSON-Body (obwohl bei FormSubmit.co unwahrscheinlich)
-              alert(
-                "Nachricht konnte nicht gesendet werden. (Server-Antwortfehler)"
-              );
-            }
-          })
-          .catch((error) => {
-            // Wird bei Netzwerkfehlern oder Fehlern im 'then' Block erreicht
-            console.error("Form gönderimi hatası:", error);
-            alert("Mesaj gönderilemedi. Lütfen daha sonra tekrar deneyin.");
-          });
-      });
-    }
+        });
+
+        const result = await response.json();
+
+        if (result.success) {
+          document.getElementById("thanks").style.display = "block";
+          form.reset();
+        } else {
+          alert(result.message || "Error occurred");
+        }
+      } catch {
+        alert("Network error. Please try again.");
+      } finally {
+        submitBtn.textContent = "Senden";
+        submitBtn.disabled = false;
+      }
+    });
   });
-  // ... (Rest der main.js)
 });
