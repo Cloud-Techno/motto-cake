@@ -143,8 +143,10 @@ $(document).ready(function () {
 
       // include sender name in the email subject so received mail shows who sent it
       const senderName = (form.querySelector("#kf-name")?.value || "").trim();
-      // Use requested subject format: "<Name> - Neu Bestellung" (or "Neu Bestellung" when name empty)
-      const subject = (senderName ? senderName + " - " : "") + "Neu Bestellung";
+      // Use requested subject format: "Neue Bestellung — <Name>" (or "Neue Bestellung" when name empty)
+      const subject = senderName
+        ? `Neue Bestellung — ${senderName}`
+        : "Neue Bestellung";
       let subjInput = form.querySelector('input[name="_subject"]');
       if (subjInput) {
         subjInput.value = subject;
