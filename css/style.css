@@ -500,11 +500,25 @@ header .social-links {
     font-size: clamp(1rem, 3.6vw, 1.6rem);
     max-width: 92%;
     margin: 0 auto;
+    margin-bottom: 2rem; /* ~20px extra space below subtitle */
   }
   .btn-contact {
-    padding: 1rem 1.8rem;
-    font-size: 1.4rem;
-    margin-top: 1.6rem;
+    padding: 0.95rem 1.3rem; /* bigger touch target */
+    font-size: 1.35rem; /* larger so text is clearer */
+    font-weight: 400; /* make text thinner to avoid blurred look */
+    letter-spacing: 0.01em;
+    line-height: 1.25;
+    color: #fff;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: subpixel-antialiased;
+    -moz-osx-font-smoothing: auto;
+    margin-top: 2rem; /* extra vertical gap from subtitle */
+    display: inline-block;
+    width: auto;
+    max-width: 220px; /* keep button not much wider than text */
+    white-space: normal;
+    text-align: center;
+    box-sizing: border-box;
   }
 }
 
@@ -530,7 +544,7 @@ header .social-links {
 @media (max-width: 480px) {
   /* Keep hero content lower on small phones so it doesn't jump up */
   .home {
-    padding-top: 50vh; /* increased to keep content lower on the screen */
+    padding-top: 54vh; /* moved slightly lower for better spacing on small phones */
   }
   .home h1 {
     font-size: clamp(1.6rem, 8vw, 2.2rem);
@@ -541,36 +555,53 @@ header .social-links {
     display: -webkit-box;
     -webkit-box-orient: vertical;
     overflow: hidden;
+    margin-bottom: 2rem; /* add space under subtitle */
   }
   .btn-contact {
-    padding: 0.9rem 1.4rem;
-    font-size: 1.2rem;
+    padding: 1rem 1.25rem; /* larger for visibility */
+    font-size: 1.4rem; /* make label more prominent */
+    font-weight: 400; /* thinner on slightly larger devices */
+    letter-spacing: 0.01em;
+    line-height: 1.25;
+    color: #fff;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: subpixel-antialiased;
+    -moz-osx-font-smoothing: auto;
     width: auto;
-    margin-top: 1.2rem; /* ensure button stays below the text */
+    margin-top: 2rem; /* bigger gap from subtitle */
     display: block;
     margin-left: auto;
     margin-right: auto;
+    max-width: 210px; /* still constrained */
+    white-space: normal;
+    text-align: center;
   }
 }
 
 @media (max-width: 360px) {
   /* Extra small phones: keep content slightly lower for better reachability */
   .home {
-    padding-top: 56vh;
+    padding-top: 62vh; /* move further down on very small screens */
   }
   .home h1 {
     font-size: 1.6rem;
   }
   .home h2 {
     font-size: 1rem;
+    margin-bottom: 2rem; /* consistent spacing */
   }
   .btn-contact {
-    font-size: 1.05rem;
-    padding: 0.7rem 1rem;
-    margin-top: 1rem;
+    font-size: 1.25rem; /* increase for visibility */
+    font-weight: 400;
+    letter-spacing: 0.01em;
+    padding: 0.9rem 1.1rem; /* larger touch target */
+    margin-top: 2rem; /* more gap under subtitle */
     display: block;
     margin-left: auto;
     margin-right: auto;
+    max-width: 180px; /* narrow but readable */
+    white-space: normal;
+    text-align: center;
   }
 }
 
