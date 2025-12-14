@@ -119,34 +119,6 @@ $(document).ready(function () {
     });
   }
 
-  // Contact Form – AJAX Submit ve Teşekkür Mesajı
-  // $("#cakeForm").on("submit", function(e){
-  //     e.preventDefault();
-  //     const form = $(this);
-  //     const formData = form.serialize();
-
-  //     $.ajax({
-  //         url: form.attr("action"),
-  //         method: "POST",
-  //         data: formData,
-  //         success: function(){
-  //             form[0].reset();
-  //             $("#thanks").fadeIn();
-  //             $('html, body').animate({ scrollTop: $("#kf-form-section").offset().top }, 500);
-  //         },
-  //         error: function(){
-  //             alert("Nachricht konnte nicht gesendet werden.");
-  //         }
-  //     });
-  // });
-
-  // $(document).ready(function(){
-  //   if(window.location.hash === "#kf-form-section"){
-  //     $("#thanks").fadeIn();
-  //     $('html, body').animate({ scrollTop: $("#kf-form-section").offset().top }, 500);
-  //   }
-  // });
-
   document.addEventListener("DOMContentLoaded", function () {
     const form = document.getElementById("cakeForm");
     const thanks = document.getElementById("thanks");
