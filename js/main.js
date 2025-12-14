@@ -150,14 +150,21 @@ $(document).ready(function () {
   document.addEventListener("DOMContentLoaded", function () {
     const form = document.getElementById("cakeForm");
     const thanks = document.getElementById("thanks");
-
     form.addEventListener("submit", function (e) {
       e.preventDefault();
+      e.stopPropagation();
 
-      // Form verilerini al
+      const submitBtn = form.querySelector('[type="submit"]');
+      const originalBtnText = submitBtn ? submitBtn.innerHTML : null;
+
+      // show simple loading state
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerText = "Senden...";
+      }
+
       const formData = new FormData(form);
 
-      // FormSubmit.co'ya asenkron olarak gönder
       fetch(form.action, {
         method: "POST",
         body: formData,
@@ -166,18 +173,37 @@ $(document).ready(function () {
         },
       })
         .then((response) => {
-          if (response.ok) {
-            // Form başarılı gönderildi
+          // Try parse JSON; FormSubmit returns JSON when Accept: application/json
+          return response.json().catch(() => ({ success: false }));
+        })
+        .then((data) => {
+          if (data && data.success) {
             form.reset();
+            // show friendly thank-you message in-place
+            thanks.innerText =
+              "Vielen Dank — Ihre Nachricht wurde erfolgreich gesendet! Wir melden uns bald bei Ihnen.";
             thanks.style.display = "block";
+            // keep user on same page and scroll to the form
             document
               .querySelector("#kf-form-section")
               .scrollIntoView({ behavior: "smooth" });
+          } else {
+            // server reported failure or unexpected response
+            console.error("Form submit response", data);
+            alert(
+              "Fehler beim Senden des Formulars. Bitte versuchen Sie es später erneut."
+            );
           }
         })
         .catch((error) => {
           console.error("Form gönderimi hatası:", error);
           alert("Mesaj gönderilemedi. Lütfen daha sonra tekrar deneyin.");
+        })
+        .finally(() => {
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            if (originalBtnText) submitBtn.innerHTML = originalBtnText;
+          }
         });
     });
   });
