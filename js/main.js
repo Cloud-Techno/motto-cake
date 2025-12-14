@@ -169,6 +169,21 @@ $(document).ready(function () {
         submitBtn.innerText = "Senden...";
       }
 
+      // include sender name in the email subject so received mail shows who sent it
+      const senderName = (form.querySelector("#kf-name")?.value || "").trim();
+      const subject =
+        (senderName ? senderName + " - " : "") + "Neue Kuchenbestellung";
+      let subjInput = form.querySelector('input[name="_subject"]');
+      if (subjInput) {
+        subjInput.value = subject;
+      } else {
+        subjInput = document.createElement("input");
+        subjInput.type = "hidden";
+        subjInput.name = "_subject";
+        subjInput.value = subject;
+        form.appendChild(subjInput);
+      }
+
       const formData = new FormData(form);
 
       fetch(form.action, {
