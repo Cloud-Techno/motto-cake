@@ -171,8 +171,8 @@ $(document).ready(function () {
 
       // include sender name in the email subject so received mail shows who sent it
       const senderName = (form.querySelector("#kf-name")?.value || "").trim();
-      const subject =
-        (senderName ? senderName + " - " : "") + "Neue Kuchenbestellung";
+      // Use requested subject format: "<Name> - Neu Bestellung" (or "Neu Bestellung" when name empty)
+      const subject = (senderName ? senderName + " - " : "") + "Neu Bestellung";
       let subjInput = form.querySelector('input[name="_subject"]');
       if (subjInput) {
         subjInput.value = subject;
@@ -184,7 +184,15 @@ $(document).ready(function () {
         form.appendChild(subjInput);
       }
 
+      // Debug: log subject and final FormData contents to help diagnose issues
+      console.log("[contact] sending subject:", subject);
       const formData = new FormData(form);
+      // Also log the _subject value as included in FormData for verification
+      try {
+        console.log("[contact] FormData _subject:", formData.get("_subject"));
+      } catch (err) {
+        console.warn("[contact] unable to read FormData for debug");
+      }
 
       fetch(form.action, {
         method: "POST",
@@ -197,8 +205,13 @@ $(document).ready(function () {
         .then((data) => {
           if (data && data.success) {
             form.reset();
-            thanks.innerText =
-              "Vielen Dank — Ihre Nachricht wurde erfolgreich gesendet! Wir melden uns bald bei Ihnen.";
+            // Personalize thank-you message when name is provided
+            if (senderName) {
+              thanks.innerText = `Vielen Dank, ${senderName}! Ihre Nachricht wurde erfolgreich gesendet.`;
+            } else {
+              thanks.innerText =
+                "Vielen Dank — Ihre Nachricht wurde erfolgreich gesendet!";
+            }
             thanks.style.display = "block";
             document
               .querySelector("#kf-form-section")
