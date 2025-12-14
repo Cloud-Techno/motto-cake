@@ -412,36 +412,27 @@ header .social-links {
 
 .home h1 {
   color: #fff;
-  font-size: 5rem;
-  white-space: nowrap !important;
+  font-size: clamp(1.8rem, 6vw, 5rem);
+  white-space: normal;
+  word-break: break-word;
+  line-height: 1.05;
 }
 
 .home h2 {
   color: #fff;
-  font-size: 3rem;
-  width: 90%;
+  font-size: clamp(1rem, 3.5vw, 3rem);
+  max-width: 90%;
+  line-height: 1.3;
+  margin-top: 0.6rem;
 }
 
 /* Responsive */
 @media (max-width: 768px) {
-    .home {
-    align-items: flex-start;       
-    padding-top: 55vh;             
-  }
-  .home h1 {
-    font-size: 3rem;
-        white-space: nowrap;  
-    color: #fff;
-  }
-
-  .home h2 {
-    font-size: 1.5rem;
-      max-width: 42rem;          
-  line-height: 1.3;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;    
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+  /* Base adjustments for tablets and large phones; specific tweaks
+     for 576/480/360 handled in narrower media queries below. */
+  .home {
+    align-items: flex-start;
+    padding-top: 50vh;
   }
 }
 /* -----------------------------------------
@@ -475,75 +466,106 @@ header .social-links {
   margin-top: 5rem;
   margin-left: 10rem;
   padding: 2rem 3rem;
+  background-color: #935f5f;
+  color: #fff;
+  font-size: 1.7rem;
+  text-decoration: none;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+}
 
-/* Responsive adjustments for hero (home) section */
+/* Improved responsive rules for hero (home) section */
+.home-content {
+  max-width: 900px;
+  padding: 0 1rem;
+}
+
+@media (max-width: 992px) {
+  .home {
+    justify-content: center;
+    padding-left: 2rem;
+    padding-bottom: 6rem;
+  }
+}
+
+/* Büyük telefonlar / küçük tabletler */
+@media (max-width: 576px) {
+  .home {
+    padding-top: 40vh;
+  }
+  .home h1 {
+    font-size: clamp(1.9rem, 5.2vw, 2.8rem);
+  }
+  .home h2 {
+    font-size: clamp(1rem, 3.6vw, 1.6rem);
+    max-width: 92%;
+    margin: 0 auto;
+  }
+  .btn-contact {
+    padding: 1rem 1.8rem;
+    font-size: 1.4rem;
+    margin-top: 1.6rem;
+  }
+}
+
 @media (max-width: 768px) {
+  .home {
+    align-items: flex-start;
+    padding-top: 50vh;
+  }
   .home-content {
     text-align: center;
     padding-top: 2rem;
-  }
-  .home h1 {
-    font-size: 3rem; /* already set but ensure consistency */
-    white-space: normal;
-    line-height: 1.05;
-  }
-  .home h2 {
-    font-size: 1.6rem;
-    max-width: 90%;
     margin: 0 auto;
-    line-height: 1.25;
   }
   .btn-contact {
     margin: 2rem auto 0;
     margin-left: 0;
-    padding: 1.2rem 2rem;
-    font-size: 1.6rem;
+    padding: clamp(0.9rem, 2.6vw, 1.6rem) clamp(1.2rem, 3vw, 2.4rem);
+    font-size: clamp(1.2rem, 2.8vw, 1.6rem);
     display: inline-block;
   }
 }
 
 @media (max-width: 480px) {
+  /* Keep hero content lower on small phones so it doesn't jump up */
   .home {
-    padding-top: 18vh; /* bring content down a bit on small screens */
+    padding-top: 50vh; /* increased to keep content lower on the screen */
   }
   .home h1 {
-    font-size: 2.2rem;
-    line-height: 1.05;
+    font-size: clamp(1.6rem, 8vw, 2.2rem);
   }
   .home h2 {
-    font-size: 1.1rem;
-    line-height: 1.3;
+    font-size: clamp(0.95rem, 4.2vw, 1.2rem);
     -webkit-line-clamp: 3;
     display: -webkit-box;
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
   .btn-contact {
-    padding: 1rem 1.6rem;
-    font-size: 1.4rem;
+    padding: 0.9rem 1.4rem;
+    font-size: 1.2rem;
     width: auto;
+    margin-top: 1.2rem; /* ensure button stays below the text */
   }
 }
 
 @media (max-width: 360px) {
+  /* Extra small phones: keep content slightly lower for better reachability */
+  .home {
+    padding-top: 56vh;
+  }
   .home h1 {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
   }
   .home h2 {
     font-size: 1rem;
   }
   .btn-contact {
-    font-size: 1.2rem;
-    padding: 0.8rem 1.2rem;
+    font-size: 1.05rem;
+    padding: 0.7rem 1rem;
+    margin-top: 1rem;
   }
-}
-  background-color: #935f5f;
-  color: #fff;
-  font-size: 1.7rem;
-
-  text-decoration: none;
-  border-radius: 50px;
-  transition: all 0.3s ease;
 }
 
 .btn-contact:hover {
