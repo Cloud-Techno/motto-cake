@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Danke — Ihre Nachricht wurde gesendet</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <style>
+      /* Minimal overrides so the overlay looks good even if site CSS changes */
+      .thanks-container {
+        background: #fff;
+        color: #333;
+        padding: 2.5rem;
+        border-radius: 12px;
+        max-width: 720px;
+        width: 90%;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+        text-align: center;
+      }
+      .thanks-container h1 {
+        color: #935f5f;
+        margin-bottom: 1rem;
+      }
+      .thanks-container p {
+        font-size: 1.6rem;
+        margin-bottom: 1.5rem;
+      }
+      .thanks-actions a {
+        display: inline-block;
+        margin: 0 0.5rem;
+        padding: 0.8rem 1.6rem;
+        border-radius: 8px;
+        background: #935f5f;
+        color: #fff;
+        text-decoration: none;
+      }
+      .thanks-actions a.secondary {
+        background: #d3a9a9;
+        color: #222;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="thanks-container" role="dialog" aria-labelledby="thanksTitle">
+      <h1 id="thanksTitle">Vielen Dank!</h1>
+      <p>
+        Ihre Nachricht wurde erfolgreich gesendet. Wir melden uns so schnell wie
+        möglich.
+      </p>
+      <div class="thanks-actions">
+        <a href="#" class="close-thanks">Zurück zur Seite</a>
+        <a href="/" class="secondary">Zur Startseite</a>
+      </div>
+    </div>
+  </body>
+</html>

@@ -179,17 +179,53 @@ $(document).ready(function () {
         .then((data) => {
           if (data && data.success) {
             form.reset();
-            // Personalize thank-you message when name is provided
-            if (senderName) {
-              thanks.innerText = `Vielen Dank, ${senderName}! Ihre Nachricht wurde erfolgreich gesendet.`;
-            } else {
-              thanks.innerText =
-                "Vielen Dank — Ihre Nachricht wurde erfolgreich gesendet!";
-            }
-            thanks.style.display = "block";
-            document
-              .querySelector("#kf-form-section")
-              .scrollIntoView({ behavior: "smooth" });
+
+            // Try to load a static thank-you HTML and show it as an overlay
+            fetch("thanks.html")
+              .then((r) => r.text())
+              .then((html) => {
+                const overlay = document.createElement("div");
+                overlay.id = "thanks-overlay";
+                overlay.style.position = "fixed";
+                overlay.style.top = "0";
+                overlay.style.left = "0";
+                overlay.style.width = "100%";
+                overlay.style.height = "100%";
+                overlay.style.background = "rgba(0,0,0,0.6)";
+                overlay.style.display = "flex";
+                overlay.style.alignItems = "center";
+                overlay.style.justifyContent = "center";
+                overlay.style.zIndex = "9999";
+                overlay.innerHTML = html;
+                document.body.appendChild(overlay);
+
+                // hook the close link inside the loaded HTML
+                const close = overlay.querySelector(".close-thanks");
+                if (close) {
+                  close.addEventListener("click", function (ev) {
+                    ev.preventDefault();
+                    if (overlay.parentNode)
+                      overlay.parentNode.removeChild(overlay);
+                  });
+                }
+              })
+              .catch((err) => {
+                // fallback to inline thanks message if loading the file fails
+                console.warn(
+                  "Could not load thanks.html, falling back to inline message",
+                  err
+                );
+                if (senderName) {
+                  thanks.innerText = `Vielen Dank, ${senderName}! Ihre Nachricht wurde erfolgreich gesendet.`;
+                } else {
+                  thanks.innerText =
+                    "Vielen Dank — Ihre Nachricht wurde erfolgreich gesendet!";
+                }
+                thanks.style.display = "block";
+                document
+                  .querySelector("#kf-form-section")
+                  .scrollIntoView({ behavior: "smooth" });
+              });
           } else {
             console.error("Form submit response", data);
             alert(
