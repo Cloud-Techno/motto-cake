@@ -429,6 +429,39 @@ Wir möchten individuelle, einzigartige Torten kreieren, die jede Feier bereiche
     </button>
 
   </form>
+  <!-- Inline safeguard: ensure _subject includes sender name even if main.js didn't run -->
+  <script>
+    (function () {
+      var f = document.getElementById('cakeForm');
+      if (!f) return;
+      // capturing listener runs before normal bubble listeners
+      f.addEventListener(
+        'submit',
+        function (e) {
+          try {
+            var name = (document.getElementById('kf-name') && document.getElementById('kf-name').value) || '';
+            name = name.trim();
+            var subj = name ? 'Neue Bestellung — ' + name : 'Neue Bestellung';
+            var input = f.querySelector('input[name="_subject"]');
+            if (!input) {
+              input = document.createElement('input');
+              input.type = 'hidden';
+              input.name = '_subject';
+              f.appendChild(input);
+            }
+            input.value = subj;
+            console.log('[contact-inline] ensured _subject =', subj);
+            // mark that the inline safeguard ran (inspect in Elements)
+            f.dataset.subjectEnsured = 'true';
+          } catch (err) {
+            console.warn('[contact-inline] error ensuring _subject', err);
+          }
+        },
+        true
+      );
+      console.log('[contact-inline] attached safeguard listener');
+    })();
+  </script>
 
   <!-- Success Message -->
   <div
