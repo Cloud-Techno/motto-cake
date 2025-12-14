@@ -150,14 +150,20 @@ $(document).ready(function () {
   document.addEventListener("DOMContentLoaded", function () {
     const form = document.getElementById("cakeForm");
     const thanks = document.getElementById("thanks");
-    form.addEventListener("submit", function (e) {
-      e.preventDefault();
-      e.stopPropagation();
+
+    // robust handler: named so we can call it from capturing listener
+    function handleFormSubmit(e) {
+      if (e) {
+        try {
+          e.preventDefault();
+          e.stopPropagation();
+          e.stopImmediatePropagation();
+        } catch (err) {}
+      }
 
       const submitBtn = form.querySelector('[type="submit"]');
       const originalBtnText = submitBtn ? submitBtn.innerHTML : null;
 
-      // show simple loading state
       if (submitBtn) {
         submitBtn.disabled = true;
         submitBtn.innerText = "Senden...";
@@ -172,23 +178,17 @@ $(document).ready(function () {
           Accept: "application/json",
         },
       })
-        .then((response) => {
-          // Try parse JSON; FormSubmit returns JSON when Accept: application/json
-          return response.json().catch(() => ({ success: false }));
-        })
+        .then((response) => response.json().catch(() => ({ success: false })))
         .then((data) => {
           if (data && data.success) {
             form.reset();
-            // show friendly thank-you message in-place
             thanks.innerText =
               "Vielen Dank — Ihre Nachricht wurde erfolgreich gesendet! Wir melden uns bald bei Ihnen.";
             thanks.style.display = "block";
-            // keep user on same page and scroll to the form
             document
               .querySelector("#kf-form-section")
               .scrollIntoView({ behavior: "smooth" });
           } else {
-            // server reported failure or unexpected response
             console.error("Form submit response", data);
             alert(
               "Fehler beim Senden des Formulars. Bitte versuchen Sie es später erneut."
@@ -205,6 +205,24 @@ $(document).ready(function () {
             if (originalBtnText) submitBtn.innerHTML = originalBtnText;
           }
         });
-    });
+    }
+
+    // attach normal listener
+    form.addEventListener("submit", handleFormSubmit);
+
+    // capturing listener to stop other handlers or default navigation
+    document.addEventListener(
+      "submit",
+      function (e) {
+        if (e.target === form) {
+          try {
+            e.preventDefault();
+            e.stopImmediatePropagation();
+          } catch (err) {}
+          handleFormSubmit(e);
+        }
+      },
+      true
+    );
   });
 });
