@@ -59,6 +59,78 @@ $(document).ready(function () {
     },
   });
 
+  // Price calculator: live update of base/extras/total
+  function updatePriceCalculator() {
+    var $baseField = $("#basePrice");
+    var $extrasField = $("#extrasPrice");
+    var $grandField = $("#grandTotal");
+
+    var selected = $('input[name="size"]:checked').val();
+    if (!selected) {
+      $baseField.text("—");
+      $extrasField.text("CHF 0");
+      $grandField.text("—");
+      return;
+    }
+
+    if (selected === "ask") {
+      $baseField.text("Preis anfragen");
+      $extrasField.text("—");
+      $grandField.text("Bitte anfragen");
+      return;
+    }
+
+    var base = parseFloat(selected) || 0;
+    var extras = 0;
+    $('input[name="extra"]:checked').each(function () {
+      extras += parseFloat($(this).val()) || 0;
+    });
+
+    $baseField.text("CHF " + base.toFixed(2));
+    $extrasField.text("CHF " + extras.toFixed(2));
+    $grandField.text("CHF " + (base + extras).toFixed(2));
+  }
+
+  $(document).on(
+    "change",
+    'input[name="size"], input[name="extra"]',
+    function () {
+      updatePriceCalculator();
+    }
+  );
+
+  // Pre-fill contact form message and scroll to form
+  $("#addToContact").on("click", function (e) {
+    e.preventDefault();
+    var sizeLabel = $('input[name="size"]:checked').data("label") || "";
+    var extrasArr = [];
+    $('input[name="extra"]:checked').each(function () {
+      extrasArr.push($(this).data("name") || $(this).parent().text().trim());
+    });
+    var grand = $("#grandTotal").text() || "";
+    var msg = "";
+    if (
+      sizeLabel === "20+ Personen" ||
+      $('input[name="size"]:checked').val() === "ask"
+    ) {
+      msg = "Anfrage für 20+ Personen. Bitte kalkulieren.";
+    } else {
+      msg =
+        "Bestellung\nPersonenzahl: " +
+        sizeLabel +
+        "\nExtras: " +
+        (extrasArr.join(", ") || "Keine") +
+        "\nPreis: " +
+        grand;
+    }
+    var $msgField = $("#kf-message");
+    if ($msgField.length) $msgField.val(msg);
+    $("html, body").animate(
+      { scrollTop: $("#kf-form-section").offset().top - 20 },
+      600
+    );
+  });
+
   // Back to top
   $(window).scroll(function () {
     if ($(this).scrollTop() > 100) $(".back-to-top").fadeIn("slow");

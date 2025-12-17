@@ -404,7 +404,7 @@ Wir möchten individuelle, einzigartige Torten kreieren, die jede Feier bereiche
 
     <!-- Delivery Date Field -->
     <div class="kf-field">
-      <label for="kf-date" class="kf-label">Lieferdatum</label>
+      <label for="kf-date" class="kf-label">Abholungdatum</label>
       <input
         type="date"
         class="kf-input"
@@ -528,8 +528,7 @@ Wir möchten individuelle, einzigartige Torten kreieren, die jede Feier bereiche
           <div class="section-head col-sm-12" id="service">
             <h1>Preis</h1>
             <p>
-              Bestellen Sie eine Torte für Ihren Geburtstag online in Baden. Handgemacht, kreativ und individuell. Perfekt für besondere Anlässe. Jetzt anfragen 
-    Jede Torte wird mit Liebe zum Detail kreiert, um Ihr Event unvergesslich zu machen.
+Bestellen Sie Ihre Geburtstagstorte online in Baden. Jede Torte ist handgemacht, kreativ und individuell, perfekt für besondere Anlässe. Jetzt anfragen.
             </p>
           </div>
           <div class="col-lg-4 col-sm-6">
@@ -569,8 +568,7 @@ Wir möchten individuelle, einzigartige Torten kreieren, die jede Feier bereiche
               <h6>Preise</h6>
               <p>
       <ul class="price-list">
-        <li >Geburtstage, Firmungen, Taufen, Firmen: CHF 11–14/Stück</li>
-        <li>Hochzeitstorten: CHF 12–15/Stück je nach Dekoration und Grösse</li>
+        <li >Geburtstag, Hochzeit, Besondere Anlässe</li>
       </ul>
             <!-- <ul class="price-list">
         <li >18cm(8-10 Personen): CHF 80</li>
@@ -583,6 +581,79 @@ Wir möchten individuelle, einzigartige Torten kreieren, die jede Feier bereiche
               </p>
             </div>
           </div>
+          </div>
+        </div>
+      </div>
+      <div class="pt-5 pb-5" style="background-color: #f2f2f2">
+        <div class="container">
+          <div class="row">
+            <div class="section-head col-sm-12" id="service">
+              <h1>Preisrechner</h1>
+              <p>Wählen Sie die Personenzahl und Extras aus — der Gesamtpreis wird sofort angezeigt. Für Bestellungen &gt;20 Personen bitte anfragen.</p>
+            </div>
+
+            <div class="col-lg-8 col-sm-12">
+              <div class="price-section">
+                <div class="price-card">
+                  <h3>Personenzahl</h3>
+                  <div class="sizes">
+                    <label><input type="radio" name="size" value="80" data-label="4-6 Personen"> 4 - 6 Personen — CHF 80</label>
+                    <label><input type="radio" name="size" value="100" data-label="10-12 Personen"> 10 - 12 Personen — CHF 100</label>
+                    <label><input type="radio" name="size" value="110" data-label="14-16 Personen"> 14 - 16 Personen — CHF 110</label>
+                    <label><input type="radio" name="size" value="120" data-label="18-20 Personen"> 18 - 20 Personen — CHF 120</label>
+                    <label><input type="radio" name="size" value="ask" data-label="20+ Personen"> 20+ Personen — Bitte Preis anfragen</label>
+                  </div>
+                </div>
+
+                <div class="price-card extras-card">
+                  <h3>Extras (pro Torte)</h3>
+                  <div class="extras">
+                    <label><input type="checkbox" name="extra" value="7" data-name="Meyveli"> Meyveli — CHF 7</label>
+                    <label><input type="checkbox" name="extra" value="5" data-name="Konfi"> Konfi — CHF 5</label>
+                    <label><input type="checkbox" name="extra" value="7" data-name="Draje"> Draje Çikolata — CHF 7</label>
+                    <label><input type="checkbox" name="extra" value="5" data-name="Sos"> Çikolata Sos — CHF 5</label>
+                    <label><input type="checkbox" name="extra" value="7" data-name="Fistik"> Fıstıklı Karamel — CHF 7</label>
+                  </div>
+                </div>
+
+                <div class="price-card total-card">
+                  <h3>Zwischensumme</h3>
+                  <div class="total-row">
+                    <div>Basispreis:</div>
+                    <div id="basePrice">—</div>
+                  </div>
+                  <div class="total-row">
+                    <div>Extras:</div>
+                    <div id="extrasPrice">CHF 0</div>
+                  </div>
+                  <div class="total-row grand">
+                    <div>Gesamt:</div>
+                    <div id="grandTotal">—</div>
+                  </div>
+                  <div class="total-actions">
+                    <button id="addToContact" class="btn-contact">Anfrage stellen</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-sm-12">
+              <div class="price-info">
+                <h3>Hinweise</h3>
+                <ul>
+                  <li>Preise pro Torte (inkl. Dekoration nach Absprache).</li>
+                  <li>Bei Auswahl "20+ Personen" bitte Anfrage senden — wir kalkulieren individuell.</li>
+                  <li>Wählen Sie Extras; der Preis addiert sich zur Basis.</li>
+                </ul>
+                <a href="#kf-form-section" class="btn-contact" id="contactLink">Zum Bestellformular</a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+          
         </div>
       </div>
     </div>

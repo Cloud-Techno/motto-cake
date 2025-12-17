@@ -2355,6 +2355,49 @@ header .social-links {
     }
 }
 
+/* Price section styles */
+.price-section {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+.price-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1.2rem;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.06);
+}
+.price-card h3 {
+  margin-bottom: 0.8rem;
+  color: #935f5f;
+}
+.price-card .sizes label,
+.price-card .extras label {
+  display: block;
+  padding: 0.45rem 0.6rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background .15s ease;
+  font-size: 1.5rem;
+}
+.price-card .sizes label:hover,
+.price-card .extras label:hover { background: #fbf6f6; }
+.price-card input[type="radio"], .price-card input[type="checkbox"] { margin-right: 0.8rem; }
+.total-card .total-row { display:flex; justify-content:space-between; padding:0.35rem 0; font-size:1.6rem; }
+.total-card .grand { font-weight:700; font-size:1.9rem; border-top:1px solid #eee; margin-top:0.6rem; padding-top:0.7rem; }
+.total-actions { margin-top:1rem; }
+.price-info { background:transparent; padding:1rem; }
+.price-info h3 { color:#935f5f }
+.btn-contact { background:#fff; border:2px solid #935f5f; color:#935f5f; padding:0.6rem 1rem; border-radius:8px; cursor:pointer; }
+.btn-contact:hover { background:#935f5f; color:#fff; }
+
+@media(min-width: 992px) {
+  .price-section { grid-template-columns: 1fr 1fr; }
+  .extras-card { order:2 }
+  .total-card { grid-column: span 2; }
+}
+
+
 /* ==========================
    Gallery / Testimonials fixes
    - make images larger, centered, fully visible
