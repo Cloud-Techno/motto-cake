@@ -2391,6 +2391,51 @@ header .social-links {
 .btn-contact { background:#fff; border:2px solid #935f5f; color:#935f5f; padding:0.6rem 1rem; border-radius:8px; cursor:pointer; }
 .btn-contact:hover { background:#935f5f; color:#fff; }
 
+/* Scoped styles for price-area buttons: swap normal and hover appearances
+   so these two buttons look filled by default and become outlined on hover. */
+.btn-contact-price,
+.btn-contact-price-link {
+  background: #935f5f; /* use filled look as default */
+  color: #fff;
+  border: 2px solid transparent;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-contact-price:hover,
+.btn-contact-price-link:hover {
+  background: #fff; /* outlined look on hover */
+  color: #935f5f;
+  border: 2px solid #935f5f;
+  text-decoration: none;
+  transform: translateY(-2px);
+}
+
+/* New unique CTA for price-info link: larger, more readable text */
+.btn-price-cta {
+  background: #935f5f;
+  color: #fff;
+  border: 2px solid transparent;
+  padding: 0.75rem 1.1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.18s ease;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1.5rem; /* slightly larger for readability */
+}
+.btn-price-cta:hover {
+  background: #fff;
+  color: #935f5f;
+  border: 2px solid #935f5f;
+  transform: translateY(-2px);
+  text-decoration: none;
+}
+
 @media(min-width: 992px) {
   .price-section { grid-template-columns: 1fr 1fr; }
   .extras-card { order:2 }
