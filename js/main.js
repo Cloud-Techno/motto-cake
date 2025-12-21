@@ -4,11 +4,15 @@ $(document).ready(function () {
     $(this).toggleClass("fa-times");
     $(".navbar").toggleClass("nav-toggle");
   });
-
+  // Close mobile menu when clicking a nav link
+  $(".navbar a").on("click", function () {
+    $(".navbar").removeClass("nav-toggle");
+    $(".fa-bars").removeClass("fa-times");
+  });
   // Header scroll effect
   $(window).on("load scroll", function () {
-    $(".fa-bars").removeClass("fa-times");
-    $(".navbar").removeClass("nav-toggle");
+    // $(".fa-bars").removeClass("fa-times");
+    // $(".navbar").removeClass("nav-toggle");
 
     if ($(window).scrollTop() > 35) {
       $(".header").css({
@@ -139,6 +143,25 @@ $(document).ready(function () {
   $(".back-to-top").click(function () {
     $("html, body").animate({ scrollTop: 0 }, 1500, "easeInOutExpo");
     return false;
+  });
+  // Close mobile menu when clicking outside
+  $(document).on("click", function (e) {
+    const $menu = $(".navbar");
+    const $menuBtn = $(".fa-bars");
+
+    // Menü kapalıysa hiçbir şey yapma
+    if (!$menu.hasClass("nav-toggle")) return;
+
+    // Menü veya hamburger ikonuna tıklandı mı?
+    const clickedInsideMenu =
+      $(e.target).closest(".navbar").length > 0 ||
+      $(e.target).closest(".fa-bars").length > 0;
+
+    // Dışarı tıklandıysa kapat
+    if (!clickedInsideMenu) {
+      $menu.removeClass("nav-toggle");
+      $menuBtn.removeClass("fa-times");
+    }
   });
 
   // Accordion
