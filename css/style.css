@@ -1689,46 +1689,19 @@ header .social-links {
         }
 
 
-/* .contact-wrapper {
-  display: flex;
-  flex-wrap: wrap; 
-  width: 90%;
-  margin: 0 auto;
-  gap: 20px;
-}
 
-.contact-map {
-  flex: 1; 
-  min-height: 450px;
-  padding: 40px;
-}
-
-
-.kf-container {
-  flex: 1; 
-  background: #fff;
-  padding: 30px;
-  border-radius: 15px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-} */
-
-/* ======================================================= */
-/* İletişim Bilgileri Kutusu Stilleri (Boyutlar Büyütüldü) */
-/* ======================================================= */
-
-/* Kutu Kapsayıcısı */
 .contact-info {
-    /* position: absolute ve diğer konumlandırma stillerini ana bloktan aldığınızı varsayıyorum */
+   
     background: #ffffff; 
-    padding: 30px; /* İç boşluğu artırdık */
+    padding: 30px; 
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); 
-    margin-bottom: 25px; /* Harita ile arasına boşluk */
+    margin-bottom: 25px; 
 }
 
-/* Başlık: Contact Info */
+
 .contact-info h3 {
-    font-size: 24px; /* Başlık boyutunu büyüttük */
+    font-size: 24px; 
     font-weight: 600; 
     margin-top: 0;
     margin-bottom: 0px;
@@ -1737,12 +1710,12 @@ header .social-links {
     padding-bottom: 2px; 
 }
 
-/* Tekil İletişim Öğeleri (Metin) */
+
 .info-item {
     display: flex;
     align-items: center;
     margin-bottom: 12px; 
-    font-size: 18px; /* Metin boyutunu büyüttük */
+    font-size: 18px; 
     color: #444; 
     font-weight: 400;
 }
@@ -1760,13 +1733,11 @@ header .social-links {
     margin-bottom: 0;
 }
 
-/* ======================================================= */
-/* Mobil Uyum (Responsive) - Küçüldüğünde Normal Boyut */
-/* ======================================================= */
+
 @media (max-width: 768px) {
     
     .contact-info {
-        padding: 20px; /* Mobil padding'i küçülttük */
+        padding: 20px; 
         margin-bottom: 5px;
     }
 
@@ -1776,9 +1747,8 @@ header .social-links {
         margin-bottom: 15px;
     }
 
-    /* Mobil Metin Boyutu */
     .info-item {
-        font-size: 15px; /* Daha küçük boyuta geri dönülüyor */
+        font-size: 15px; 
         margin-bottom: 10px;
     }
 
@@ -1844,7 +1814,6 @@ header .social-links {
   font-size: 20px; 
 }
 
-/* ===== MOBILE RESPONSIVE ===== */
 @media (max-width: 768px) {
   .contact-wrapper {
     flex-direction: column; 
@@ -2593,12 +2562,12 @@ header .social-links {
 /* Slider container – unique class */
 .slider-3d-cover {
     position: absolute;
-    width: 180px;       /* biraz daha büyük kart */
-    height: 200px;      /* biraz daha büyük kart */
+    width: 200px;       /* biraz daha büyük kart */
+    height: 240px;      /* biraz daha büyük kart */
     top: 35%;   
     left: 50%;
     transform-style: preserve-3d;
-    transform: translate(-50%, -50%) perspective(1000px);
+    transform: translate(-50%, -50%) perspective(600px);
     animation: autoRun 40s linear infinite; /* daha yavaş dönüş */
     z-index: 2;
 }
@@ -2622,7 +2591,7 @@ header .social-links {
     left: 0;
     overflow: hidden;
     border-radius: 12px; /* opsiyonel */
-    transform: rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg)) translateZ(300px);
+    transform: rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg)) translateZ(400px);
 }
 
 /* Görselleri kapsayıcıya tam doldur */
