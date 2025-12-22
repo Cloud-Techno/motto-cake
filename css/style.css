@@ -2606,6 +2606,11 @@ header .social-links {
 
 /* Responsive – tablet */
 @media screen and (max-width: 1023px) {
+     .banner {
+        min-height: 60vh;  
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
     .slider-3d-cover {
         width: 200px;
         height: 240px;
