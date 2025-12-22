@@ -1,5 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;1,100;1,300;1,400;1,500&display=swap");
 
+@import url('https://fonts.cdnfonts.com/css/ica-rubrik-black');
+@import url('https://fonts.cdnfonts.com/css/poppins');
+
 * {
   font-family: "Poppins", sans-serif;
   margin: 0;
@@ -2575,3 +2578,86 @@ header .social-links {
 }
 
 
+/* galeri section modern  */
+/* Banner ana kapsayıcı */
+.banner {
+    width: 100%;
+    min-height: 100vh;  
+    height: auto;        /* içerik yüksekliğine göre büyüsün */
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+    padding-bottom: 20px;
+}
+
+/* Slider container – unique class */
+.slider-3d-cover {
+    position: absolute;
+    width: 180px;       /* biraz daha büyük kart */
+    height: 200px;      /* biraz daha büyük kart */
+    top: 35%;   
+    left: 50%;
+    transform-style: preserve-3d;
+    transform: translate(-50%, -50%) perspective(1000px);
+    animation: autoRun 40s linear infinite; /* daha yavaş dönüş */
+    z-index: 2;
+}
+
+/* Slider animasyonu */
+@keyframes autoRun {
+    from {
+        transform: translate(-50%, -50%) perspective(1000px) rotateX(-16deg) rotateY(0deg);
+    }
+    to {
+        transform: translate(-50%, -50%) perspective(1000px) rotateX(-16deg) rotateY(360deg);
+    }
+}
+
+/* Her bir görsel kapsayıcısı */
+.slider-3d-item {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    border-radius: 12px; /* opsiyonel */
+    transform: rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg)) translateZ(300px);
+}
+
+/* Görselleri kapsayıcıya tam doldur */
+.slider-3d-item img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Responsive – tablet */
+@media screen and (max-width: 1023px) {
+    .slider-3d-cover {
+        width: 200px;
+        height: 240px;
+    }
+    .slider-3d-item {
+        transform: rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg)) translateZ(400px);
+    }
+}
+
+/* Responsive – mobil */
+@media screen and (max-width: 767px) {
+      .banner {
+        min-height: 45vh;  /* içerik boyutuna göre */
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+    .slider-3d-cover {
+        width: 150px;
+        height: 180px;
+    }
+    .slider-3d-item {
+        transform: rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg)) translateZ(250px);
+    }
+}
