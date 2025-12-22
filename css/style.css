@@ -2564,7 +2564,7 @@ header .social-links {
     position: absolute;
     width: 200px;       /* biraz daha büyük kart */
     height: 240px;      /* biraz daha büyük kart */
-    top: 35%;   
+    top: 25%;   
     left: 50%;
     transform-style: preserve-3d;
     transform: translate(-50%, -50%) perspective(600px);
@@ -2618,15 +2618,38 @@ header .social-links {
 /* Responsive – mobil */
 @media screen and (max-width: 767px) {
       .banner {
-        min-height: 45vh;  /* içerik boyutuna göre */
+        min-height: 65vh;  
         padding-top: 20px;
         padding-bottom: 20px;
     }
     .slider-3d-cover {
         width: 150px;
         height: 180px;
+
     }
     .slider-3d-item {
         transform: rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg)) translateZ(250px);
     }
 }
+/* .banner {
+    width: 100%;
+    min-height: 100vh;  
+    height: auto;        
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+    padding-bottom: 20px;
+}
+
+
+.slider-3d-cover {
+    position: absolute;
+    width: 200px;      
+    height: 240px;      
+    top: 25%;   
+    left: 50%;
+    transform-style: preserve-3d;
+    transform: translate(-50%, -50%) perspective(600px);
+    animation: autoRun 40s linear infinite; 
+    z-index: 2;
+} */
