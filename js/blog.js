@@ -14,7 +14,7 @@ $(document).ready(function () {
       $(".header").css({
         background: "#e5bfbf",
         "box-shadow": "0 .2rem .5rem rgba(0,0,0,.4)",
-      });
+      });document.addEventListener
     } else {
       $(".header").css({ background: "none", "box-shadow": "none" });
     }
