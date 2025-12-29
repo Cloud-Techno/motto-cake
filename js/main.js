@@ -274,6 +274,68 @@ $(document).ready(function () {
   });
 
 });
+//posts added for homepage 
+
+async function loadLatestPosts() {
+  const container = document.getElementById("latest-posts");
+  const loadingSpinner = container.querySelector(".loading-spinner");
+  loadingSpinner.style.display = "block";
+  container.innerHTML = "";
+
+  try {
+    const res = await fetch("/api/getPosts.php");
+    const posts = await res.json();
+
+    loadingSpinner.style.display = "none";
+
+    if (!posts || posts.length === 0) {
+      container.innerHTML = `<div class="col-12 text-center py-5">
+        <h3 class="text-muted">Zurzeit sind keine Blog-Beiträge verfügbar.</h3>
+      </div>`;
+      return;
+    }
+
+    // Letzte 4 Beiträge auswählen
+    const lastPosts = posts.slice(0, 4); 
+    const dateOptions = { year: "numeric", month: "long", day: "numeric" };
+
+    lastPosts.forEach((p) => {
+      const postDiv = document.createElement("div");
+      postDiv.className = "col-lg-3 col-md-6 mb-5";
+
+      const summary =
+        p.content.length > 100 ? p.content.substring(0, 100) + "..." : p.content;
+
+      postDiv.innerHTML = `
+        <article class="blog-card shadow-sm">
+          <div class="blog-card-img-wrapper">
+            <img loading="lazy" src="${p.image_url}" class="blog-card-img" alt="${p.title}">
+          </div>
+          <div class="blog-card-body">
+            <h3 class="blog-card-title">${p.title}</h3>
+            <p class="blog-card-text">${summary}</p>
+            <div class="blog-meta">
+              <small>${new Date(p.created_at).toLocaleDateString("de-DE", dateOptions)}</small>
+            </div>
+            <a href="/post-detail.html?id=${p.id}" class="blog-read-more">Mehr lesen →</a>
+          </div>
+        </article>
+      `;
+
+      container.appendChild(postDiv);
+    });
+  } catch (err) {
+    console.error(err);
+    container.innerHTML = `<div class="col-12 text-center py-5">
+      <h3 class="text-danger">Fehler beim Laden der Beiträge.</h3>
+    </div>`;
+  }
+}
+
+// Aufrufen, wenn die Seite geladen ist
+if (document.getElementById("latest-posts")) {
+  loadLatestPosts();
+}
 
 });
   /*
