@@ -8,7 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $title = $_POST['title'];
     $content = $_POST['content'];
 
-    // Resim yükleme kontrolü
+    // Check for image upload
     if (isset($_FILES['image']) && $_FILES['image']['error'] === 0) {
         $allowed = ['jpg','jpeg','png','gif'];
         $fileName = $_FILES['image']['name'];
@@ -16,31 +16,31 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $fileExt = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
 
         if (in_array($fileExt, $allowed)) {
-            $newFileName = 'post-' . time() . '.' . $fileExt; // Benzersiz isim
+            $newFileName = 'post-' . time() . '.' . $fileExt; // Unique filename
             $uploadDir = $_SERVER['DOCUMENT_ROOT'].'/blog_images/';
             $destPath = $uploadDir . $newFileName;
 
             if (move_uploaded_file($fileTmp, $destPath)) {
-                // DB’ye sadece yol kaydediliyor
+                // Only the path is saved to the database
                 $image_url = "https://mottocake.ch/blog_images/" . $newFileName;
 
                 $stmt = $conn->prepare("INSERT INTO posts (title, content, created_at, image_url) VALUES (?, ?, NOW(), ?)");
                 $stmt->bind_param("sss", $title, $content, $image_url);
 
                 if ($stmt->execute()) {
-                    $message = "Post başarıyla eklendi!";
+                    $message = "Post added successfully!";
                 } else {
-                    $message = "Veritabanına eklerken hata oluştu: " . $conn->error;
+                    $message = "Error adding to database: " . $conn->error;
                 }
                 $stmt->close();
             } else {
-                $message = "Dosya yüklenemedi!";
+                $message = "File could not be uploaded!";
             }
         } else {
-            $message = "Sadece JPG, JPEG, PNG veya GIF uzantılı dosyalar kabul edilir.";
+            $message = "Only JPG, JPEG, PNG, or GIF files are allowed.";
         }
     } else {
-        $message = "Resim seçilmedi veya yükleme hatası var.";
+        $message = "No image selected or there was an upload error.";
     }
 }
 
@@ -48,25 +48,30 @@ $conn->close();
 ?>
 
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Yeni Blog Post Ekle</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Blog Post</title>
 </head>
 <body>
-    <h2>Yeni Blog Post Ekle</h2>
-    <?php if($message) echo "<p>$message</p>"; ?>
+    <h2>Add New Blog Post</h2>
+    
+    <?php if($message): ?>
+        <p><strong><?php echo $message; ?></strong></p>
+    <?php endif; ?>
+
     <form action="" method="post" enctype="multipart/form-data">
-        <label>Başlık:</label><br>
-        <input type="text" name="title" required><br><br>
+        <label for="title">Title:</label><br>
+        <input type="text" id="title" name="title" required><br><br>
 
-        <label>İçerik:</label><br>
-        <textarea name="content" rows="5" cols="50" required></textarea><br><br>
+        <label for="content">Content:</label><br>
+        <textarea id="content" name="content" rows="5" cols="50" required></textarea><br><br>
 
-        <label>Görsel Seç:</label><br>
-        <input type="file" name="image" accept="image/*" required><br><br>
+        <label for="image">Select Image:</label><br>
+        <input type="file" id="image" name="image" accept="image/*" required><br><br>
 
-        <button type="submit">Kaydet</button>
+        <button type="submit">Save Post</button>
     </form>
 </body>
 </html>
