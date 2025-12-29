@@ -274,6 +274,7 @@ $(document).ready(function () {
   });
 
 });
+});
   /*
   document.addEventListener("DOMContentLoaded", function () {
     const form = document.getElementById("cakeForm");
