@@ -214,11 +214,74 @@ $(document).ready(function () {
     });
   }
 
+$(document).ready(function () {
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("cakeForm");
+
+    function handleFormSubmit(e) {
+      e.preventDefault();
+
+      const submitBtn = form.querySelector('[type="submit"]');
+      const originalText = submitBtn.innerText;
+
+      submitBtn.disabled = true;
+      submitBtn.innerText = "Senden...";
+
+      // subject ayarla
+      const senderName = (form.querySelector("#kf-name")?.value || "").trim();
+      const subject = senderName
+        ? `Neue Bestellung — ${senderName}`
+        : "Neue Bestellung";
+
+      let subjInput = form.querySelector('input[name="_subject"]');
+      if (!subjInput) {
+        subjInput = document.createElement("input");
+        subjInput.type = "hidden";
+        subjInput.name = "_subject";
+        form.appendChild(subjInput);
+      }
+      subjInput.value = subject;
+
+      const formData = new FormData(form);
+
+      fetch(form.action, {
+        method: "POST",
+        body: formData,
+        headers: {
+          Accept: "application/json",
+        },
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data && data.success) {
+            // ✅ BAŞARILI → thanks.html'e git
+            window.location.href = "thanks.html";
+          } else {
+            alert("Fehler beim Senden des Formulars.");
+          }
+        })
+        .catch(() => {
+          alert("Formular konnte nicht gesendet werden.");
+        })
+        .finally(() => {
+          submitBtn.disabled = false;
+          submitBtn.innerText = originalText;
+        });
+    }
+
+    form.addEventListener("submit", handleFormSubmit);
+  });
+
+});
+
+});
+  /*
   document.addEventListener("DOMContentLoaded", function () {
     const form = document.getElementById("cakeForm");
     const thanks = document.getElementById("thanks");
 
-    // robust handler: named so we can call it from capturing listener
+ 
     function handleFormSubmit(e) {
       if (e) {
         try {
@@ -236,9 +299,8 @@ $(document).ready(function () {
         submitBtn.innerText = "Senden...";
       }
 
-      // include sender name in the email subject so received mail shows who sent it
       const senderName = (form.querySelector("#kf-name")?.value || "").trim();
-      // Use requested subject format: "Neue Bestellung — <Name>" (or "Neue Bestellung" when name empty)
+     
       const subject = senderName
         ? `Neue Bestellung — ${senderName}`
         : "Neue Bestellung";
@@ -253,10 +315,8 @@ $(document).ready(function () {
         form.appendChild(subjInput);
       }
 
-      // Debug: log subject and final FormData contents to help diagnose issues
       console.log("[contact] sending subject:", subject);
       const formData = new FormData(form);
-      // Also log the _subject value as included in FormData for verification
       try {
         console.log("[contact] FormData _subject:", formData.get("_subject"));
       } catch (err) {
@@ -275,7 +335,6 @@ $(document).ready(function () {
           if (data && data.success) {
             form.reset();
 
-            // Try to load a static thank-you HTML and show it as an overlay
             fetch("thanks.html")
               .then((r) => r.text())
               .then((html) => {
@@ -294,7 +353,6 @@ $(document).ready(function () {
                 overlay.innerHTML = html;
                 document.body.appendChild(overlay);
 
-                // hook the close link inside the loaded HTML
                 const close = overlay.querySelector(".close-thanks");
                 if (close) {
                   close.addEventListener("click", function (ev) {
@@ -305,7 +363,6 @@ $(document).ready(function () {
                 }
               })
               .catch((err) => {
-                // fallback to inline thanks message if loading the file fails
                 console.warn(
                   "Could not load thanks.html, falling back to inline message",
                   err
@@ -340,10 +397,8 @@ $(document).ready(function () {
         });
     }
 
-    // attach normal listener
     form.addEventListener("submit", handleFormSubmit);
 
-    // capturing listener to stop other handlers or default navigation
     document.addEventListener(
       "submit",
       function (e) {
@@ -358,4 +413,5 @@ $(document).ready(function () {
       true
     );
   });
-});
+  */
+
