@@ -4,15 +4,16 @@ $(document).ready(function () {
     $(this).toggleClass("fa-times");
     $(".navbar").toggleClass("nav-toggle");
   });
-
   // Close mobile menu when clicking a nav link
   $(".navbar a").on("click", function () {
     $(".navbar").removeClass("nav-toggle");
     $(".fa-bars").removeClass("fa-times");
   });
-
   // Header scroll effect
   $(window).on("load scroll", function () {
+    // $(".fa-bars").removeClass("fa-times");
+    // $(".navbar").removeClass("nav-toggle");
+
     if ($(window).scrollTop() > 35) {
       $(".header").css({
         background: "#e5bfbf",
@@ -62,7 +63,7 @@ $(document).ready(function () {
     },
   });
 
-  // Price calculator: live update
+  // Price calculator: live update of base/extras/total
   function updatePriceCalculator() {
     var $baseField = $("#basePrice");
     var $extrasField = $("#extrasPrice");
@@ -94,9 +95,13 @@ $(document).ready(function () {
     $grandField.text("CHF " + (base + extras).toFixed(2));
   }
 
-  $(document).on("change", 'input[name="size"], input[name="extra"]', function () {
-    updatePriceCalculator();
-  });
+  $(document).on(
+    "change",
+    'input[name="size"], input[name="extra"]',
+    function () {
+      updatePriceCalculator();
+    }
+  );
 
   // Pre-fill contact form message and scroll to form
   $("#addToContact").on("click", function (e) {
@@ -108,7 +113,10 @@ $(document).ready(function () {
     });
     var grand = $("#grandTotal").text() || "";
     var msg = "";
-    if (sizeLabel === "20+ Personen" || $('input[name="size"]:checked').val() === "ask") {
+    if (
+      sizeLabel === "20+ Personen" ||
+      $('input[name="size"]:checked').val() === "ask"
+    ) {
       msg = "Anfrage für 20+ Personen. Bitte kalkulieren.";
     } else {
       msg =
@@ -121,7 +129,10 @@ $(document).ready(function () {
     }
     var $msgField = $("#kf-message");
     if ($msgField.length) $msgField.val(msg);
-    $("html, body").animate({ scrollTop: $("#kf-form-section").offset().top - 20 }, 600);
+    $("html, body").animate(
+      { scrollTop: $("#kf-form-section").offset().top - 20 },
+      600
+    );
   });
 
   // Back to top
@@ -133,16 +144,20 @@ $(document).ready(function () {
     $("html, body").animate({ scrollTop: 0 }, 1500, "easeInOutExpo");
     return false;
   });
-
   // Close mobile menu when clicking outside
   $(document).on("click", function (e) {
     const $menu = $(".navbar");
     const $menuBtn = $(".fa-bars");
+
+    // Menü kapalıysa hiçbir şey yapma
     if (!$menu.hasClass("nav-toggle")) return;
 
+    // Menü veya hamburger ikonuna tıklandı mı?
     const clickedInsideMenu =
-      $(e.target).closest(".navbar").length > 0 || $(e.target).closest(".fa-bars").length > 0;
+      $(e.target).closest(".navbar").length > 0 ||
+      $(e.target).closest(".fa-bars").length > 0;
 
+    // Dışarı tıklandıysa kapat
     if (!clickedInsideMenu) {
       $menu.removeClass("nav-toggle");
       $menuBtn.removeClass("fa-times");
@@ -164,8 +179,13 @@ $(document).ready(function () {
     }
   });
 
-  // Fallback if jQuery slideDown not available
-  if (typeof jQuery.fn.slideDown !== "function") {
+  // Fallback: if jQuery effects (slideUp/slideDown) are not available (for example when using the
+  // slim jQuery build), attach a plain JS accordion handler so the plus signs work.
+  if (
+    typeof jQuery === "undefined" ||
+    typeof jQuery.fn === "undefined" ||
+    typeof jQuery.fn.slideDown !== "function"
+  ) {
     document.querySelectorAll(".accordion-header").forEach(function (header) {
       header.addEventListener("click", function () {
         var body = this.nextElementSibling;
@@ -175,8 +195,17 @@ $(document).ready(function () {
           var sp = this.querySelector("span");
           if (sp) sp.textContent = "+";
         } else {
-          document.querySelectorAll(".accordion .accordion-body").forEach(function (b) { b.style.display = "none"; });
-          document.querySelectorAll(".accordion .accordion-header span").forEach(function (s) { s.textContent = "+"; });
+          // close others
+          document
+            .querySelectorAll(".accordion .accordion-body")
+            .forEach(function (b) {
+              b.style.display = "none";
+            });
+          document
+            .querySelectorAll(".accordion .accordion-header span")
+            .forEach(function (s) {
+              s.textContent = "+";
+            });
           if (body) body.style.display = "block";
           var sp = this.querySelector("span");
           if (sp) sp.textContent = "-";
@@ -185,40 +214,25 @@ $(document).ready(function () {
     });
   }
 
-  // =========================
-  // Contact form submission with phone validation
-  // =========================
+$(document).ready(function () {
 
-  const form = document.getElementById("cakeForm");
-
-  if (form) {
-    function isValidSwissPhone(phone) {
-      const cleaned = phone.replace(/\s+/g, "");
-      const regex = /^(\+41|0)7\d{8}$/;
-      return regex.test(cleaned);
-    }
+  document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("cakeForm");
 
     function handleFormSubmit(e) {
       e.preventDefault();
 
-      const phoneInput = document.getElementById("kf-phone");
-      const phoneValue = phoneInput ? phoneInput.value.trim() : "";
-
-      if (!isValidSwissPhone(phoneValue)) {
-        alert(
-          "Bitte geben Sie eine gültige Schweizer Telefonnummer ein.\nBeispiel: 0791234567 oder +41791234567"
-        );
-        if (phoneInput) phoneInput.focus();
-        return; // form gönderilmez
-      }
-
       const submitBtn = form.querySelector('[type="submit"]');
       const originalText = submitBtn.innerText;
+
       submitBtn.disabled = true;
       submitBtn.innerText = "Senden...";
 
+      // subject ayarla
       const senderName = (form.querySelector("#kf-name")?.value || "").trim();
-      const subject = senderName ? `Neue Bestellung — ${senderName}` : "Neue Bestellung";
+      const subject = senderName
+        ? `Neue Bestellung — ${senderName}`
+        : "Neue Bestellung";
 
       let subjInput = form.querySelector('input[name="_subject"]');
       if (!subjInput) {
@@ -234,11 +248,14 @@ $(document).ready(function () {
       fetch(form.action, {
         method: "POST",
         body: formData,
-        headers: { Accept: "application/json" },
+        headers: {
+          Accept: "application/json",
+        },
       })
         .then((res) => res.json())
         .then((data) => {
           if (data && data.success) {
+            // ✅ BAŞARILI → thanks.html'e git
             window.location.href = "thanks.html";
           } else {
             alert("Fehler beim Senden des Formulars.");
@@ -254,5 +271,9 @@ $(document).ready(function () {
     }
 
     form.addEventListener("submit", handleFormSubmit);
-  }
+  });
+
 });
+});
+
+
