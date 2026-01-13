@@ -2623,13 +2623,13 @@ header .social-links {
 /* Responsive – mobil */
 @media screen and (max-width: 767px) {
       .banner {
-        min-height: 65vh;  
+        min-height: 55vh;  
         padding-top: 20px;
         padding-bottom: 20px;
     }
     .slider-3d-cover {
         width: 150px;
-        height: 180px;
+        height: 190px;
 
     }
     .slider-3d-item {
