@@ -2697,6 +2697,6 @@ header .social-links {
 /* Büyük masaüstü ekranlar için ekstra optimizasyon (isteğe bağlı) */
 @media (min-width: 1200px) {
     .image-container {
-        max-width: 800px; /* Daha büyük ekranlarda görseli biraz daha geniş gösterir */
+        max-width: 500px; /* Daha büyük ekranlarda görseli biraz daha geniş gösterir */
     }
 }
