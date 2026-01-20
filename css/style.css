@@ -2658,3 +2658,45 @@ header .social-links {
     animation: autoRun 40s linear infinite; 
     z-index: 2;
 } */
+
+/* Ana bölüm stilizasyonu */
+.process-image-section {
+    padding: 40px 15px; /* Dikey boşluk ve yanlarda küçük bir boşluk */
+    background-color: #fdfaf6; /* Görselin arka planıyla uyumlu soft bir renk */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Okunabilir bir font */
+    text-align: center; /* İçeriği ortalar */
+}
+
+/* Görseli sarmalayan kapsayıcı */
+.image-container {
+    max-width: 600px; /* Görselin maksimum genişliği (mobil için ideal, masaüstünde ortalanır) */
+    margin: 0 auto; /* Görseli yatayda ortalar */
+    padding: 0; /* Ekstra boşlukları sıfırlar */
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08); /* Hafif bir gölge efekti verir, profesyonel bir hava katar */
+    border-radius: 15px; /* Köşeleri yumuşatır */
+    overflow: hidden; /* Köşe yuvarlamanın içindeki görselin taşmasını engeller */
+}
+
+/* Responsive görsel stili */
+.responsive-image {
+    max-width: 100%; /* Görselin kapsayıcısının genişliğine göre boyutlanmasını sağlar */
+    height: auto; /* Oranlarını koruyarak yüksekliği otomatik ayarlar */
+    display: block; /* Görselin altındaki boşluğu kaldırır */
+}
+
+/* Masaüstü ekranlar için optimizasyon */
+@media (min-width: 768px) {
+    .process-image-section {
+        padding: 80px 30px; /* Masaüstünde daha fazla dikey boşluk */
+    }
+    .image-container {
+        max-width: 700px; /* Masaüstünde görselin biraz daha geniş olmasını sağlar */
+    }
+}
+
+/* Büyük masaüstü ekranlar için ekstra optimizasyon (isteğe bağlı) */
+@media (min-width: 1200px) {
+    .image-container {
+        max-width: 800px; /* Daha büyük ekranlarda görseli biraz daha geniş gösterir */
+    }
+}
