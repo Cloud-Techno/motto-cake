@@ -2,86 +2,93 @@
 <html lang="de-CH">
 
 <head>
+  <!-- Google Consent Mode (MUTLAKA EN ÜSTTE) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
 
+    // Varsayılan: tüm izinler reddedildi
+    gtag('consent', 'default', {
+      ad_storage: 'denied',
+      analytics_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied'
+    });
+
+    // Kullanıcı rızası alındığında etkinleştirmek için:
+    // gtag('consent', 'update', {
+    //   ad_storage: 'granted',
+    //   analytics_storage: 'granted',
+    //   ad_user_data: 'granted',
+    //   ad_personalization: 'granted'
+    // });
+  </script>
 
   <!-- Performance Optimizations -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
 
-  <!-- Meta Pixel Code -->
-  <script>
-    !function (f, b, e, v, n, t, s) {
-      if (f.fbq) return; n = f.fbq = function () {
-        n.callMethod ?
-          n.callMethod.apply(n, arguments) : n.queue.push(arguments)
-      };
-      if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
-      n.queue = []; t = b.createElement(e); t.async = !0;
-      t.src = v; s = b.getElementsByTagName(e)[0];
-      s.parentNode.insertBefore(t, s)
-    }(window, document, 'script',
-      'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '855355423555445');
-    fbq('track', 'PageView');
-  </script>
-  <noscript><img height="1" width="1" style="display:none"
-      src="https://www.facebook.com/tr?id=855355423555445&ev=PageView&noscript=1" /></noscript>
-  <!-- End Meta Pixel Code -->
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Geburtstagstorte bestellen in Baden | Individuelle Torten – Motto Cake
-  </title>
+
+  <title>Geburtstagstorte bestellen in Baden | Individuelle Torten – Motto Cake</title>
   <meta name="description"
     content="Individuelle Geburtstagstorten in Baden bestellen. Handgemachte, frische & personalisierte Torten nach Wunsch. Jetzt online anfragen!">
   <link rel="canonical" href="https://mottocake.ch/index.html" />
 
+  <!-- Structured Data (Bakery Schema) -->
   <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Bakery",
-  "name": "Motto Cake",
-  "image": "https://mottocake.ch/images/profile.jpg",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "Stadtbachstrasse 15",
-    "addressLocality": "Baden",
-    "postalCode": "5400",
-    "addressCountry": "CH"
-  },
-  "telephone": "+41782306029",
-  "email": "info@mottocake.ch",
-  "url": "https://mottocake.ch",
-  "priceRange": "CHF"
-}
-</script>
+  {
+    "@context": "https://schema.org",
+    "@type": "Bakery",
+    "name": "Motto Cake",
+    "image": "https://mottocake.ch/images/profile.jpg",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Stadtbachstrasse 15",
+      "addressLocality": "Baden",
+      "postalCode": "5400",
+      "addressCountry": "CH"
+    },
+    "telephone": "+41782306029",
+    "email": "info@mottocake.ch",
+    "url": "https://mottocake.ch",
+    "priceRange": "CHF"
+  }
+  </script>
+
+  <!-- Google Tag Manager -->
+  <script>
+    (function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+      var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+      j.async = true; j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-TV2M82VN');
+  </script>
+  <!-- End Google Tag Manager -->
 
   <!-- Google Analytics (GA4) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-0W0EJTZ05V"></script>
   <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
-    gtag('config', 'G-0W0EJTZ05V');
+    gtag('config', 'G-0W0EJTZ05V', { anonymize_ip: true });
   </script>
   <!-- End Google Analytics -->
-  <!-- Google Tag Manager -->
-  <script>(function (w, d, s, l, i) {
-      w[l] = w[l] || []; w[l].push({
-        'gtm.start':
-          new Date().getTime(), event: 'gtm.js'
-      }); var f = d.getElementsByTagName(s)[0],
-        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
-          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
-    })(window, document, 'script', 'dataLayer', 'GTM-TV2M82VN');</script>
-  <!-- End Google Tag Manager -->
+
+  <!-- Google Ads -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17608193596"></script>
+  <script>
+    gtag('config', 'AW-17608193596');
+  </script>
+  <!-- End Google Ads -->
 
   <!-- Favicon -->
   <link rel="icon" href="./images/favicon.png" type="image/png">
 
-  <!-- CSS Libraries (Local + CDN) -->
-  <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet"> <!-- Bootstrap 4.2.1 -->
+  <!-- CSS Libraries -->
+  <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="lib/ionicons/css/ionicons.min.css" rel="stylesheet">
   <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
   <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
@@ -89,9 +96,9 @@
 
   <!-- Custom CSS -->
   <link href="./css/style.css" rel="stylesheet">
-
-
 </head>
+
+
 
 <body>
   <!-- Google Tag Manager (noscript) -->
@@ -639,14 +646,7 @@
               <li>1 Kerze</li>
               <li>1 Wunderkerze</li>
             </ul>
-            <!-- <ul class="price-list">
-        <li >18cm(8-10 Personen): CHF 80</li>
-        <li >20cm(12-14 Personen): CHF 90</li>
-        <li >22cm(16-18 Personen): CHF 100</li>
-        <li >24cm(18-20 Personen): CHF 110</li>
-        <li >Bitte kontaktieren Sie uns bezüglich der Preise für Sondergrössen.</li>
 
-      </ul> -->
             </p>
           </div>
         </div>
