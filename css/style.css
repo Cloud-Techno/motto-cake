@@ -3593,22 +3593,32 @@ header .social-links {
 }
 
 .gallery-grid.owl-carousel .owl-dots {
-  text-align: center;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  flex-direction: row !important;
   margin-top: 3rem;
+  width: 100%;
+}
+
+.gallery-grid.owl-carousel .owl-dot {
+  display: inline-block !important;
+  border: none !important;
+  background: none !important;
 }
 
 .gallery-grid.owl-carousel .owl-dot span {
-  width: 8px;
-  height: 8px;
+  width: 10px;
+  height: 10px;
   background: #e5bfbf;
   display: block;
-  margin: 0 6px;
+  margin: 0 8px;
   border-radius: 50%;
   transition: all 0.3s ease;
 }
 
 .gallery-grid.owl-carousel .owl-dot.active span {
   background: #b27c7c;
-  width: 20px;
-  border-radius: 4px;
+  width: 25px;
+  border-radius: 5px;
 }
