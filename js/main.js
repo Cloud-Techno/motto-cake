@@ -60,6 +60,22 @@ $(document).ready(function () {
     },
   });
 
+  // Gallery Carousel
+  $(".gallery-grid").owlCarousel({
+    autoplay: true,
+    autoplayTimeout: 2000,
+    autoplayHoverPause: false, // Ensure it doesn't stop if mouse is near
+    loop: true,
+    margin: 20,
+    dots: true,
+    nav: false,
+    smartSpeed: 1000, // Smooth transition speed
+    responsive: {
+      0: { items: 1 },
+      768: { items: 4 }
+    }
+  });
+
   // Price calculator: live update of base/extras/total
   function updatePriceCalculator() {
     var $baseField = $("#basePrice");
