@@ -72,8 +72,8 @@ $(document).ready(function () {
     smartSpeed: 1000, // Smooth transition speed
     responsive: {
       0: { items: 1 },
-      768: { items: 4 }
-    }
+      768: { items: 4 },
+    },
   });
 
   // Price calculator: live update of base/extras/total
@@ -113,7 +113,7 @@ $(document).ready(function () {
     'input[name="size"], input[name="extra"]',
     function () {
       updatePriceCalculator();
-    }
+    },
   );
 
   // Pre-fill contact form message and scroll to form
@@ -144,7 +144,7 @@ $(document).ready(function () {
     if ($msgField.length) $msgField.val(msg);
     $("html, body").animate(
       { scrollTop: $("#kf-form-section").offset().top - 20 },
-      600
+      600,
     );
   });
 
@@ -263,9 +263,8 @@ $(document).ready(function () {
           Accept: "application/json",
         },
       })
-        .then((res) => res.json())
-        .then((data) => {
-          if (data && data.success) {
+        .then((res) => {
+          if (res.ok) {
             window.location.href = "thanks.html";
           } else {
             alert("Fehler beim Senden des Formulars.");
@@ -280,5 +279,4 @@ $(document).ready(function () {
         });
     });
   }
-
 });
