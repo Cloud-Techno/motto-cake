@@ -10,14 +10,22 @@ $(document).ready(function () {
     $(".fa-bars").removeClass("fa-times");
   });
   // Header scroll effect
+  // Header scroll effect optimized with requestAnimationFrame
+  let ticking = false;
   $(window).on("load scroll", function () {
-    if ($(window).scrollTop() > 35) {
-      $(".header").css({
-        background: "#e5bfbf",
-        "box-shadow": "0 .2rem .5rem rgba(0,0,0,.4)",
+    if (!ticking) {
+      window.requestAnimationFrame(function () {
+        if ($(window).scrollTop() > 35) {
+          $(".header").css({
+            background: "#e5bfbf",
+            "box-shadow": "0 .2rem .5rem rgba(0,0,0,.4)",
+          });
+        } else {
+          $(".header").css({ background: "none", "box-shadow": "none" });
+        }
+        ticking = false;
       });
-    } else {
-      $(".header").css({ background: "none", "box-shadow": "none" });
+      ticking = true;
     }
   });
 
@@ -30,8 +38,8 @@ $(document).ready(function () {
       const count = +counter.innerText;
       const inc = target / speed;
       if (count < target) {
-        counter.innerText = count + inc;
-        setTimeout(updateCount, 1);
+        counter.innerText = Math.ceil(count + inc);
+        setTimeout(updateCount, 16);
       } else {
         counter.innerText = target;
       }
