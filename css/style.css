@@ -1,5 +1,3 @@
-
-
 * {
   font-family: "Poppins", sans-serif;
   margin: 0;
@@ -76,7 +74,8 @@ body {
   transform: rotate(180deg);
 }
 
-.row .btn {
+.row .btn,
+.communicate .btn {
   outline: none;
   border: none;
   border-radius: 5rem;
@@ -91,16 +90,6 @@ body {
 }
 
 .communicate .btn {
-  outline: none;
-  border: none;
-  border-radius: 5rem;
-  background: white;
-  border-style: groove;
-  border-color: #b27c7c;
-  font-size: 1.5rem;
-  cursor: pointer;
-  height: 3.5rem;
-  width: 15rem;
   box-shadow: 0 0.2rem 0.5rem rgba(202, 106, 106, 0.3);
 }
 
@@ -166,21 +155,14 @@ body {
 
 /* WhatsApp brand color (Font Awesome) */
 .social-links a .fa-whatsapp,
-.social-links a .fab.fa-whatsapp {
-  color: #25D366;
-}
-
-.social-links a .fa-whatsapp:hover,
-.social-links a .fab.fa-whatsapp:hover {
-  color: #1da851;
-}
-
-/* Footer override to ensure WhatsApp icon appears green */
+.social-links a .fab.fa-whatsapp,
 .footer .footer-top .social-links a .fa-whatsapp,
 .footer .footer-top .social-links a .fab.fa-whatsapp {
   color: #25D366;
 }
 
+.social-links a .fa-whatsapp:hover,
+.social-links a .fab.fa-whatsapp:hover,
 .footer .footer-top .social-links a .fa-whatsapp:hover,
 .footer .footer-top .social-links a .fab.fa-whatsapp:hover {
   color: #1da851;
@@ -188,21 +170,14 @@ body {
 
 /* Facebook brand color */
 .social-links a .fa-facebook,
-.social-links a .fab.fa-facebook {
-  color: #1877F2;
-}
-
-.social-links a .fa-facebook:hover,
-.social-links a .fab.fa-facebook:hover {
-  color: #155db8;
-}
-
-/* Footer override for Facebook */
+.social-links a .fab.fa-facebook,
 .footer .footer-top .social-links a .fa-facebook,
 .footer .footer-top .social-links a .fab.fa-facebook {
   color: #1877F2;
 }
 
+.social-links a .fa-facebook:hover,
+.social-links a .fab.fa-facebook:hover,
 .footer .footer-top .social-links a .fa-facebook:hover,
 .footer .footer-top .social-links a .fab.fa-facebook:hover {
   color: #155db8;
@@ -210,19 +185,7 @@ body {
 
 /* Instagram gradient color using background-clip */
 .social-links a .fa-instagram,
-.social-links a .fab.fa-instagram {
-  background: linear-gradient(45deg, #feda75 0%, #fa7e1e 25%, #d62976 50%, #962fbf 75%, #4f5bd5 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.social-links a .fa-instagram:hover,
-.social-links a .fab.fa-instagram:hover {
-  filter: brightness(0.9);
-}
-
-/* Footer override for Instagram (keep gradient) */
+.social-links a .fab.fa-instagram,
 .footer .footer-top .social-links a .fa-instagram,
 .footer .footer-top .social-links a .fab.fa-instagram {
   background: linear-gradient(45deg, #feda75 0%, #fa7e1e 25%, #d62976 50%, #962fbf 75%, #4f5bd5 100%);
@@ -231,6 +194,8 @@ body {
   -webkit-text-fill-color: transparent;
 }
 
+.social-links a .fa-instagram:hover,
+.social-links a .fab.fa-instagram:hover,
 .footer .footer-top .social-links a .fa-instagram:hover,
 .footer .footer-top .social-links a .fab.fa-instagram:hover {
   filter: brightness(0.9);
@@ -265,12 +230,6 @@ header .social-links {
     transform: translate(-50%, -50%);
     gap: 2rem;
   }
-
-}
-
-.header .logo h1 {
-  font-size: 2rem;
-  text-decoration: none !important;
 }
 
 .header .logo:hover {
@@ -828,16 +787,6 @@ header .social-links {
 .price-list {
   list-style-type: disc;
   padding-left: 20px;
-  margin-top: 15px;
-  font-size: 15px;
-  line-height: 26px;
-  color: #2f2f2f;
-}
-
-
-.price-list {
-  list-style-type: disc;
-  padding-left: 20px;
   font-size: 15px;
   line-height: 26px;
   color: #2f2f2f;
@@ -894,83 +843,6 @@ header .social-links {
   font-size: 20px;
   line-height: 28px;
   text-align: center;
-}
-
-.item {
-  background: #fff;
-  text-align: center;
-  padding: 30px 25px;
-  box-shadow: 0 0 25px rgba(0, 0, 0, 0.07);
-  border-radius: 20px;
-  margin-bottom: 30px;
-  border: 1px solid rgba(0, 0, 0, 0.07);
-  -webkit-transition: all 0.7s ease 0s;
-  transition: all 0.7 ease 0s;
-}
-
-.item:hover {
-  background-image: linear-gradient(to bottom right, #66ffcc 0%, #ffccff 100%);
-  background-position: right;
-  transition: background-position 3s;
-  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2);
-  -webkit-transition: all 0.5s ease 0s;
-  transition: all 0.7s ease 0s;
-}
-
-.item:hover .item,
-.item:hover span.icon {
-  background: #fff;
-  border-radius: 10px;
-  -webkit-transition: all 0.5s ease 0s;
-  transition: all 0.5s ease 0s;
-}
-
-.item:hover h6,
-.item:hover p {
-  color: #2b6777;
-  /* color: #935f5f; */
-  -webkit-transition: all 0.5s ease 0s;
-  transition: all 0.5s ease 0s;
-}
-
-.item .icon {
-  font-size: 40px;
-  margin-bottom: 25px;
-  color: #e5bfbf;
-  width: 90px;
-  height: 90px;
-  line-height: 96px;
-  border-radius: 50px;
-}
-
-.item .feature_box_col_one {
-  background: rgba(247, 198, 5, 0.2);
-  color: #e5bfbf;
-}
-
-.item .feature_box_col_two {
-  background: rgba(255, 77, 28, 0.15);
-  color: #e5bfbf;
-}
-
-.item .feature_box_col_three {
-  background: rgba(0, 147, 38, 0.15);
-  color: #e5bfbf;
-}
-
-.item .feature_box_col_four {
-  background: rgba(178, 124, 124, 0.15);
-  color: #52ab98;
-}
-
-.item .feature_box_col_five {
-  background: rgba(146, 39, 255, 0.15);
-  color: #52ab98;
-}
-
-.item .feature_box_col_six {
-  background: rgba(23, 39, 246, 0.15);
-  color: #52ab98;
 }
 
 .item p {
@@ -1538,13 +1410,10 @@ header .social-links {
   .faq {
     min-height: 70vh;
   }
-}
 
-@media (max-width: 1200px) {
   html {
     font-size: 50%;
   }
-
 
   .header .fa-bars {
     display: block;
@@ -1726,12 +1595,6 @@ header .social-links {
 .contact-info {
   text-align: left;
   margin-top: 10px;
-}
-
-
-
-.contact-info {
-
   background: #ffffff;
   padding: 30px;
   border-radius: 10px;
@@ -2853,28 +2716,7 @@ header .social-links {
   }
 }
 
-/* .banner {
-    width: 100%;
-    min-height: 100vh;  
-    height: auto;        
-    text-align: center;
-    overflow: hidden;
-    position: relative;
-    padding-bottom: 20px;
-}
 
-
-.slider-3d-cover {
-    position: absolute;
-    width: 200px;      
-    height: 240px;      
-    top: 25%;   
-    left: 50%;
-    transform-style: preserve-3d;
-    transform: translate(-50%, -50%) perspective(600px);
-    animation: autoRun 40s linear infinite; 
-    z-index: 2;
-} */
 
 /* Ana bölüm stilizasyonu */
 .process-image-section {
