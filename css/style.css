@@ -1582,30 +1582,10 @@ header .social-links {
 
 
 /* Başlığı her zaman ortala */
-.text-center {
-  text-align: center !important;
-}
 
 /* Büyük ekranlarda post kartlarını genişlet */
-@media (min-width: 992px) {
-  #posts .col-lg-4 {
-    flex: 0 0 33.333%;
-    /* 3 kolon yapısı */
-    max-width: 33.333%;
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
-  }
-}
 
 /* Orta ekranlarda post kartlarını biraz daha geniş */
-@media (min-width: 768px) and (max-width: 991px) {
-  #posts .col-md-6 {
-    flex: 0 0 50%;
-    max-width: 50%;
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-}
 
 /* Küçük ekranlar zaten full-width, ekstra bir şey gerek yok */
 
@@ -1626,229 +1606,39 @@ header .social-links {
 }
 
 /* Blog Detay İçerik */
-#post-detail {
-  font-family: 'Helvetica Neue', Arial, sans-serif;
-  font-size: 1.8rem;
-  /* Okunaklı font boyutu */
-  line-height: 2.6rem;
-  /* Satırlar arası boşluk */
-  color: #333;
-  /* Kontrastlı yazı rengi */
-  text-align: justify;
-  /* Profesyonel görünüm */
-  hyphens: auto;
-  /* Kelime kırma */
-}
 
 /* Başlıklar */
-#post-detail h1,
-#post-detail h2,
-#post-detail h3,
-#post-detail h4,
-#post-detail h6 {
-  color: #935f5f;
-  margin-top: 2rem;
-  margin-bottom: 1rem;
-  line-height: 1.4;
-  font-weight: 600;
-}
-
-#post-detail h1 {
-  font-size: 3rem;
-}
-
-#post-detail h2 {
-  font-size: 2.6rem;
-}
-
-#post-detail h3 {
-  font-size: 2.2rem;
-}
-
-#post-detail h4 {
-  font-size: 2rem;
-}
 
 /* Paragraflar */
-#post-detail p {
-  margin-bottom: 1.8rem;
-}
 
 /* Linkler */
-#post-detail a {
-  color: #b27c7c;
-  text-decoration: underline;
-  transition: color 0.3s ease;
-}
-
-#post-detail a:hover {
-  color: #935f5f;
-  text-decoration: none;
-}
 
 /* Resimler */
-#post-detail img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 12px;
-  margin: 1.5rem 0;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  /* Ortalamak için */
-}
 
 /* Listeler */
-#post-detail ul {
-  margin-left: 2rem;
-  margin-bottom: 1.5rem;
-}
 
 /* Responsive Yazı Boyutları */
-@media (max-width: 1024px) {
-  #post-detail {
-    font-size: 1.7rem;
-    line-height: 2.4rem;
-  }
-
-  #post-detail h1 {
-    font-size: 2.8rem;
-  }
-
-  #post-detail h2 {
-    font-size: 2.4rem;
-  }
-}
 
 @media (max-width: 768px) {
-  #post-detail {
-    font-size: 1.6rem;
-    line-height: 2.2rem;
-  }
-
-  #post-detail h1 {
-    font-size: 2.4rem;
-  }
-
-  #post-detail h2 {
-    font-size: 2.2rem;
-  }
-
-  #post-detail h3 {
-    font-size: 2rem;
-  }
 
   .container {
     padding: 1.5rem 1rem;
   }
 }
 
-@media (max-width: 480px) {
-  #post-detail {
-    font-size: 1.5rem;
-    line-height: 2rem;
-  }
-
-  #post-detail h1 {
-    font-size: 2rem;
-  }
-
-  #post-detail h2 {
-    font-size: 1.8rem;
-  }
-
-  #post-detail h3 {
-    font-size: 1.6rem;
-  }
-}
-
 /* =========================
    Back Link Tasarımı
    ========================= */
-.back-link {
-  display: inline-flex;
-  align-items: center;
-  font-size: 1.8rem;
-  /* Daha okunaklı font */
-  font-weight: 600;
-  color: #935f5f;
-  text-decoration: none;
-  margin-bottom: 2rem;
-  transition: all 0.3s ease;
-}
-
-.back-link:hover {
-  color: #b27c7c;
-  transform: translateX(-4px);
-  /* Hafif sola kayma efekti */
-}
 
 /* Ok ikonu eklemek için pseudo-element */
-.back-link::before {
-  content: '←';
-  /* Sol ok ikonu */
-  margin-right: 0.6rem;
-  font-size: 2rem;
-  /* Ok daha belirgin */
-}
 
 /* Responsive düzenlemeler */
-@media (max-width: 768px) {
-  .back-link {
-    font-size: 1.6rem;
-  }
-
-  .back-link::before {
-    font-size: 1.8rem;
-    margin-right: 0.5rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .back-link {
-    font-size: 1.5rem;
-  }
-
-  .back-link::before {
-    font-size: 1.6rem;
-    margin-right: 0.4rem;
-  }
-}
 
 /* .blog-header-wrapper {
      margin-top: 200px;
 } */
 
 /* ----- Premium Modern Blog Heading ----- */
-
-.fancy-heading {
-  font-size: 2.6rem;
-  font-weight: 800;
-  letter-spacing: 0.5px;
-  text-transform: none;
-  background: linear-gradient(90deg, #d46c6c, #b3446c, #7b4ba0);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  position: relative;
-  display: block;
-  margin: 0 auto;
-  padding-bottom: 14px;
-  padding-top: 40px;
-}
-
-.fancy-heading::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  bottom: 0;
-  transform: translateX(-50%);
-  width: 200px;
-  height: 2px;
-  background: linear-gradient(90deg, #d46c6c, #b3446c, #7b4ba0);
-  border-radius: 10px;
-  box-shadow: 0 0 8px rgba(179, 68, 108, 0.4);
-  animation: underlinePulse 2.5s infinite ease-in-out;
-}
 
 @keyframes underlinePulse {
   0% {
@@ -1868,17 +1658,6 @@ header .social-links {
 }
 
 /* Responsive optimizations */
-@media (max-width: 768px) {
-  .fancy-heading {
-    font-size: 2rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .fancy-heading {
-    font-size: 1.7rem;
-  }
-}
 
 /* Price section styles */
 .price-section {
